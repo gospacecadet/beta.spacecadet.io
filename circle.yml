@@ -1,11 +1,37 @@
 dependencies:
-  override:
-    # Install Meteor
-    - curl https://install.meteor.com | sh
+  cache_directories:
+    - "~/.meteor"
+    - "~/.npm"
 
+  override:
+    # Update to the latest chrome
+    - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+    - sudo apt-get update
+    - sudo apt-get install google-chrome-stable
+
+    # Restore the meteor symlink
+    - if [ -d ~/.meteor ]; then sudo ln -s ~/.meteor/meteor /usr/local/bin/meteor; fi
+    # Install Meteor if the cache didn't restore it
+    - if [ ! -e ~/.meteor/meteor ]; then curl https://install.meteor.com | sh;
 test:
   override:
-    # Run tests in Velocity CI Mode
+    # Test the app with Chrome and ensure all artifacts can be traced back to the chrome run
+    - meteor --test:
+          SELENIUM_BROWSER: chrome
+    - mkdir -p $CIRCLE_ARTIFACTS/chrome
+    - cp .meteor/local/log/*.log $CIRCLE_ARTIFACTS/chrome
+
+    # Test the app with Firefox and ensure all artifacts can be traced back to the firefox run
     - meteor --test:
         environment:
-          VELOCITY_CI: true
+          SELENIUM_BROWSER: firefox
+    - mkdir -p $CIRCLE_ARTIFACTS/firefox
+    - cp .meteor/local/log/*.log $CIRCLE_ARTIFACTS/firefox
+
+machine:
+  java:
+    version: oraclejdk8
+
+  environment:
+    VELOCITY_CI: true
