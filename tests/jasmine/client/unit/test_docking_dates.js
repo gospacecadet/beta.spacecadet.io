@@ -1,6 +1,6 @@
 var customMatchers = {
   toBeJustBefore: function(util, customEqualityTesters) {
-    var delayTolerance = 3; // miliseconds
+    var delayTolerance = 5; // miliseconds
     return {
       compare: function(actual, expected) {
         if (expected === undefined) {
@@ -8,7 +8,7 @@ var customMatchers = {
         }
 
         var result = {};
-        result.pass = expected < actual + delayTolerance;
+        result.pass = expected <= actual + delayTolerance;
 
         if(result.pass) {
           result.message = "Expected " + actual + " not to be within " + delayTolerance + " miliseconds of " + expected;
