@@ -18,7 +18,9 @@ test:
   override:
     # Test the app with Chrome and ensure all artifacts can be traced back to the chrome run
     - meteor --test:
-      environment:
+        environment:
+          CUCUMBER_SCREENSHOTS_DIR: "$CIRCLE_ARTIFACTS/screenshots/chrome"
+          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/chrome.cucumber"
           SELENIUM_BROWSER: chrome
     - mkdir -p $CIRCLE_ARTIFACTS/chrome
     - cp .meteor/local/log/*.log $CIRCLE_ARTIFACTS/chrome
@@ -26,6 +28,8 @@ test:
     # Test the app with Firefox and ensure all artifacts can be traced back to the firefox run
     - meteor --test:
         environment:
+          CUCUMBER_SCREENSHOTS_DIR: "$CIRCLE_ARTIFACTS/screenshots/firefox"
+          CUCUMBER_JSON_OUTPUT: "$CIRCLE_TEST_REPORTS/firefox.cucumber"
           SELENIUM_BROWSER: firefox
     - mkdir -p $CIRCLE_ARTIFACTS/firefox
     - cp .meteor/local/log/*.log $CIRCLE_ARTIFACTS/firefox
