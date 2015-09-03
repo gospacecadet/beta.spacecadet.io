@@ -1,6 +1,6 @@
 var customMatchers = {
   toBeJustBefore: function(util, customEqualityTesters) {
-    var delayTolerance = 5; // miliseconds
+    var delayTolerance = 10; // miliseconds
     return {
       compare: function(actual, expected) {
         if (expected === undefined) {

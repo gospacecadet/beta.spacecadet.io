@@ -8,3 +8,4 @@ meteor-platform
 velocity:console-reporter
 sanjo:jasmine
 velocity:core
+accounts-password

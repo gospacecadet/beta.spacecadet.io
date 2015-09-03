@@ -4,7 +4,9 @@
 
 <body>
   <h1>SpaceCadet Beta</h1>
-  {{> hello}}
+  {{#each stations}}
+    <h2>Station</h2>
+  {{/each}}
 </body>
 
 <template name="hello">
