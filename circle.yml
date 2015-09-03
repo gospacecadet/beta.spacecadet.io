@@ -18,6 +18,7 @@ test:
   override:
     # Test the app with Chrome and ensure all artifacts can be traced back to the chrome run
     - meteor --test:
+      environment:
           SELENIUM_BROWSER: chrome
     - mkdir -p $CIRCLE_ARTIFACTS/chrome
     - cp .meteor/local/log/*.log $CIRCLE_ARTIFACTS/chrome
