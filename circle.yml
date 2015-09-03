@@ -13,7 +13,7 @@ dependencies:
     # Restore the meteor symlink
     - if [ -d ~/.meteor ]; then sudo ln -s ~/.meteor/meteor /usr/local/bin/meteor; fi
     # Install Meteor if the cache didn't restore it
-    - if [ ! -e ~/.meteor/meteor ]; then curl https://install.meteor.com | sh;
+    - if [ ! -e ~/.meteor/meteor ]; then curl https://install.meteor.com | sh; fi
 test:
   override:
     # Test the app with Chrome and ensure all artifacts can be traced back to the chrome run
