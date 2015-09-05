@@ -9,3 +9,6 @@ velocity:console-reporter
 sanjo:jasmine
 velocity:core
 accounts-password
+iron:router
+sacha:spin
+alanning:roles

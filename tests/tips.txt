@@ -1,0 +1,13 @@
+General
+http://www.meteortesting.com/chapter/toc
+
+
+Helpers
+https://stackoverflow.com/questions/26616277/accessing-a-meteor-template-helper-function-in-jasmine-for-integration-testing
+
+
+Jasmine
+https://jasmine.github.io/2.3/introduction.html
+https://github.com/Sanjo/meteor-jasmine
+https://velocity.readme.io/v1.0/docs/jasmine-testing-modes
+https://doctorllama.wordpress.com/2014/09/22/bullet-proof-internationalised-meteor-applications-with-velocity-unit-testing-integration-testing-and-jasmine/
