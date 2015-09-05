@@ -18,8 +18,28 @@ describe("Stations", function () {
 
         Meteor.logout(function() {
           done();
-        })
+        });
       });
     });
+  });
+
+  it("cannot be created by any role other than landlord", function(done) {
+    // login and wait for callback
+    Meteor.loginWithPassword("user@spacecadet.io", "password", function(err) {
+      // ensure correctly logged in
+      expect(err).toBeUndefined();
+
+      // create a new Station
+      var station = new Station();
+
+      // save station and call callback
+      var id = station.save(function(error, result) {
+        expect(error.error).toBe(403);
+
+        Meteor.logout(function() {
+          done();
+        });
+      });
+    })
   });
 });
