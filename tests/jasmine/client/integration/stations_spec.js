@@ -1,5 +1,7 @@
 "use strict";
 describe("Stations", function () {
+  var stationName = "Station Name";
+
   it("can be created by landlords", function (done) {
     // login to system and wait for callback
     Meteor.loginWithPassword("landlord@spacecadet.io", "password", function(err) {
@@ -7,7 +9,7 @@ describe("Stations", function () {
       expect(err).toBeUndefined();
 
       // create a new Station
-      var station = new Station();
+      var station = new Station(stationName);
 
       // save the station and use callback function to check for existence
       var id = station.save(function(error, result) {
@@ -30,7 +32,7 @@ describe("Stations", function () {
       expect(err).toBeUndefined();
 
       // create a new Station
-      var station = new Station();
+      var station = new Station(stationName);
 
       // save station and call callback
       var id = station.save(function(error, result) {

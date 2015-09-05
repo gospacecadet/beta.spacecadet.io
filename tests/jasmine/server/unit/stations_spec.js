@@ -7,7 +7,7 @@ describe("Stations", function () {
     });
 
     var stationName = "Station 1";
-    var station = new Station(null, stationName);
+    var station = new Station(stationName);
 
     expect(station.name).toBe(stationName);
 
@@ -19,5 +19,10 @@ describe("Stations", function () {
       name: stationName,
       landlordId: null
     }, jasmine.any(Function));
+  });
+
+  it("should not save when name is not defined", function() {
+    var station = new Station(null);
+    expect(function() { station.save(); }).toThrow();
   });
 });
