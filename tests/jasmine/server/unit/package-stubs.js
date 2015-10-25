@@ -1,8 +1,47 @@
 // DEPENDS ON GLOBAL OBJECT: 'ComponentMocker'
 
 var packageMetadata = {
-  "reload": {},
-  "json": {},
+  "es5-shim": {
+    "Date": {
+      "type": "function"
+    },
+    "parseInt": {
+      "type": "function"
+    }
+  },
+  "meteor-base": {},
+  "mobile-experience": {},
+  "npm-mongo": {
+    "NpmModuleMongodbVersion": {
+      "type": "constant",
+      "value": "1.4.39"
+    }
+  },
+  "random": {
+    "Random": {
+      "type": "object",
+      "members": {
+        "createWithSeeds": {
+          "type": "function"
+        },
+        "fraction": {
+          "type": "function"
+        },
+        "hexString": {
+          "type": "function"
+        },
+        "id": {
+          "type": "function"
+        },
+        "secret": {
+          "type": "function"
+        },
+        "choice": {
+          "type": "function"
+        }
+      }
+    }
+  },
   "base64": {
     "Base64": {
       "type": "object",
@@ -54,6 +93,890 @@ var packageMetadata = {
     },
     "EJSONTest": {
       "type": "object"
+    }
+  },
+  "id-map": {
+    "IdMap": {
+      "type": "function",
+      "members": {
+        "prototype": {
+          "type": "object",
+          "members": {
+            "get": {
+              "type": "function"
+            },
+            "set": {
+              "type": "function"
+            },
+            "remove": {
+              "type": "function"
+            },
+            "has": {
+              "type": "function"
+            },
+            "empty": {
+              "type": "function"
+            },
+            "clear": {
+              "type": "function"
+            },
+            "forEach": {
+              "type": "function"
+            },
+            "size": {
+              "type": "function"
+            },
+            "setDefault": {
+              "type": "function"
+            },
+            "clone": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ordered-dict": {
+    "OrderedDict": {
+      "type": "function",
+      "members": {
+        "BREAK": {
+          "type": "object"
+        },
+        "prototype": {
+          "type": "object",
+          "members": {
+            "empty": {
+              "type": "function"
+            },
+            "size": {
+              "type": "function"
+            },
+            "putBefore": {
+              "type": "function"
+            },
+            "append": {
+              "type": "function"
+            },
+            "remove": {
+              "type": "function"
+            },
+            "get": {
+              "type": "function"
+            },
+            "has": {
+              "type": "function"
+            },
+            "forEach": {
+              "type": "function"
+            },
+            "first": {
+              "type": "function"
+            },
+            "firstValue": {
+              "type": "function"
+            },
+            "last": {
+              "type": "function"
+            },
+            "lastValue": {
+              "type": "function"
+            },
+            "prev": {
+              "type": "function"
+            },
+            "next": {
+              "type": "function"
+            },
+            "moveBefore": {
+              "type": "function"
+            },
+            "indexOf": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tracker": {
+    "Tracker": {
+      "type": "object",
+      "members": {
+        "currentComputation": {
+          "type": "null",
+          "value": null
+        },
+        "Computation": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "onInvalidate": {
+                  "type": "function"
+                },
+                "onStop": {
+                  "type": "function"
+                },
+                "invalidate": {
+                  "type": "function"
+                },
+                "stop": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "Dependency": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "depend": {
+                  "type": "function"
+                },
+                "changed": {
+                  "type": "function"
+                },
+                "hasDependents": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "flush": {
+          "type": "function"
+        },
+        "autorun": {
+          "type": "function"
+        },
+        "nonreactive": {
+          "type": "function"
+        },
+        "onInvalidate": {
+          "type": "function"
+        },
+        "afterFlush": {
+          "type": "function"
+        },
+        "depend": {
+          "type": "function"
+        }
+      }
+    },
+    "Deps": {
+      "type": "object",
+      "members": {
+        "currentComputation": {
+          "type": "null",
+          "value": null
+        },
+        "Computation": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "onInvalidate": {
+                  "type": "function"
+                },
+                "onStop": {
+                  "type": "function"
+                },
+                "invalidate": {
+                  "type": "function"
+                },
+                "stop": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "Dependency": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "depend": {
+                  "type": "function"
+                },
+                "changed": {
+                  "type": "function"
+                },
+                "hasDependents": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "flush": {
+          "type": "function"
+        },
+        "autorun": {
+          "type": "function"
+        },
+        "nonreactive": {
+          "type": "function"
+        },
+        "onInvalidate": {
+          "type": "function"
+        },
+        "afterFlush": {
+          "type": "function"
+        },
+        "depend": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "mongo-id": {
+    "MongoID": {
+      "type": "object",
+      "members": {
+        "ObjectID": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "toString": {
+                  "type": "function"
+                },
+                "equals": {
+                  "type": "function"
+                },
+                "clone": {
+                  "type": "function"
+                },
+                "typeName": {
+                  "type": "function"
+                },
+                "getTimestamp": {
+                  "type": "function"
+                },
+                "toHexString": {
+                  "type": "function",
+                  "refID": 13
+                },
+                "toJSONValue": {
+                  "ref": 13
+                },
+                "valueOf": {
+                  "ref": 13
+                }
+              }
+            }
+          }
+        },
+        "idStringify": {
+          "type": "function"
+        },
+        "idParse": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "diff-sequence": {
+    "DiffSequence": {
+      "type": "object",
+      "members": {
+        "diffQueryChanges": {
+          "type": "function"
+        },
+        "diffQueryUnorderedChanges": {
+          "type": "function"
+        },
+        "diffQueryOrderedChanges": {
+          "type": "function"
+        },
+        "diffObjects": {
+          "type": "function"
+        },
+        "makeChangedFields": {
+          "type": "function"
+        },
+        "applyChanges": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "geojson-utils": {
+    "GeoJSON": {
+      "type": "object",
+      "members": {
+        "lineStringsIntersect": {
+          "type": "function"
+        },
+        "pointInBoundingBox": {
+          "type": "function"
+        },
+        "pointInPolygon": {
+          "type": "function"
+        },
+        "numberToRadius": {
+          "type": "function"
+        },
+        "numberToDegree": {
+          "type": "function"
+        },
+        "drawCircle": {
+          "type": "function"
+        },
+        "rectangleCentroid": {
+          "type": "function"
+        },
+        "pointDistance": {
+          "type": "function"
+        },
+        "geometryWithinRadius": {
+          "type": "function"
+        },
+        "area": {
+          "type": "function"
+        },
+        "centroid": {
+          "type": "function"
+        },
+        "simplify": {
+          "type": "function"
+        },
+        "destinationPoint": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "minimongo": {
+    "LocalCollection": {
+      "type": "function",
+      "members": {
+        "Cursor": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "rewind": {
+                  "type": "function"
+                },
+                "forEach": {
+                  "type": "function"
+                },
+                "getTransform": {
+                  "type": "function"
+                },
+                "map": {
+                  "type": "function"
+                },
+                "fetch": {
+                  "type": "function"
+                },
+                "count": {
+                  "type": "function"
+                },
+                "observe": {
+                  "type": "function"
+                },
+                "observeChanges": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "ObserveHandle": {
+          "type": "function"
+        },
+        "wrapTransform": {
+          "type": "function"
+        },
+        "prototype": {
+          "type": "object",
+          "members": {
+            "find": {
+              "type": "function"
+            },
+            "findOne": {
+              "type": "function"
+            },
+            "insert": {
+              "type": "function"
+            },
+            "remove": {
+              "type": "function"
+            },
+            "update": {
+              "type": "function"
+            },
+            "upsert": {
+              "type": "function"
+            },
+            "saveOriginals": {
+              "type": "function"
+            },
+            "retrieveOriginals": {
+              "type": "function"
+            },
+            "pauseObservers": {
+              "type": "function"
+            },
+            "resumeObservers": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    },
+    "Minimongo": {
+      "type": "object",
+      "members": {
+        "Matcher": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "documentMatches": {
+                  "type": "function"
+                },
+                "hasGeoQuery": {
+                  "type": "function"
+                },
+                "hasWhere": {
+                  "type": "function"
+                },
+                "isSimple": {
+                  "type": "function"
+                },
+                "combineIntoProjection": {
+                  "type": "function"
+                },
+                "affectedByModifier": {
+                  "type": "function"
+                },
+                "canBecomeTrueByModifier": {
+                  "type": "function"
+                },
+                "matchingDocument": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "Sorter": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "getComparator": {
+                  "type": "function"
+                },
+                "affectedByModifier": {
+                  "type": "function"
+                },
+                "combineIntoProjection": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "MinimongoTest": {
+      "type": "object",
+      "members": {
+        "makeLookupFunction": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "check": {
+    "check": {
+      "type": "function"
+    },
+    "Match": {
+      "type": "object",
+      "members": {
+        "Optional": {
+          "type": "function"
+        },
+        "OneOf": {
+          "type": "function"
+        },
+        "Any": {
+          "type": "array"
+        },
+        "Where": {
+          "type": "function"
+        },
+        "ObjectIncluding": {
+          "type": "function"
+        },
+        "ObjectWithValues": {
+          "type": "function"
+        },
+        "Integer": {
+          "type": "array"
+        },
+        "Error": {
+          "type": "function",
+          "refID": 13,
+          "members": {
+            "captureStackTrace": {
+              "type": "function"
+            },
+            "stackTraceLimit": {
+              "type": "constant",
+              "value": 10
+            },
+            "prepareStackTrace": {
+              "type": "function"
+            },
+            "prototype": {
+              "type": "object",
+              "members": {
+                "constructor": {
+                  "ref": 13
+                }
+              }
+            }
+          }
+        },
+        "test": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "retry": {
+    "Retry": {
+      "type": "function",
+      "members": {
+        "prototype": {
+          "type": "object",
+          "members": {
+            "clear": {
+              "type": "function"
+            },
+            "retryLater": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ddp-common": {
+    "DDPCommon": {
+      "type": "object",
+      "members": {
+        "Heartbeat": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "stop": {
+                  "type": "function"
+                },
+                "start": {
+                  "type": "function"
+                },
+                "messageReceived": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "SUPPORTED_DDP_VERSIONS": {
+          "type": "array"
+        },
+        "parseDDP": {
+          "type": "function"
+        },
+        "stringifyDDP": {
+          "type": "function"
+        },
+        "MethodInvocation": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "unblock": {
+                  "type": "function"
+                },
+                "setUserId": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "RandomStream": {
+          "type": "function",
+          "members": {
+            "get": {
+              "type": "function"
+            }
+          }
+        },
+        "makeRpcSeed": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "ddp-client": {
+    "DDP": {
+      "type": "object",
+      "members": {
+        "ConnectionError": {
+          "type": "function",
+          "refID": 1,
+          "members": {
+            "captureStackTrace": {
+              "type": "function",
+              "refID": 2
+            },
+            "stackTraceLimit": {
+              "type": "constant",
+              "value": 10
+            },
+            "prepareStackTrace": {
+              "type": "function",
+              "refID": 4
+            },
+            "prototype": {
+              "type": "object",
+              "members": {
+                "constructor": {
+                  "ref": 1
+                }
+              }
+            }
+          }
+        },
+        "ForcedReconnectError": {
+          "type": "function",
+          "refID": 7,
+          "members": {
+            "captureStackTrace": {
+              "ref": 2
+            },
+            "stackTraceLimit": {
+              "type": "constant",
+              "value": 10
+            },
+            "prepareStackTrace": {
+              "ref": 4
+            },
+            "prototype": {
+              "type": "object",
+              "members": {
+                "constructor": {
+                  "ref": 7
+                }
+              }
+            }
+          }
+        },
+        "randomStream": {
+          "type": "function"
+        },
+        "connect": {
+          "type": "function"
+        }
+      }
+    },
+    "LivedataTest": {
+      "type": "object",
+      "members": {
+        "ClientStream": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "send": {
+                  "type": "function"
+                },
+                "on": {
+                  "type": "function"
+                },
+                "reconnect": {
+                  "type": "function"
+                },
+                "disconnect": {
+                  "type": "function"
+                },
+                "status": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "toSockjsUrl": {
+          "type": "function"
+        },
+        "SUPPORTED_DDP_VERSIONS": {
+          "type": "array"
+        },
+        "Connection": {
+          "type": "function",
+          "members": {
+            "prototype": {
+              "type": "object",
+              "members": {
+                "registerStore": {
+                  "type": "function"
+                },
+                "subscribe": {
+                  "type": "function"
+                },
+                "methods": {
+                  "type": "function"
+                },
+                "call": {
+                  "type": "function"
+                },
+                "apply": {
+                  "type": "function"
+                },
+                "status": {
+                  "type": "function"
+                },
+                "reconnect": {
+                  "type": "function"
+                },
+                "disconnect": {
+                  "type": "function"
+                },
+                "close": {
+                  "type": "function"
+                },
+                "userId": {
+                  "type": "function"
+                },
+                "setUserId": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "babel-compiler": {
+    "Babel": {
+      "type": "object",
+      "members": {
+        "getDefaultOptions": {
+          "type": "function"
+        },
+        "validateExtraFeatures": {
+          "type": "function"
+        },
+        "compile": {
+          "type": "function"
+        },
+        "transformMeteor": {
+          "type": "function"
+        },
+        "setCacheDir": {
+          "type": "function"
+        }
+      }
+    },
+    "BabelCompiler": {
+      "type": "function",
+      "members": {
+        "prototype": {
+          "type": "object",
+          "members": {
+            "processFilesForTarget": {
+              "type": "function"
+            },
+            "setDiskCacheDirectory": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ecmascript": {
+    "ECMAScript": {
+      "type": "object",
+      "members": {
+        "compileForShell": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "rate-limit": {
+    "RateLimiter": {
+      "type": "function",
+      "members": {
+        "prototype": {
+          "type": "object",
+          "members": {
+            "check": {
+              "type": "function"
+            },
+            "addRule": {
+              "type": "function"
+            },
+            "increment": {
+              "type": "function"
+            },
+            "removeRule": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ddp-rate-limiter": {
+    "DDPRateLimiter": {
+      "type": "object",
+      "members": {
+        "getErrorMessage": {
+          "type": "function"
+        },
+        "setErrorMessage": {
+          "type": "function"
+        },
+        "addRule": {
+          "type": "function"
+        },
+        "printRules": {
+          "type": "function"
+        },
+        "removeRule": {
+          "type": "function"
+        }
+      }
     }
   },
   "logging": {
@@ -167,138 +1090,6 @@ var packageMetadata = {
       }
     }
   },
-  "tracker": {
-    "Tracker": {
-      "type": "object",
-      "members": {
-        "currentComputation": {
-          "type": "null",
-          "value": null
-        },
-        "Computation": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "onInvalidate": {
-                  "type": "function"
-                },
-                "invalidate": {
-                  "type": "function"
-                },
-                "stop": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "Dependency": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "depend": {
-                  "type": "function"
-                },
-                "changed": {
-                  "type": "function"
-                },
-                "hasDependents": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "flush": {
-          "type": "function"
-        },
-        "autorun": {
-          "type": "function"
-        },
-        "nonreactive": {
-          "type": "function"
-        },
-        "onInvalidate": {
-          "type": "function"
-        },
-        "afterFlush": {
-          "type": "function"
-        },
-        "depend": {
-          "type": "function"
-        }
-      }
-    },
-    "Deps": {
-      "type": "object",
-      "members": {
-        "currentComputation": {
-          "type": "null",
-          "value": null
-        },
-        "Computation": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "onInvalidate": {
-                  "type": "function"
-                },
-                "invalidate": {
-                  "type": "function"
-                },
-                "stop": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "Dependency": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "depend": {
-                  "type": "function"
-                },
-                "changed": {
-                  "type": "function"
-                },
-                "hasDependents": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "flush": {
-          "type": "function"
-        },
-        "autorun": {
-          "type": "function"
-        },
-        "nonreactive": {
-          "type": "function"
-        },
-        "onInvalidate": {
-          "type": "function"
-        },
-        "afterFlush": {
-          "type": "function"
-        },
-        "depend": {
-          "type": "function"
-        }
-      }
-    }
-  },
   "deps": {
     "Tracker": {
       "type": "object",
@@ -316,6 +1107,9 @@ var packageMetadata = {
                 "onInvalidate": {
                   "type": "function"
                 },
+                "onStop": {
+                  "type": "function"
+                },
                 "invalidate": {
                   "type": "function"
                 },
@@ -379,6 +1173,9 @@ var packageMetadata = {
               "type": "object",
               "members": {
                 "onInvalidate": {
+                  "type": "function"
+                },
+                "onStop": {
                   "type": "function"
                 },
                 "invalidate": {
@@ -5691,6 +6488,9 @@ var packageMetadata = {
         "parseIdentifierName": {
           "type": "function"
         },
+        "parseExtendedIdentifierName": {
+          "type": "function"
+        },
         "parseStringLiteral": {
           "type": "function"
         },
@@ -5828,6 +6628,9 @@ var packageMetadata = {
                 "codeGenBlock": {
                   "type": "function"
                 },
+                "codeGenInclusionData": {
+                  "type": "function"
+                },
                 "codeGenInclusionDataFunc": {
                   "type": "function"
                 }
@@ -5851,330 +6654,6 @@ var packageMetadata = {
     }
   },
   "jquery": {},
-  "id-map": {
-    "IdMap": {
-      "type": "function",
-      "members": {
-        "prototype": {
-          "type": "object",
-          "members": {
-            "get": {
-              "type": "function"
-            },
-            "set": {
-              "type": "function"
-            },
-            "remove": {
-              "type": "function"
-            },
-            "has": {
-              "type": "function"
-            },
-            "empty": {
-              "type": "function"
-            },
-            "clear": {
-              "type": "function"
-            },
-            "forEach": {
-              "type": "function"
-            },
-            "size": {
-              "type": "function"
-            },
-            "setDefault": {
-              "type": "function"
-            },
-            "clone": {
-              "type": "function"
-            }
-          }
-        }
-      }
-    }
-  },
-  "ordered-dict": {
-    "OrderedDict": {
-      "type": "function",
-      "members": {
-        "BREAK": {
-          "type": "object"
-        },
-        "prototype": {
-          "type": "object",
-          "members": {
-            "empty": {
-              "type": "function"
-            },
-            "size": {
-              "type": "function"
-            },
-            "putBefore": {
-              "type": "function"
-            },
-            "append": {
-              "type": "function"
-            },
-            "remove": {
-              "type": "function"
-            },
-            "get": {
-              "type": "function"
-            },
-            "has": {
-              "type": "function"
-            },
-            "forEach": {
-              "type": "function"
-            },
-            "first": {
-              "type": "function"
-            },
-            "firstValue": {
-              "type": "function"
-            },
-            "last": {
-              "type": "function"
-            },
-            "lastValue": {
-              "type": "function"
-            },
-            "prev": {
-              "type": "function"
-            },
-            "next": {
-              "type": "function"
-            },
-            "moveBefore": {
-              "type": "function"
-            },
-            "indexOf": {
-              "type": "function"
-            }
-          }
-        }
-      }
-    }
-  },
-  "random": {
-    "Random": {
-      "type": "object",
-      "members": {
-        "createWithSeeds": {
-          "type": "function"
-        },
-        "fraction": {
-          "type": "function"
-        },
-        "hexString": {
-          "type": "function"
-        },
-        "id": {
-          "type": "function"
-        },
-        "secret": {
-          "type": "function"
-        },
-        "choice": {
-          "type": "function"
-        }
-      }
-    }
-  },
-  "geojson-utils": {
-    "GeoJSON": {
-      "type": "object",
-      "members": {
-        "lineStringsIntersect": {
-          "type": "function"
-        },
-        "pointInBoundingBox": {
-          "type": "function"
-        },
-        "pointInPolygon": {
-          "type": "function"
-        },
-        "numberToRadius": {
-          "type": "function"
-        },
-        "numberToDegree": {
-          "type": "function"
-        },
-        "drawCircle": {
-          "type": "function"
-        },
-        "rectangleCentroid": {
-          "type": "function"
-        },
-        "pointDistance": {
-          "type": "function"
-        },
-        "geometryWithinRadius": {
-          "type": "function"
-        },
-        "area": {
-          "type": "function"
-        },
-        "centroid": {
-          "type": "function"
-        },
-        "simplify": {
-          "type": "function"
-        },
-        "destinationPoint": {
-          "type": "function"
-        }
-      }
-    }
-  },
-  "minimongo": {
-    "LocalCollection": {
-      "type": "function",
-      "members": {
-        "Cursor": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "rewind": {
-                  "type": "function"
-                },
-                "forEach": {
-                  "type": "function"
-                },
-                "getTransform": {
-                  "type": "function"
-                },
-                "map": {
-                  "type": "function"
-                },
-                "fetch": {
-                  "type": "function"
-                },
-                "count": {
-                  "type": "function"
-                },
-                "observe": {
-                  "type": "function"
-                },
-                "observeChanges": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "ObserveHandle": {
-          "type": "function"
-        },
-        "wrapTransform": {
-          "type": "function"
-        },
-        "prototype": {
-          "type": "object",
-          "members": {
-            "find": {
-              "type": "function"
-            },
-            "findOne": {
-              "type": "function"
-            },
-            "insert": {
-              "type": "function"
-            },
-            "remove": {
-              "type": "function"
-            },
-            "update": {
-              "type": "function"
-            },
-            "upsert": {
-              "type": "function"
-            },
-            "saveOriginals": {
-              "type": "function"
-            },
-            "retrieveOriginals": {
-              "type": "function"
-            },
-            "pauseObservers": {
-              "type": "function"
-            },
-            "resumeObservers": {
-              "type": "function"
-            }
-          }
-        }
-      }
-    },
-    "Minimongo": {
-      "type": "object",
-      "members": {
-        "Matcher": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "documentMatches": {
-                  "type": "function"
-                },
-                "hasGeoQuery": {
-                  "type": "function"
-                },
-                "hasWhere": {
-                  "type": "function"
-                },
-                "isSimple": {
-                  "type": "function"
-                },
-                "combineIntoProjection": {
-                  "type": "function"
-                },
-                "affectedByModifier": {
-                  "type": "function"
-                },
-                "canBecomeTrueByModifier": {
-                  "type": "function"
-                },
-                "matchingDocument": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "Sorter": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "getComparator": {
-                  "type": "function"
-                },
-                "affectedByModifier": {
-                  "type": "function"
-                },
-                "combineIntoProjection": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "MinimongoTest": {
-      "type": "object",
-      "members": {
-        "makeLookupFunction": {
-          "type": "function"
-        }
-      }
-    }
-  },
   "observe-sequence": {
     "ObserveSequence": {
       "type": "object",
@@ -6228,6 +6707,9 @@ var packageMetadata = {
                 "onViewDestroyed": {
                   "type": "function"
                 },
+                "removeViewDestroyedListener": {
+                  "type": "function"
+                },
                 "autorun": {
                   "type": "function"
                 },
@@ -6274,7 +6756,7 @@ var packageMetadata = {
         },
         "getData": {
           "type": "function",
-          "refID": 33
+          "refID": 35
         },
         "getElementData": {
           "type": "function"
@@ -6283,6 +6765,9 @@ var packageMetadata = {
           "type": "function"
         },
         "With": {
+          "type": "function"
+        },
+        "Let": {
           "type": "function"
         },
         "If": {
@@ -6299,7 +6784,7 @@ var packageMetadata = {
         },
         "registerHelper": {
           "type": "function",
-          "refID": 49
+          "refID": 53
         },
         "Template": {
           "type": "function",
@@ -6308,13 +6793,13 @@ var packageMetadata = {
               "type": "function"
             },
             "currentData": {
-              "ref": 33
+              "ref": 35
             },
             "parentData": {
               "type": "function"
             },
             "registerHelper": {
-              "ref": 49
+              "ref": 53
             },
             "prototype": {
               "type": "object",
@@ -6411,6 +6896,9 @@ var packageMetadata = {
                 "onViewDestroyed": {
                   "type": "function"
                 },
+                "removeViewDestroyedListener": {
+                  "type": "function"
+                },
                 "autorun": {
                   "type": "function"
                 },
@@ -6457,7 +6945,7 @@ var packageMetadata = {
         },
         "getData": {
           "type": "function",
-          "refID": 33
+          "refID": 35
         },
         "getElementData": {
           "type": "function"
@@ -6466,6 +6954,9 @@ var packageMetadata = {
           "type": "function"
         },
         "With": {
+          "type": "function"
+        },
+        "Let": {
           "type": "function"
         },
         "If": {
@@ -6482,7 +6973,7 @@ var packageMetadata = {
         },
         "registerHelper": {
           "type": "function",
-          "refID": 49
+          "refID": 53
         },
         "Template": {
           "type": "function",
@@ -6491,13 +6982,13 @@ var packageMetadata = {
               "type": "function"
             },
             "currentData": {
-              "ref": 33
+              "ref": 35
             },
             "parentData": {
               "type": "function"
             },
             "registerHelper": {
-              "ref": 49
+              "ref": 53
             },
             "prototype": {
               "type": "object",
@@ -6598,7 +7089,6 @@ var packageMetadata = {
       }
     }
   },
-  "templating": {},
   "spacebars": {
     "Spacebars": {
       "type": "object",
@@ -6671,6 +7161,9 @@ var packageMetadata = {
                 "onViewDestroyed": {
                   "type": "function"
                 },
+                "removeViewDestroyedListener": {
+                  "type": "function"
+                },
                 "autorun": {
                   "type": "function"
                 },
@@ -6717,7 +7210,7 @@ var packageMetadata = {
         },
         "getData": {
           "type": "function",
-          "refID": 33
+          "refID": 35
         },
         "getElementData": {
           "type": "function"
@@ -6726,6 +7219,9 @@ var packageMetadata = {
           "type": "function"
         },
         "With": {
+          "type": "function"
+        },
+        "Let": {
           "type": "function"
         },
         "If": {
@@ -6742,7 +7238,7 @@ var packageMetadata = {
         },
         "registerHelper": {
           "type": "function",
-          "refID": 49
+          "refID": 53
         },
         "Template": {
           "type": "function",
@@ -6751,13 +7247,13 @@ var packageMetadata = {
               "type": "function"
             },
             "currentData": {
-              "ref": 33
+              "ref": 35
             },
             "parentData": {
               "type": "function"
             },
             "registerHelper": {
-              "ref": 49
+              "ref": 53
             },
             "prototype": {
               "type": "object",
@@ -6854,6 +7350,9 @@ var packageMetadata = {
                 "onViewDestroyed": {
                   "type": "function"
                 },
+                "removeViewDestroyedListener": {
+                  "type": "function"
+                },
                 "autorun": {
                   "type": "function"
                 },
@@ -6900,7 +7399,7 @@ var packageMetadata = {
         },
         "getData": {
           "type": "function",
-          "refID": 33
+          "refID": 35
         },
         "getElementData": {
           "type": "function"
@@ -6909,6 +7408,9 @@ var packageMetadata = {
           "type": "function"
         },
         "With": {
+          "type": "function"
+        },
+        "Let": {
           "type": "function"
         },
         "If": {
@@ -6925,7 +7427,7 @@ var packageMetadata = {
         },
         "registerHelper": {
           "type": "function",
-          "refID": 49
+          "refID": 53
         },
         "Template": {
           "type": "function",
@@ -6934,13 +7436,13 @@ var packageMetadata = {
               "type": "function"
             },
             "currentData": {
-              "ref": 33
+              "ref": 35
             },
             "parentData": {
               "type": "function"
             },
             "registerHelper": {
-              "ref": 49
+              "ref": 53
             },
             "prototype": {
               "type": "object",
@@ -7085,10 +7587,10 @@ var packageMetadata = {
                 },
                 "version": {
                   "type": "constant",
-                  "value": "2ba797f380684a51765194c33f2d6fc6f110605c"
+                  "value": "68ce162c3118bad25f9936978adaafbe7e1706ec"
                 },
                 "PUBLIC_SETTINGS": {
-                  "type": "undefined"
+                  "type": "object"
                 }
               }
             }
@@ -7105,46 +7607,46 @@ var packageMetadata = {
           "members": {
             "use": {
               "type": "function",
-              "refID": 9
+              "refID": 10
             },
             "handle": {
               "type": "function",
-              "refID": 11
+              "refID": 12
             },
             "listen": {
               "type": "function",
-              "refID": 13
+              "refID": 14
             },
             "setMaxListeners": {
               "type": "function",
-              "refID": 15
+              "refID": 16
             },
             "emit": {
               "type": "function",
-              "refID": 17
+              "refID": 18
             },
             "addListener": {
               "type": "function",
-              "refID": 19
+              "refID": 20
             },
             "on": {
-              "ref": 19
+              "ref": 20
             },
             "once": {
               "type": "function",
-              "refID": 21
+              "refID": 22
             },
             "removeListener": {
               "type": "function",
-              "refID": 23
+              "refID": 24
             },
             "removeAllListeners": {
               "type": "function",
-              "refID": 25
+              "refID": 26
             },
             "listeners": {
               "type": "function",
-              "refID": 27
+              "refID": 28
             },
             "route": {
               "type": "constant",
@@ -7159,37 +7661,37 @@ var packageMetadata = {
           "type": "function",
           "members": {
             "use": {
-              "ref": 9
+              "ref": 10
             },
             "handle": {
-              "ref": 11
+              "ref": 12
             },
             "listen": {
-              "ref": 13
+              "ref": 14
             },
             "setMaxListeners": {
-              "ref": 15
+              "ref": 16
             },
             "emit": {
-              "ref": 17
+              "ref": 18
             },
             "addListener": {
-              "ref": 19
+              "ref": 20
             },
             "on": {
-              "ref": 19
+              "ref": 20
             },
             "once": {
-              "ref": 21
+              "ref": 22
             },
             "removeListener": {
-              "ref": 23
+              "ref": 24
             },
             "removeAllListeners": {
-              "ref": 25
+              "ref": 26
             },
             "listeners": {
-              "ref": 27
+              "ref": 28
             },
             "route": {
               "type": "constant",
@@ -7209,7 +7711,7 @@ var packageMetadata = {
             },
             "connections": {
               "type": "constant",
-              "value": 2
+              "value": 7
             },
             "timeout": {
               "type": "constant",
@@ -7240,28 +7742,28 @@ var packageMetadata = {
               "type": "function"
             },
             "setMaxListeners": {
-              "ref": 15
+              "ref": 16
             },
             "emit": {
-              "ref": 17
+              "ref": 18
             },
             "addListener": {
-              "ref": 19
+              "ref": 20
             },
             "on": {
-              "ref": 19
+              "ref": 20
             },
             "once": {
-              "ref": 21
+              "ref": 22
             },
             "removeListener": {
-              "ref": 23
+              "ref": 24
             },
             "removeAllListeners": {
-              "ref": 25
+              "ref": 26
             },
             "listeners": {
-              "ref": 27
+              "ref": 28
             }
           }
         },
@@ -7289,82 +7791,6 @@ var packageMetadata = {
       "type": "function"
     }
   },
-  "check": {
-    "check": {
-      "type": "function"
-    },
-    "Match": {
-      "type": "object",
-      "members": {
-        "Optional": {
-          "type": "function"
-        },
-        "OneOf": {
-          "type": "function"
-        },
-        "Any": {
-          "type": "array"
-        },
-        "Where": {
-          "type": "function"
-        },
-        "ObjectIncluding": {
-          "type": "function"
-        },
-        "ObjectWithValues": {
-          "type": "function"
-        },
-        "Integer": {
-          "type": "array"
-        },
-        "Error": {
-          "type": "function",
-          "refID": 13,
-          "members": {
-            "captureStackTrace": {
-              "type": "function"
-            },
-            "stackTraceLimit": {
-              "type": "constant",
-              "value": 10
-            },
-            "prepareStackTrace": {
-              "type": "function"
-            },
-            "prototype": {
-              "type": "object",
-              "members": {
-                "constructor": {
-                  "ref": 13
-                }
-              }
-            }
-          }
-        },
-        "test": {
-          "type": "function"
-        }
-      }
-    }
-  },
-  "retry": {
-    "Retry": {
-      "type": "function",
-      "members": {
-        "prototype": {
-          "type": "object",
-          "members": {
-            "clear": {
-              "type": "function"
-            },
-            "retryLater": {
-              "type": "function"
-            }
-          }
-        }
-      }
-    }
-  },
   "callback-hook": {
     "Hook": {
       "type": "function",
@@ -7381,6 +7807,146 @@ var packageMetadata = {
           }
         }
       }
+    }
+  },
+  "babel-runtime": {
+    "babelHelpers": {
+      "type": "object",
+      "members": {
+        "sanitizeForInObject": {
+          "type": "function"
+        },
+        "taggedTemplateLiteralLoose": {
+          "type": "function"
+        },
+        "classCallCheck": {
+          "type": "function"
+        },
+        "inherits": {
+          "type": "function"
+        },
+        "createClass": {
+          "type": "function"
+        },
+        "objectWithoutProperties": {
+          "type": "function"
+        },
+        "objectDestructuringEmpty": {
+          "type": "function"
+        },
+        "bind": {
+          "type": "function"
+        },
+        "slice": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "promise": {
+    "Promise": {
+      "type": "function",
+      "members": {
+        "resolve": {
+          "type": "function"
+        },
+        "all": {
+          "type": "function"
+        },
+        "reject": {
+          "type": "function"
+        },
+        "race": {
+          "type": "function"
+        },
+        "denodeify": {
+          "type": "function"
+        },
+        "nodeify": {
+          "type": "function"
+        },
+        "awaitAll": {
+          "type": "function"
+        },
+        "await": {
+          "type": "function"
+        },
+        "async": {
+          "type": "function"
+        },
+        "asyncApply": {
+          "type": "function"
+        },
+        "Fiber": {
+          "type": "function",
+          "members": {
+            "yield": {
+              "type": "function"
+            },
+            "poolSize": {
+              "type": "constant",
+              "value": 120
+            },
+            "fibersCreated": {
+              "type": "constant",
+              "value": 13
+            },
+            "prototype": {
+              "type": "object",
+              "members": {
+                "started": {
+                  "type": "undefined"
+                },
+                "reset": {
+                  "type": "function"
+                },
+                "run": {
+                  "type": "function"
+                },
+                "throwInto": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "prototype": {
+          "type": "object",
+          "members": {
+            "then": {
+              "type": "function"
+            },
+            "done": {
+              "type": "function"
+            },
+            "finally": {
+              "type": "function"
+            },
+            "catch": {
+              "type": "function"
+            },
+            "nodeify": {
+              "type": "function"
+            },
+            "await": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ecmascript-collections": {
+    "Map": {
+      "type": "function"
+    },
+    "Set": {
+      "type": "function"
+    }
+  },
+  "ddp-server": {
+    "DDPServer": {
+      "type": "object"
     }
   },
   "ddp": {
@@ -7447,116 +8013,6 @@ var packageMetadata = {
     },
     "DDPServer": {
       "type": "object"
-    },
-    "LivedataTest": {
-      "type": "object",
-      "members": {
-        "ClientStream": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "send": {
-                  "type": "function"
-                },
-                "on": {
-                  "type": "function"
-                },
-                "reconnect": {
-                  "type": "function"
-                },
-                "disconnect": {
-                  "type": "function"
-                },
-                "status": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "toSockjsUrl": {
-          "type": "function"
-        },
-        "SessionCollectionView": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "isEmpty": {
-                  "type": "function"
-                },
-                "diff": {
-                  "type": "function"
-                },
-                "diffDocument": {
-                  "type": "function"
-                },
-                "added": {
-                  "type": "function"
-                },
-                "changed": {
-                  "type": "function"
-                },
-                "removed": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "calculateVersion": {
-          "type": "function"
-        },
-        "SUPPORTED_DDP_VERSIONS": {
-          "type": "array"
-        },
-        "Connection": {
-          "type": "function",
-          "members": {
-            "prototype": {
-              "type": "object",
-              "members": {
-                "registerStore": {
-                  "type": "function"
-                },
-                "subscribe": {
-                  "type": "function"
-                },
-                "methods": {
-                  "type": "function"
-                },
-                "call": {
-                  "type": "function"
-                },
-                "apply": {
-                  "type": "function"
-                },
-                "status": {
-                  "type": "function"
-                },
-                "reconnect": {
-                  "type": "function"
-                },
-                "disconnect": {
-                  "type": "function"
-                },
-                "close": {
-                  "type": "function"
-                },
-                "userId": {
-                  "type": "function"
-                },
-                "setUserId": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "binary-heap": {
@@ -7704,6 +8160,7 @@ var packageMetadata = {
       }
     }
   },
+  "insecure": {},
   "mongo": {
     "MongoTest": {
       "type": "object",
@@ -7846,30 +8303,9 @@ var packageMetadata = {
       }
     }
   },
-  "autoupdate": {
-    "Autoupdate": {
-      "type": "object",
-      "members": {
-        "autoupdateVersion": {
-          "type": "constant",
-          "value": "a09a5408575ae3748ea2dc20b426629d6ef1307c"
-        },
-        "autoupdateVersionRefreshable": {
-          "type": "constant",
-          "value": "9a7c36a08601c58bbc0feef4f706f5b1975b6b11"
-        },
-        "autoupdateVersionCordova": {
-          "type": "constant",
-          "value": "none"
-        },
-        "appId": {
-          "type": "constant",
-          "value": "1ofllwllxt0d7m6kgp0"
-        }
-      }
-    }
-  },
-  "meteor-platform": {},
+  "blaze-html-templates": {},
+  "session": {},
+  "standard-minifiers": {},
   "velocity:chokidar": {
     "chokidar": {
       "type": "object",
@@ -8377,6 +8813,355 @@ var packageMetadata = {
     "Velocity": {
       "type": "object",
       "members": {
+        "Collections": {
+          "type": "object",
+          "members": {
+            "TestFiles": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "type": "function",
+                  "refID": 3
+                },
+                "findOne": {
+                  "type": "function",
+                  "refID": 5
+                },
+                "insert": {
+                  "type": "function",
+                  "refID": 7
+                },
+                "update": {
+                  "type": "function",
+                  "refID": 9
+                },
+                "remove": {
+                  "type": "function",
+                  "refID": 11
+                },
+                "upsert": {
+                  "type": "function",
+                  "refID": 13
+                },
+                "rawCollection": {
+                  "type": "function",
+                  "refID": 15
+                },
+                "rawDatabase": {
+                  "type": "function",
+                  "refID": 17
+                },
+                "allow": {
+                  "type": "function",
+                  "refID": 19
+                },
+                "deny": {
+                  "type": "function",
+                  "refID": 21
+                }
+              }
+            },
+            "FixtureFiles": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "ref": 3
+                },
+                "findOne": {
+                  "ref": 5
+                },
+                "insert": {
+                  "ref": 7
+                },
+                "update": {
+                  "ref": 9
+                },
+                "remove": {
+                  "ref": 11
+                },
+                "upsert": {
+                  "ref": 13
+                },
+                "rawCollection": {
+                  "ref": 15
+                },
+                "rawDatabase": {
+                  "ref": 17
+                },
+                "allow": {
+                  "ref": 19
+                },
+                "deny": {
+                  "ref": 21
+                }
+              }
+            },
+            "TestReports": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "ref": 3
+                },
+                "findOne": {
+                  "ref": 5
+                },
+                "insert": {
+                  "ref": 7
+                },
+                "update": {
+                  "ref": 9
+                },
+                "remove": {
+                  "ref": 11
+                },
+                "upsert": {
+                  "ref": 13
+                },
+                "rawCollection": {
+                  "ref": 15
+                },
+                "rawDatabase": {
+                  "ref": 17
+                },
+                "allow": {
+                  "ref": 19
+                },
+                "deny": {
+                  "ref": 21
+                }
+              }
+            },
+            "AggregateReports": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "ref": 3
+                },
+                "findOne": {
+                  "ref": 5
+                },
+                "insert": {
+                  "ref": 7
+                },
+                "update": {
+                  "ref": 9
+                },
+                "remove": {
+                  "ref": 11
+                },
+                "upsert": {
+                  "ref": 13
+                },
+                "rawCollection": {
+                  "ref": 15
+                },
+                "rawDatabase": {
+                  "ref": 17
+                },
+                "allow": {
+                  "ref": 19
+                },
+                "deny": {
+                  "ref": 21
+                }
+              }
+            },
+            "Logs": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "ref": 3
+                },
+                "findOne": {
+                  "ref": 5
+                },
+                "insert": {
+                  "ref": 7
+                },
+                "update": {
+                  "ref": 9
+                },
+                "remove": {
+                  "ref": 11
+                },
+                "upsert": {
+                  "ref": 13
+                },
+                "rawCollection": {
+                  "ref": 15
+                },
+                "rawDatabase": {
+                  "ref": 17
+                },
+                "allow": {
+                  "ref": 19
+                },
+                "deny": {
+                  "ref": 21
+                }
+              }
+            },
+            "Mirrors": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "ref": 3
+                },
+                "findOne": {
+                  "ref": 5
+                },
+                "insert": {
+                  "ref": 7
+                },
+                "update": {
+                  "ref": 9
+                },
+                "remove": {
+                  "ref": 11
+                },
+                "upsert": {
+                  "ref": 13
+                },
+                "rawCollection": {
+                  "ref": 15
+                },
+                "rawDatabase": {
+                  "ref": 17
+                },
+                "allow": {
+                  "ref": 19
+                },
+                "deny": {
+                  "ref": 21
+                }
+              }
+            },
+            "Options": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "ref": 3
+                },
+                "findOne": {
+                  "ref": 5
+                },
+                "insert": {
+                  "ref": 7
+                },
+                "update": {
+                  "ref": 9
+                },
+                "remove": {
+                  "ref": 11
+                },
+                "upsert": {
+                  "ref": 13
+                },
+                "rawCollection": {
+                  "ref": 15
+                },
+                "rawDatabase": {
+                  "ref": 17
+                },
+                "allow": {
+                  "ref": 19
+                },
+                "deny": {
+                  "ref": 21
+                }
+              }
+            }
+          }
+        },
+        "Methods": {
+          "type": "object",
+          "members": {
+            "velocity/logs/reset": {
+              "type": "function"
+            },
+            "velocity/logs/submit": {
+              "type": "function"
+            },
+            "velocity/mirrors/init": {
+              "type": "function"
+            },
+            "velocity/mirrors/register": {
+              "type": "function"
+            },
+            "velocity/mirrors/request": {
+              "type": "function"
+            },
+            "velocity/parentHandshake": {
+              "type": "function"
+            },
+            "velocity/getOption": {
+              "type": "function"
+            },
+            "velocity/setOption": {
+              "type": "function"
+            },
+            "velocity/setOptions": {
+              "type": "function"
+            },
+            "velocity/reports/completed": {
+              "type": "function"
+            },
+            "velocity/reports/reset": {
+              "type": "function"
+            },
+            "velocity/reports/submit": {
+              "type": "function"
+            },
+            "velocity/copySampleTests": {
+              "type": "function"
+            },
+            "velocity/featureTestDone": {
+              "type": "function"
+            },
+            "velocity/featureTestFailed": {
+              "type": "function"
+            },
+            "velocity/isEnabled": {
+              "type": "function"
+            },
+            "velocity/isMirror": {
+              "type": "function"
+            },
+            "velocity/register/framework": {
+              "type": "function"
+            },
+            "velocity/reset": {
+              "type": "function"
+            },
+            "velocity/returnTODOTestAndMarkItAsDOING": {
+              "type": "function"
+            }
+          }
+        },
+        "mirrorMeteorReleaseName": {
+          "type": "constant",
+          "value": "velocity:METEOR"
+        },
+        "mirrorMeteorVersion": {
+          "type": "constant",
+          "value": "1.2.0.2_1"
+        },
+        "mirrorMeteorRelease": {
+          "type": "constant",
+          "value": "velocity:METEOR@1.2.0.2_1"
+        },
+        "mirrorMeteorToolReleaseName": {
+          "type": "constant",
+          "value": "velocity:meteor-tool"
+        },
+        "mirrorMeteorToolVersion": {
+          "type": "constant",
+          "value": "1.1.9_1"
+        },
+        "mirrorMeteorToolRelease": {
+          "type": "constant",
+          "value": "velocity:meteor-tool@1.1.9_1"
+        },
         "reusableMirrors": {
           "type": "array"
         },
@@ -8384,7 +9169,18 @@ var packageMetadata = {
           "type": "function"
         },
         "getAppPath": {
-          "type": "function"
+          "type": "function",
+          "members": {
+            "cache": {
+              "type": "object",
+              "members": {
+                "1445739861006undefined": {
+                  "type": "constant",
+                  "value": "/home/marvin/workspace/beta.spacecadet.io"
+                }
+              }
+            }
+          }
         },
         "getTestsPath": {
           "type": "function"
@@ -8410,6 +9206,9 @@ var packageMetadata = {
         "unregisterTestingFramework": {
           "type": "function"
         },
+        "triggerVelocityStartupFunctions": {
+          "type": "function"
+        },
         "onTest": {
           "type": "function"
         },
@@ -8421,30 +9220,6 @@ var packageMetadata = {
         },
         "getOption": {
           "type": "function"
-        },
-        "mirrorMeteorReleaseName": {
-          "type": "constant",
-          "value": "velocity:METEOR"
-        },
-        "mirrorMeteorVersion": {
-          "type": "constant",
-          "value": "1.1.0.3_2"
-        },
-        "mirrorMeteorRelease": {
-          "type": "constant",
-          "value": "velocity:METEOR@1.1.0.3_2"
-        },
-        "mirrorMeteorToolReleaseName": {
-          "type": "constant",
-          "value": "velocity:meteor-tool"
-        },
-        "mirrorMeteorToolVersion": {
-          "type": "constant",
-          "value": "1.1.4_2"
-        },
-        "mirrorMeteorToolRelease": {
-          "type": "constant",
-          "value": "velocity:meteor-tool@1.1.4_2"
         }
       }
     },
@@ -8695,36 +9470,6 @@ var packageMetadata = {
     }
   },
   "velocity:shim": {},
-  "velocity:console-reporter": {
-    "ConsoleReporter": {
-      "type": "function",
-      "members": {
-        "prototype": {
-          "type": "object",
-          "members": {
-            "reportSummary": {
-              "type": "function"
-            },
-            "reportPassed": {
-              "type": "function"
-            },
-            "reportFailed": {
-              "type": "function"
-            },
-            "reportOneFailed": {
-              "type": "function"
-            },
-            "totalTime": {
-              "type": "function"
-            },
-            "formatTime": {
-              "type": "function"
-            }
-          }
-        }
-      }
-    }
-  },
   "velocity:meteor-stubs": {
     "MeteorStubs": {
       "type": "object",
@@ -8765,15 +9510,15 @@ var packageMetadata = {
                 },
                 "appPath": {
                   "type": "constant",
-                  "value": "/home/pili/workspace/spacecadet/spacecadet.io"
+                  "value": "/home/marvin/workspace/beta.spacecadet.io"
                 },
                 "pid": {
                   "type": "constant",
-                  "value": 13287
+                  "value": 12170
                 },
                 "fout": {
                   "type": "constant",
-                  "value": 29
+                  "value": 32
                 },
                 "child": {
                   "type": "object",
@@ -8792,7 +9537,7 @@ var packageMetadata = {
                     },
                     "pid": {
                       "type": "constant",
-                      "value": 13287
+                      "value": 12170
                     },
                     "stdin": {
                       "type": "null",
@@ -8916,254 +9661,8 @@ var packageMetadata = {
       }
     }
   },
-  "npm-bcrypt": {
-    "NpmModuleBcrypt": {
-      "type": "object",
-      "members": {
-        "genSaltSync": {
-          "type": "function"
-        },
-        "genSalt": {
-          "type": "function"
-        },
-        "hashSync": {
-          "type": "function"
-        },
-        "hash": {
-          "type": "function"
-        },
-        "compareSync": {
-          "type": "function"
-        },
-        "compare": {
-          "type": "function"
-        },
-        "getRounds": {
-          "type": "function"
-        }
-      }
-    }
-  },
-  "accounts-base": {
-    "Accounts": {
-      "type": "object",
-      "members": {
-        "config": {
-          "type": "function"
-        },
-        "LoginCancelledError": {
-          "type": "function",
-          "members": {
-            "numericError": {
-              "type": "constant",
-              "value": 145546287
-            }
-          }
-        },
-        "onLogin": {
-          "type": "function"
-        },
-        "onLoginFailure": {
-          "type": "function"
-        },
-        "validateLoginAttempt": {
-          "type": "function"
-        },
-        "registerLoginHandler": {
-          "type": "function"
-        },
-        "destroyToken": {
-          "type": "function"
-        },
-        "onCreateUser": {
-          "type": "function"
-        },
-        "insertUserDoc": {
-          "type": "function"
-        },
-        "validateNewUser": {
-          "type": "function"
-        },
-        "updateOrCreateUserFromExternalService": {
-          "type": "function"
-        },
-        "addAutopublishFields": {
-          "type": "function"
-        },
-        "urls": {
-          "type": "object",
-          "members": {
-            "resetPassword": {
-              "type": "function"
-            },
-            "verifyEmail": {
-              "type": "function"
-            },
-            "enrollAccount": {
-              "type": "function"
-            }
-          }
-        },
-        "emailTemplates": {
-          "type": "object",
-          "members": {
-            "from": {
-              "type": "constant",
-              "value": "Meteor Accounts <no-reply@meteor.com>"
-            },
-            "siteName": {
-              "type": "constant",
-              "value": "localhost:3000"
-            },
-            "resetPassword": {
-              "type": "object",
-              "members": {
-                "subject": {
-                  "type": "function"
-                },
-                "text": {
-                  "type": "function"
-                }
-              }
-            },
-            "verifyEmail": {
-              "type": "object",
-              "members": {
-                "subject": {
-                  "type": "function"
-                },
-                "text": {
-                  "type": "function"
-                }
-              }
-            },
-            "enrollAccount": {
-              "type": "object",
-              "members": {
-                "subject": {
-                  "type": "function"
-                },
-                "text": {
-                  "type": "function"
-                }
-              }
-            }
-          }
-        },
-        "setPassword": {
-          "type": "function"
-        },
-        "sendResetPasswordEmail": {
-          "type": "function"
-        },
-        "sendEnrollmentEmail": {
-          "type": "function"
-        },
-        "sendVerificationEmail": {
-          "type": "function"
-        },
-        "createUser": {
-          "type": "function"
-        },
-        "loginServiceConfiguration": {
-          "type": "object",
-          "members": {
-            "find": {
-              "type": "function"
-            },
-            "findOne": {
-              "type": "function"
-            },
-            "insert": {
-              "type": "function"
-            },
-            "update": {
-              "type": "function"
-            },
-            "remove": {
-              "type": "function"
-            },
-            "upsert": {
-              "type": "function"
-            },
-            "rawCollection": {
-              "type": "function"
-            },
-            "rawDatabase": {
-              "type": "function"
-            },
-            "allow": {
-              "type": "function"
-            },
-            "deny": {
-              "type": "function"
-            }
-          }
-        },
-        "ConfigError": {
-          "type": "function"
-        }
-      }
-    },
-    "AccountsTest": {
-      "type": "undefined"
-    }
-  },
-  "sha": {
-    "SHA256": {
-      "type": "function"
-    }
-  },
-  "srp": {
-    "SRP": {
-      "type": "object",
-      "members": {
-        "generateVerifier": {
-          "type": "function"
-        },
-        "matchVerifier": {
-          "type": "object",
-          "members": {
-            "identity": {
-              "type": "function",
-              "refID": 4
-            },
-            "salt": {
-              "ref": 4
-            },
-            "verifier": {
-              "ref": 4
-            }
-          }
-        }
-      }
-    }
-  },
-  "email": {
-    "Email": {
-      "type": "object",
-      "members": {
-        "send": {
-          "type": "function"
-        }
-      }
-    },
-    "EmailTest": {
-      "type": "object",
-      "members": {
-        "overrideOutputStream": {
-          "type": "function"
-        },
-        "restoreOutputStream": {
-          "type": "function"
-        },
-        "hookSend": {
-          "type": "function"
-        }
-      }
-    }
-  },
-  "accounts-password": {},
+  "velocity:html-reporter": {},
+  "templating": {},
   "iron:core": {
     "Iron": {
       "type": "object",
@@ -9826,6 +10325,15 @@ var packageMetadata = {
             },
             "equals": {
               "type": "function"
+            },
+            "all": {
+              "type": "function"
+            },
+            "clear": {
+              "type": "function"
+            },
+            "delete": {
+              "type": "function"
             }
           }
         }
@@ -9995,6 +10503,422 @@ var packageMetadata = {
     }
   },
   "sacha:spin": {},
+  "accounts-base": {
+    "Accounts": {
+      "type": "object",
+      "members": {
+        "connection": {
+          "type": "undefined"
+        },
+        "users": {
+          "type": "object",
+          "members": {
+            "find": {
+              "type": "function",
+              "refID": 2
+            },
+            "findOne": {
+              "type": "function",
+              "refID": 4
+            },
+            "insert": {
+              "type": "function",
+              "refID": 6
+            },
+            "update": {
+              "type": "function",
+              "refID": 8
+            },
+            "remove": {
+              "type": "function",
+              "refID": 10
+            },
+            "upsert": {
+              "type": "function",
+              "refID": 12
+            },
+            "rawCollection": {
+              "type": "function",
+              "refID": 14
+            },
+            "rawDatabase": {
+              "type": "function",
+              "refID": 16
+            },
+            "allow": {
+              "type": "function",
+              "refID": 18
+            },
+            "deny": {
+              "type": "function",
+              "refID": 20
+            }
+          }
+        },
+        "expireTokenInterval": {
+          "type": "object",
+          "members": {
+            "unref": {
+              "type": "function"
+            },
+            "ref": {
+              "type": "function"
+            },
+            "close": {
+              "type": "function"
+            }
+          }
+        },
+        "emailTemplates": {
+          "type": "object",
+          "members": {
+            "from": {
+              "type": "constant",
+              "value": "Meteor Accounts <no-reply@meteor.com>"
+            },
+            "siteName": {
+              "type": "constant",
+              "value": "localhost:3000"
+            },
+            "resetPassword": {
+              "type": "object",
+              "members": {
+                "subject": {
+                  "type": "function"
+                },
+                "text": {
+                  "type": "function"
+                }
+              }
+            },
+            "verifyEmail": {
+              "type": "object",
+              "members": {
+                "subject": {
+                  "type": "function"
+                },
+                "text": {
+                  "type": "function"
+                }
+              }
+            },
+            "enrollAccount": {
+              "type": "object",
+              "members": {
+                "subject": {
+                  "type": "function"
+                },
+                "text": {
+                  "type": "function"
+                }
+              }
+            }
+          }
+        },
+        "findUserByUsername": {
+          "type": "function"
+        },
+        "findUserByEmail": {
+          "type": "function"
+        },
+        "setUsername": {
+          "type": "function"
+        },
+        "setPassword": {
+          "type": "function"
+        },
+        "sendResetPasswordEmail": {
+          "type": "function"
+        },
+        "sendEnrollmentEmail": {
+          "type": "function"
+        },
+        "sendVerificationEmail": {
+          "type": "function"
+        },
+        "addEmail": {
+          "type": "function"
+        },
+        "removeEmail": {
+          "type": "function"
+        },
+        "createUser": {
+          "type": "function"
+        },
+        "userId": {
+          "type": "function"
+        },
+        "validateLoginAttempt": {
+          "type": "function"
+        },
+        "validateNewUser": {
+          "type": "function"
+        },
+        "onCreateUser": {
+          "type": "function"
+        },
+        "registerLoginHandler": {
+          "type": "function"
+        },
+        "destroyToken": {
+          "type": "function"
+        },
+        "addAutopublishFields": {
+          "type": "function"
+        },
+        "config": {
+          "type": "function"
+        },
+        "insertUserDoc": {
+          "type": "function"
+        },
+        "updateOrCreateUserFromExternalService": {
+          "type": "function"
+        },
+        "urls": {
+          "type": "object",
+          "members": {
+            "resetPassword": {
+              "type": "function"
+            },
+            "verifyEmail": {
+              "type": "function"
+            },
+            "enrollAccount": {
+              "type": "function"
+            }
+          }
+        },
+        "user": {
+          "type": "function"
+        },
+        "onLogin": {
+          "type": "function"
+        },
+        "onLoginFailure": {
+          "type": "function"
+        },
+        "LoginCancelledError": {
+          "type": "function",
+          "refID": 98,
+          "members": {
+            "captureStackTrace": {
+              "type": "function"
+            },
+            "stackTraceLimit": {
+              "type": "infinity",
+              "value": "infinity"
+            },
+            "prepareStackTrace": {
+              "type": "function"
+            },
+            "numericError": {
+              "type": "constant",
+              "value": 145546287
+            },
+            "prototype": {
+              "type": "object",
+              "members": {
+                "constructor": {
+                  "ref": 98
+                },
+                "name": {
+                  "type": "constant",
+                  "value": "Accounts.LoginCancelledError"
+                }
+              }
+            }
+          }
+        },
+        "removeDefaultRateLimit": {
+          "type": "function"
+        },
+        "addDefaultRateLimit": {
+          "type": "function"
+        },
+        "loginServiceConfiguration": {
+          "type": "object",
+          "members": {
+            "find": {
+              "ref": 2
+            },
+            "findOne": {
+              "ref": 4
+            },
+            "insert": {
+              "ref": 6
+            },
+            "update": {
+              "ref": 8
+            },
+            "remove": {
+              "ref": 10
+            },
+            "upsert": {
+              "ref": 12
+            },
+            "rawCollection": {
+              "ref": 14
+            },
+            "rawDatabase": {
+              "ref": 16
+            },
+            "allow": {
+              "ref": 18
+            },
+            "deny": {
+              "ref": 20
+            }
+          }
+        },
+        "ConfigError": {
+          "type": "function"
+        }
+      }
+    },
+    "AccountsServer": {
+      "type": "function",
+      "members": {
+        "prototype": {
+          "type": "object",
+          "members": {
+            "userId": {
+              "type": "function"
+            },
+            "validateLoginAttempt": {
+              "type": "function"
+            },
+            "validateNewUser": {
+              "type": "function"
+            },
+            "onCreateUser": {
+              "type": "function"
+            },
+            "registerLoginHandler": {
+              "type": "function"
+            },
+            "destroyToken": {
+              "type": "function"
+            },
+            "addAutopublishFields": {
+              "type": "function"
+            },
+            "config": {
+              "type": "function"
+            },
+            "insertUserDoc": {
+              "type": "function"
+            },
+            "updateOrCreateUserFromExternalService": {
+              "type": "function"
+            },
+            "urls": {
+              "type": "object",
+              "members": {
+                "resetPassword": {
+                  "type": "function"
+                },
+                "verifyEmail": {
+                  "type": "function"
+                },
+                "enrollAccount": {
+                  "type": "function"
+                }
+              }
+            },
+            "user": {
+              "type": "function"
+            },
+            "onLogin": {
+              "type": "function"
+            },
+            "onLoginFailure": {
+              "type": "function"
+            },
+            "LoginCancelledError": {
+              "type": "function",
+              "refID": 35,
+              "members": {
+                "captureStackTrace": {
+                  "type": "function"
+                },
+                "stackTraceLimit": {
+                  "type": "infinity",
+                  "value": "infinity"
+                },
+                "prepareStackTrace": {
+                  "type": "function"
+                },
+                "numericError": {
+                  "type": "constant",
+                  "value": 145546287
+                },
+                "prototype": {
+                  "type": "object",
+                  "members": {
+                    "constructor": {
+                      "ref": 35
+                    },
+                    "name": {
+                      "type": "constant",
+                      "value": "Accounts.LoginCancelledError"
+                    }
+                  }
+                }
+              }
+            },
+            "removeDefaultRateLimit": {
+              "type": "function"
+            },
+            "addDefaultRateLimit": {
+              "type": "function"
+            },
+            "loginServiceConfiguration": {
+              "type": "object",
+              "members": {
+                "find": {
+                  "type": "function"
+                },
+                "findOne": {
+                  "type": "function"
+                },
+                "insert": {
+                  "type": "function"
+                },
+                "update": {
+                  "type": "function"
+                },
+                "remove": {
+                  "type": "function"
+                },
+                "upsert": {
+                  "type": "function"
+                },
+                "rawCollection": {
+                  "type": "function"
+                },
+                "rawDatabase": {
+                  "type": "function"
+                },
+                "allow": {
+                  "type": "function"
+                },
+                "deny": {
+                  "type": "function"
+                }
+              }
+            },
+            "ConfigError": {
+              "type": "function"
+            }
+          }
+        }
+      }
+    },
+    "AccountsTest": {
+      "type": "undefined"
+    }
+  },
   "alanning:roles": {
     "Roles": {
       "type": "object",
@@ -10036,7 +10960,599 @@ var packageMetadata = {
       }
     }
   },
-  "session": {},
+  "npm-bcrypt": {
+    "NpmModuleBcrypt": {
+      "type": "object",
+      "members": {
+        "genSaltSync": {
+          "type": "function"
+        },
+        "genSalt": {
+          "type": "function"
+        },
+        "hashSync": {
+          "type": "function"
+        },
+        "hash": {
+          "type": "function"
+        },
+        "compareSync": {
+          "type": "function"
+        },
+        "compare": {
+          "type": "function"
+        },
+        "getRounds": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "sha": {
+    "SHA256": {
+      "type": "function"
+    }
+  },
+  "srp": {
+    "SRP": {
+      "type": "object",
+      "members": {
+        "generateVerifier": {
+          "type": "function"
+        },
+        "matchVerifier": {
+          "type": "object",
+          "members": {
+            "identity": {
+              "type": "function",
+              "refID": 4
+            },
+            "salt": {
+              "ref": 4
+            },
+            "verifier": {
+              "ref": 4
+            }
+          }
+        }
+      }
+    }
+  },
+  "email": {
+    "Email": {
+      "type": "object",
+      "members": {
+        "send": {
+          "type": "function"
+        }
+      }
+    },
+    "EmailInternals": {
+      "type": "object",
+      "members": {
+        "NpmModules": {
+          "type": "object",
+          "members": {
+            "mailcomposer": {
+              "type": "object",
+              "members": {
+                "version": {
+                  "type": "constant",
+                  "value": "0.1.15"
+                },
+                "module": {
+                  "type": "object",
+                  "members": {
+                    "MailComposer": {
+                      "type": "function",
+                      "members": {
+                        "super_": {
+                          "type": "function",
+                          "refID": 5,
+                          "members": {
+                            "super_": {
+                              "type": "function",
+                              "members": {
+                                "listenerCount": {
+                                  "type": "function"
+                                },
+                                "prototype": {
+                                  "type": "object",
+                                  "members": {
+                                    "setMaxListeners": {
+                                      "type": "function",
+                                      "refID": 10
+                                    },
+                                    "emit": {
+                                      "type": "function",
+                                      "refID": 12
+                                    },
+                                    "addListener": {
+                                      "type": "function",
+                                      "refID": 14
+                                    },
+                                    "on": {
+                                      "ref": 14
+                                    },
+                                    "once": {
+                                      "type": "function",
+                                      "refID": 16
+                                    },
+                                    "removeListener": {
+                                      "type": "function",
+                                      "refID": 18
+                                    },
+                                    "removeAllListeners": {
+                                      "type": "function",
+                                      "refID": 20
+                                    },
+                                    "listeners": {
+                                      "type": "function",
+                                      "refID": 22
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Readable": {
+                              "type": "function",
+                              "refID": 24,
+                              "members": {
+                                "ReadableState": {
+                                  "type": "function"
+                                },
+                                "super_": {
+                                  "ref": 5
+                                },
+                                "prototype": {
+                                  "type": "object",
+                                  "members": {
+                                    "push": {
+                                      "type": "function",
+                                      "refID": 28
+                                    },
+                                    "unshift": {
+                                      "type": "function",
+                                      "refID": 30
+                                    },
+                                    "setEncoding": {
+                                      "type": "function",
+                                      "refID": 32
+                                    },
+                                    "read": {
+                                      "type": "function",
+                                      "refID": 34
+                                    },
+                                    "pipe": {
+                                      "type": "function",
+                                      "refID": 36
+                                    },
+                                    "unpipe": {
+                                      "type": "function",
+                                      "refID": 38
+                                    },
+                                    "on": {
+                                      "type": "function",
+                                      "refID": 40
+                                    },
+                                    "addListener": {
+                                      "ref": 40
+                                    },
+                                    "resume": {
+                                      "type": "function",
+                                      "refID": 42
+                                    },
+                                    "pause": {
+                                      "type": "function",
+                                      "refID": 44
+                                    },
+                                    "wrap": {
+                                      "type": "function",
+                                      "refID": 46
+                                    },
+                                    "setMaxListeners": {
+                                      "ref": 10
+                                    },
+                                    "emit": {
+                                      "ref": 12
+                                    },
+                                    "once": {
+                                      "ref": 16
+                                    },
+                                    "removeListener": {
+                                      "ref": 18
+                                    },
+                                    "removeAllListeners": {
+                                      "ref": 20
+                                    },
+                                    "listeners": {
+                                      "ref": 22
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Writable": {
+                              "type": "function",
+                              "members": {
+                                "WritableState": {
+                                  "type": "function"
+                                },
+                                "super_": {
+                                  "ref": 5
+                                },
+                                "prototype": {
+                                  "type": "object",
+                                  "members": {
+                                    "pipe": {
+                                      "type": "function"
+                                    },
+                                    "write": {
+                                      "type": "function",
+                                      "refID": 54
+                                    },
+                                    "end": {
+                                      "type": "function",
+                                      "refID": 56
+                                    },
+                                    "setMaxListeners": {
+                                      "ref": 10
+                                    },
+                                    "emit": {
+                                      "ref": 12
+                                    },
+                                    "addListener": {
+                                      "ref": 14
+                                    },
+                                    "on": {
+                                      "ref": 14
+                                    },
+                                    "once": {
+                                      "ref": 16
+                                    },
+                                    "removeListener": {
+                                      "ref": 18
+                                    },
+                                    "removeAllListeners": {
+                                      "ref": 20
+                                    },
+                                    "listeners": {
+                                      "ref": 22
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Duplex": {
+                              "type": "function",
+                              "refID": 58,
+                              "members": {
+                                "super_": {
+                                  "ref": 24
+                                },
+                                "prototype": {
+                                  "type": "object",
+                                  "members": {
+                                    "write": {
+                                      "ref": 54
+                                    },
+                                    "end": {
+                                      "ref": 56
+                                    },
+                                    "push": {
+                                      "ref": 28
+                                    },
+                                    "unshift": {
+                                      "ref": 30
+                                    },
+                                    "setEncoding": {
+                                      "ref": 32
+                                    },
+                                    "read": {
+                                      "ref": 34
+                                    },
+                                    "pipe": {
+                                      "ref": 36
+                                    },
+                                    "unpipe": {
+                                      "ref": 38
+                                    },
+                                    "on": {
+                                      "ref": 40
+                                    },
+                                    "addListener": {
+                                      "ref": 40
+                                    },
+                                    "resume": {
+                                      "ref": 42
+                                    },
+                                    "pause": {
+                                      "ref": 44
+                                    },
+                                    "wrap": {
+                                      "ref": 46
+                                    },
+                                    "setMaxListeners": {
+                                      "ref": 10
+                                    },
+                                    "emit": {
+                                      "ref": 12
+                                    },
+                                    "once": {
+                                      "ref": 16
+                                    },
+                                    "removeListener": {
+                                      "ref": 18
+                                    },
+                                    "removeAllListeners": {
+                                      "ref": 20
+                                    },
+                                    "listeners": {
+                                      "ref": 22
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Transform": {
+                              "type": "function",
+                              "refID": 60,
+                              "members": {
+                                "super_": {
+                                  "ref": 58
+                                },
+                                "prototype": {
+                                  "type": "object",
+                                  "members": {
+                                    "push": {
+                                      "type": "function",
+                                      "refID": 62
+                                    },
+                                    "write": {
+                                      "ref": 54
+                                    },
+                                    "end": {
+                                      "ref": 56
+                                    },
+                                    "unshift": {
+                                      "ref": 30
+                                    },
+                                    "setEncoding": {
+                                      "ref": 32
+                                    },
+                                    "read": {
+                                      "ref": 34
+                                    },
+                                    "pipe": {
+                                      "ref": 36
+                                    },
+                                    "unpipe": {
+                                      "ref": 38
+                                    },
+                                    "on": {
+                                      "ref": 40
+                                    },
+                                    "addListener": {
+                                      "ref": 40
+                                    },
+                                    "resume": {
+                                      "ref": 42
+                                    },
+                                    "pause": {
+                                      "ref": 44
+                                    },
+                                    "wrap": {
+                                      "ref": 46
+                                    },
+                                    "setMaxListeners": {
+                                      "ref": 10
+                                    },
+                                    "emit": {
+                                      "ref": 12
+                                    },
+                                    "once": {
+                                      "ref": 16
+                                    },
+                                    "removeListener": {
+                                      "ref": 18
+                                    },
+                                    "removeAllListeners": {
+                                      "ref": 20
+                                    },
+                                    "listeners": {
+                                      "ref": 22
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "PassThrough": {
+                              "type": "function",
+                              "members": {
+                                "super_": {
+                                  "ref": 60
+                                },
+                                "prototype": {
+                                  "type": "object",
+                                  "members": {
+                                    "push": {
+                                      "ref": 62
+                                    },
+                                    "write": {
+                                      "ref": 54
+                                    },
+                                    "end": {
+                                      "ref": 56
+                                    },
+                                    "unshift": {
+                                      "ref": 30
+                                    },
+                                    "setEncoding": {
+                                      "ref": 32
+                                    },
+                                    "read": {
+                                      "ref": 34
+                                    },
+                                    "pipe": {
+                                      "ref": 36
+                                    },
+                                    "unpipe": {
+                                      "ref": 38
+                                    },
+                                    "on": {
+                                      "ref": 40
+                                    },
+                                    "addListener": {
+                                      "ref": 40
+                                    },
+                                    "resume": {
+                                      "ref": 42
+                                    },
+                                    "pause": {
+                                      "ref": 44
+                                    },
+                                    "wrap": {
+                                      "ref": 46
+                                    },
+                                    "setMaxListeners": {
+                                      "ref": 10
+                                    },
+                                    "emit": {
+                                      "ref": 12
+                                    },
+                                    "once": {
+                                      "ref": 16
+                                    },
+                                    "removeListener": {
+                                      "ref": 18
+                                    },
+                                    "removeAllListeners": {
+                                      "ref": 20
+                                    },
+                                    "listeners": {
+                                      "ref": 22
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Stream": {
+                              "ref": 5
+                            },
+                            "prototype": {
+                              "type": "object",
+                              "members": {
+                                "pipe": {
+                                  "type": "function",
+                                  "refID": 67
+                                },
+                                "setMaxListeners": {
+                                  "ref": 10
+                                },
+                                "emit": {
+                                  "ref": 12
+                                },
+                                "addListener": {
+                                  "ref": 14
+                                },
+                                "on": {
+                                  "ref": 14
+                                },
+                                "once": {
+                                  "ref": 16
+                                },
+                                "removeListener": {
+                                  "ref": 18
+                                },
+                                "removeAllListeners": {
+                                  "ref": 20
+                                },
+                                "listeners": {
+                                  "ref": 22
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "prototype": {
+                          "type": "object",
+                          "members": {
+                            "addHeader": {
+                              "type": "function"
+                            },
+                            "setMessageOption": {
+                              "type": "function"
+                            },
+                            "useDKIM": {
+                              "type": "function"
+                            },
+                            "addAttachment": {
+                              "type": "function"
+                            },
+                            "getEnvelope": {
+                              "type": "function"
+                            },
+                            "streamMessage": {
+                              "type": "function"
+                            },
+                            "compileHeaders": {
+                              "type": "function"
+                            },
+                            "pipe": {
+                              "ref": 67
+                            },
+                            "setMaxListeners": {
+                              "ref": 10
+                            },
+                            "emit": {
+                              "ref": 12
+                            },
+                            "addListener": {
+                              "ref": 14
+                            },
+                            "on": {
+                              "ref": 14
+                            },
+                            "once": {
+                              "ref": 16
+                            },
+                            "removeListener": {
+                              "ref": 18
+                            },
+                            "removeAllListeners": {
+                              "ref": 20
+                            },
+                            "listeners": {
+                              "ref": 22
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "EmailTest": {
+      "type": "object",
+      "members": {
+        "overrideOutputStream": {
+          "type": "function"
+        },
+        "restoreOutputStream": {
+          "type": "function"
+        },
+        "hookSend": {
+          "type": "function"
+        }
+      }
+    }
+  },
+  "accounts-password": {},
   "livedata": {
     "DDP": {
       "type": "object",
@@ -10106,6 +11622,36 @@ var packageMetadata = {
       "type": "undefined"
     }
   },
+  "hot-code-push": {},
+  "launch-screen": {
+    "LaunchScreen": {
+      "type": "undefined"
+    }
+  },
+  "autoupdate": {
+    "Autoupdate": {
+      "type": "object",
+      "members": {
+        "autoupdateVersion": {
+          "type": "constant",
+          "value": "2236b1d1ae78e3eee6e714251d4f5f2485090630"
+        },
+        "autoupdateVersionRefreshable": {
+          "type": "constant",
+          "value": "ad582c9ae1f3311dedd8ea853a59690159c46fd1"
+        },
+        "autoupdateVersionCordova": {
+          "type": "constant",
+          "value": "none"
+        },
+        "appId": {
+          "type": "constant",
+          "value": "z42wrc1yywrpj1ukor9l"
+        }
+      }
+    }
+  },
+  "reload": {},
   "service-configuration": {
     "ServiceConfiguration": {
       "type": "object",
