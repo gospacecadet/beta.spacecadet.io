@@ -21,3 +21,5 @@ mrgalaxy:stripe
 accounts-password
 underscore
 ian:accounts-ui-bootstrap-3
+iron:router
+sacha:spin

@@ -1,0 +1,17 @@
+<template name="adminSettings">
+  {{#each adminSettings}}
+    {{> adminSetting}}
+  {{/each}}
+</template>
+
+<template name="adminSetting">
+<h2>{{key}}</h2>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="{{key}}">{{key}}</label>
+    <input type=text class="form-control" id="{{key}}" name="adminSettingKey" value="{{value}}" >
+  </div>
+
+  <input type=submit value="Update Setting" class="btn btn-primary btn-lg">
+</form>
+</template>
