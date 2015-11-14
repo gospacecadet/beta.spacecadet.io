@@ -1,0 +1,18 @@
+<template name="paymentProcessors">
+  {{#each paymentProcessors}}
+    {{> paymentProcessor}}
+  {{/each}}
+</template>
+
+<template name="paymentProcessor">
+  <h3>{{processorName}}</h3>
+
+  <h4>{{businessName}}</h4>"business_name": "SpaceCadet Fleet, Inc",
+  <h4>{{businessURL}}</h4>"business_url": "spacecadet.io",
+  <p>Accont Verified: {{accountVerified}}</p>//verification
+
+  <p>Charges Enabled: {{chargesEnabled}}</p>"charges_enabled": true,
+
+  <p>Transfers Enabled: {{transfersEnabled}}</p>// transfers enabled
+  <p>Transfer Schedule: {{transferSchedule}}</p>//transfer schedule manual
+</template>

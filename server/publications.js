@@ -4,3 +4,10 @@ Meteor.publish("adminSettings", function() {
   }
   this.ready();
 });
+
+Meteor.publish("paymentProcessors", function() {
+  if(this.userId) {
+    return PaymentProcessors.find({});
+  }
+  this.ready();
+});
