@@ -3,9 +3,8 @@ Template.stripe.events({
     event.preventDefault();
 
     var stripeAPIKey = $(event.target).find('[name=stripeAPIKey]').val();
-    console.log(stripeAPIKey);
-    var adminSetting = { key: "stripeAPIKey", value: stripeAPIKey };
+    var adminSetting = AdminSettings.findOne({"key": "stripeAPIKey"});
 
-    AdminSettings.insert(adminSetting);
+    AdminSettings.update(adminSetting._id, { $set: {value: stripeAPIKey} });
   }
 });
