@@ -11,3 +11,7 @@ Meteor.publish("paymentProcessors", function() {
   }
   this.ready();
 });
+
+Meteor.publish("stations", function() {
+  return Stations.find({isActive: true});
+});
