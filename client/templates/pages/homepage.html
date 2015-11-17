@@ -1,19 +1,8 @@
 <template name="homepage">
-<div class="container">
-  <div class="row">
-    <h1>SpaceCadet</h1>
-    {{> loginButtons}}
-    {{> adminSettings}}
-    {{> paymentProcessors}}
-    {{#autoForm collection="Stations" id="insertStationForm" type="insert"}}
-        <fieldset>
-          <legend>Add a Station</legend>
-          {{> afQuickField name='name'}}
-          {{> afQuickField name='description'}}
-          {{> afQuickField name='isActive'}}
-        </fieldset>
-        <button type="submit" class="btn btn-primary">Insert</button>
-      {{/autoForm}}
-  </div>
-</div>
+<h1>SpaceCadet</h1>
+{{> loginButtons}}
+{{> adminSettings}}
+{{> paymentProcessors}}
+{{> newStation}}
+{{> stations}}
 </template>
