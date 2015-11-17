@@ -2,5 +2,6 @@
 <h1>Stations</h1>
 {{#each stations}}
   <a href="{{pathFor 'station'}}" class="discuss btn btn-default">{{name}}</a>
+  {{> newLandingPad}}
 {{/each}}
 </template>

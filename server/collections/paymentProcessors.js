@@ -1,3 +1,5 @@
+PaymentProcessors.permit(['insert', 'update', 'remove']).never().apply();
+
 Meteor.methods({
   updatePaymentProcessors: function() {
     var stripeAPIKey = AdminSettings.findOne({"key": "stripeAPIKey"})

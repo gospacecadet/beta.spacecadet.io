@@ -13,5 +13,8 @@ Meteor.publish("paymentProcessors", function() {
 });
 
 Meteor.publish("stations", function() {
-  return Stations.find({isActive: true});
+  return Stations.find({
+    isActive: true,
+    isDeleted: false
+  });
 });
