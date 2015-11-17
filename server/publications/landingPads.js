@@ -5,3 +5,18 @@ Meteor.publish("landingPads", function(stationId) {
     stationId: stationId
   });
 });
+
+Meteor.publish("allLandingPads", function() {
+  return LandingPads.find({
+    isActive: true,
+    isDeleted: false
+  });
+});
+
+Meteor.publish("aLandingPad", function(landingPadId) {
+  return LandingPads.find({
+    isActive: true,
+    isDeleted: false,
+    _id: landingPadId
+  });
+});
