@@ -1,8 +1,8 @@
-Security.defineMethod("ifBelongsToCurrentUser", {
+Security.defineMethod("ifStationBelongsToCurrentUser", {
   fetch: [],
   transform: null,
   deny: function (type, arg, userId, doc) {
-    var station = Stations.findOne(doc.stationId)
+    var station = Stations.findOne({_id: doc.stationId, isActive: true, isDeleted: false})
 
     if(station) {
       return userId !== station.ownerId
@@ -12,4 +12,6 @@ Security.defineMethod("ifBelongsToCurrentUser", {
 });
 
 LandingPads.permit(['insert', 'update', 'remove']).never().apply();
-LandingPads.permit(['insert', 'update']).ifBelongsToCurrentUser().apply();
+LandingPads.permit(['insert', 'update'])
+  .ifStationBelongsToCurrentUser()
+  .apply();

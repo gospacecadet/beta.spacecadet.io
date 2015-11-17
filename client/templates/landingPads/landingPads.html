@@ -1,6 +1,18 @@
 <template name="landingPads">
 {{#each landingPads}}
+  {{> landingPad}}
+{{/each}}
+</template>
+
+<template name="landingPad">
   <h2>{{name}}</h2>
   <h3>{{description}}</h3>
-{{/each}}
+  {{#autoForm collection="LineItems" id="inserLineItemForm" type="insert"}}
+    <fieldset>
+      {{> afQuickField name='quantity'}}
+      {{> afQuickField name='cartId' type='hidden' value=cartId}}
+      {{> afQuickField name='landingPadId' type='hidden' value=_id}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Make a booking</button>
+  {{/autoForm}}
 </template>
