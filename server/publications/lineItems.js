@@ -10,9 +10,13 @@ Meteor.publish("lineItems", function() {
 
   var lineItems = lineItemsCursor.fetch();
 
-  _.each(lineItems, function(lineItem, i, list) {
-    cursors.push(LandingPads.find({_id: lineItem.landingPadId}))
+  var landingPadIds = _.map(lineItems, function(element, index, list) {
+    return element.landingPadId;
   });
+
+  cursors.push(LandingPads.find({
+    _id: {$in: landingPadIds}
+  }))
 
   return cursors;
 });
