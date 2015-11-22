@@ -21,8 +21,10 @@ mrgalaxy:stripe
 accounts-password
 underscore
 ian:accounts-ui-bootstrap-3
-iron:router
 sacha:spin
 aldeed:autoform
 aldeed:collection2
 ongoworks:security
+velocity:html-reporter
+sanjo:jasmine
+kadira:flow-router
