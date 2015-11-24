@@ -16,15 +16,4 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-twbs:bootstrap
-mrgalaxy:stripe
-accounts-password
-underscore
-ian:accounts-ui-bootstrap-3
-sacha:spin
-aldeed:autoform
-aldeed:collection2
-ongoworks:security
-velocity:html-reporter
-sanjo:jasmine
 kadira:flow-router
