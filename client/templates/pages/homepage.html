@@ -1,3 +1,14 @@
 <template name="homepage">
   <h1>Hello SpaceCadet</h1>
+  {{> paymentProcessor}}
+</template>
+
+<template name="paymentProcessor">
+  <h3>{{processorName}}</h3>
+
+  <h4>{{businessName}}</h4>
+  <h4>{{businessURL}}</h4>
+  <p>Details Submitted: {{detailsSubmitted}}</p>
+  <p>Charges Enabled: {{chargesEnabled}}</p>
+  <p>Transfers Enabled: {{transfersEnabled}}</p>
 </template>
