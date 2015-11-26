@@ -1,5 +1,8 @@
 <template name="mainLayout">
-  <header><h1>SpaceCadet</h1></header>
+  <header>
+    <h1>SpaceCadet</h1>
+    {{> loginButtons align="right"}}
+  </header>
   <main>
     {{>Template.dynamic template=content}}
   </main>

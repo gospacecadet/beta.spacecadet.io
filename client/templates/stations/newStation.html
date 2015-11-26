@@ -1,0 +1,11 @@
+<template name="newStation">
+{{#autoForm collection="Mart.Merchants" id="insertStationForm" type="insert"}}
+  <fieldset>
+    <legend>Add a Station</legend>
+    {{> afQuickField name='name'}}
+    {{> afQuickField name='description'}}
+    {{> afQuickField name='isActive'}}
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Insert</button>
+{{/autoForm}}
+</template>
