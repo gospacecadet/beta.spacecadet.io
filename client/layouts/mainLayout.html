@@ -1,10 +1,19 @@
 <template name="mainLayout">
   <header>
-    <h1>SpaceCadet</h1>
-    {{> loginButtons align="right"}}
+    <div class="container-fluid">
+      <h1>SpaceCadet</h1>
+      {{> loginButtons align="right"}}
+      <a href="{{newStationPath}}">Create a new Station</a>
+    </div>
   </header>
   <main>
-    {{>Template.dynamic template=content}}
+    <div class="container">
+      {{>Template.dynamic template=content}}
+    </div>
   </main>
-  <footer>We love Meteor</footer>
+  <footer>
+    <div class="container-fluid">
+      We love Meteor
+    </div>
+  </footer>
 </template>
