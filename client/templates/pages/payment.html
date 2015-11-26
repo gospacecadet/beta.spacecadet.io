@@ -1,0 +1,11 @@
+<template name="payment">
+{{#each contracts}}
+  <h3>{{processorName}} - {{name}}</h3>
+
+  <h4>{{businessName}}</h4>
+  <h4>{{businessURL}}</h4>
+  <p>Details submitted: {{detailsSubmitted}}</p>
+  <p>Charges enabled: {{chargesEnabled}}</p>
+  <p>Transfers enabled: {{transfersEnabled}}</p>
+{{/each}}
+</template>
