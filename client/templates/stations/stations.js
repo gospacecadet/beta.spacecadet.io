@@ -1,13 +1,13 @@
 Template.stations.onCreated(function() {
   var self = this;
   self.autorun(function() {
-    self.subscribe('mart/merchants')
+    self.subscribe('mart/storefronts')
   })
 })
 
 Template.stations.helpers({
   stations: function() {
-    return Mart.Merchants.find({})
+    return Mart.Storefronts.find({})
   },
   pathForStation: function() {
     var station = this;
