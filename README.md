@@ -1,7 +1,7 @@
 SpaceCadet
 ==========
 
-This is the primary repository for [SpaceCadet](https://spacecadet.io). This also serves as the initial proof of concept app for the Meteor plugin [Mart](https://github.com/marvinmarnold/meteor-mart).
+This is the primary repository for [SpaceCadet](https://spacecadet.io). This also serves as the initial proof of concept app for the Meteor plugin [Mart](https://github.com/marvinmarnold/mart).
 
 **WARNING: This is a very early work in progress**
 
@@ -38,3 +38,8 @@ Usage
 -----
 
 Run `meteor --settings settings.json`
+
+Deploy
+------
+
+modulus env set METEOR_SETTINGS "$(cat settings.json)"
