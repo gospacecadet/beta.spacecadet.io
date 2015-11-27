@@ -4,7 +4,12 @@ Template.station.onCreated(function() {
     var stationId = FlowRouter.getParam('stationId')
     // Meteor.subscribe('mart/stations')
     Meteor.subscribe("mart/storefront", stationId);
-    console.log("subscribed");
+  });
+
+  self.autorun(function() {
+    var stationId = FlowRouter.getParam('stationId')
+    // Meteor.subscribe('mart/stations')
+    Meteor.subscribe("mart/products", stationId);
   });
 })
 
@@ -12,7 +17,9 @@ Template.station.helpers({
   station: function() {
     var stationId = FlowRouter.getParam('stationId')
     var station = Mart.Storefronts.findOne(stationId)
-    console.log(stationId)
     return station
+  },
+  landingPads: function() {
+    return Mart.Products.find()
   }
 });

@@ -1,5 +1,9 @@
 <template name="station">
 {{#with station}}
   <h2>{{name}}</h2>
+  {{> newLandingPad}}
+  {{#each landingPads}}
+    {{> landingPad}}
+  {{/each}}
 {{/with}}
 </template>
