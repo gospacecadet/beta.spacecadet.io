@@ -1,11 +1,15 @@
 Handlebars.registerHelper('newStationPath', function () {
-  return flowRouterPath()
+  return flowRouterPath("newStation")
 });
 
-flowRouterPath = function() {
-  return FlowRouter.path("newStation")
+flowRouterPath = function(templateName) {
+  return FlowRouter.path(templateName)
 }
 
 homepagePath = function() {
   return FlowRouter.path("homepage")
 }
+
+Handlebars.registerHelper('checkoutPath', function () {
+  return flowRouterPath("reserveDocking")
+});

@@ -1,0 +1,8 @@
+<template name="reserveDocking">
+  <h2>Cart</h2>
+  {{#each lineItems}}
+    <p>
+      <strong>{{stationName}}</strong> @{{landingPadName}} X{{quantity}}
+    </p>
+  {{/each}}
+</template>

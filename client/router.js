@@ -5,6 +5,12 @@ FlowRouter.route('/', {
   }
 });
 
+FlowRouter.route('/reserve-docking', {
+  name: "reserveDocking",
+  action: function() {
+    BlazeLayout.render("mainLayout", {content: "reserveDocking"});
+  }
+});
 
 FlowRouter.route('/admin/payment', {
   name: "payment",
