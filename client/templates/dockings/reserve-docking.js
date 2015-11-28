@@ -20,9 +20,15 @@ Template.reserveDocking.helpers({
 var hooksObject = {
   // Called when any submit operation succeeds
   onSuccess: function(formType, result) {
-
+    console.log(formType);
+    console.log(result);
+    FlowRouter.redirect(dockingPath(this.docId))
   },
   // Called when any submit operation fails
   onError: function(formType, error) {},
 };
 AutoForm.addHooks(['updateCartForm'], hooksObject);
+
+var dockingPath = function(dockingId) {
+  return FlowRouter.path("docking", {dockingId: dockingId})
+}

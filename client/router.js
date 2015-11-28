@@ -12,7 +12,7 @@ FlowRouter.route('/reserve-docking', {
   }
 });
 
-FlowRouter.route('/docking/:dockingId', {
+FlowRouter.route('/dockings/:dockingId', {
   name: "docking",
   action: function() {
     BlazeLayout.render("mainLayout", {content: "docking"});
