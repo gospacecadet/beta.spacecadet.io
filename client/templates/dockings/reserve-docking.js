@@ -16,3 +16,13 @@ Template.reserveDocking.helpers({
     return flowRouterPath("homepage")
   }
 });
+
+var hooksObject = {
+  // Called when any submit operation succeeds
+  onSuccess: function(formType, result) {
+
+  },
+  // Called when any submit operation fails
+  onError: function(formType, error) {},
+};
+AutoForm.addHooks(['updateCartForm'], hooksObject);

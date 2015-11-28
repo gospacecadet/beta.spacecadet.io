@@ -8,14 +8,16 @@
   {{/each}}
   <h3>Subtotal: {{cartSubtotal}}</h3>
 
-  {{#autoForm collection="Mart.Carts" id="updateCartForm" type="update"}}
-    <fieldset>
-      <legend>Checkout</legend>
-      {{> afQuickField name='contactName'}}
-      {{> afQuickField name='contactEmail'}}
-      {{> afQuickField name='contactPhone'}}
-      {{> afQuickField name='contactEntity'}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Checkout now</button>
-  {{/autoForm}}
+  {{#with cart}}
+    {{#autoForm collection="Mart.Carts" id="updateCartForm" type="update" doc=this}}
+      <fieldset>
+        <legend>Checkout</legend>
+        {{> afQuickField name='contactName'}}
+        {{> afQuickField name='contactEmail'}}
+        {{> afQuickField name='contactPhone'}}
+        {{> afQuickField name='contactEntity'}}
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Checkout now</button>
+    {{/autoForm}}
+  {{/with}}
 </template>

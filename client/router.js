@@ -12,6 +12,13 @@ FlowRouter.route('/reserve-docking', {
   }
 });
 
+FlowRouter.route('/docking/:dockingId', {
+  name: "docking",
+  action: function() {
+    BlazeLayout.render("mainLayout", {content: "docking"});
+  }
+});
+
 FlowRouter.route('/admin/payment', {
   name: "payment",
   action: function() {
