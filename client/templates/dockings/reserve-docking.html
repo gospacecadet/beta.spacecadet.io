@@ -2,7 +2,7 @@
   <h2>Cart</h2>
   {{#each lineItems}}
     <p>
-      <strong>{{storefrontName}}</strong> @{{productName}} X{{quantity}}
+      <strong><a href="{{stationPath stationId}}">{{storefrontName}}</a></strong> @{{productName}} X{{quantity}}
       <button class="removeBooking btn btn-danger btn-sm">Remove Booking</button>
     </p>
   {{/each}}

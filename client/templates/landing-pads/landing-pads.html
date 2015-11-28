@@ -5,7 +5,7 @@
 </template>
 
 <template name="landingPad">
-  <h2>{{name}}</h2>
+  <h2>{{name}} ({{unitPrice}})</h2>
   <h3>{{description}}</h3>
   {{#autoForm collection="Mart.LineItems" id="inserLineItemForm" type="insert"}}
     <fieldset>
