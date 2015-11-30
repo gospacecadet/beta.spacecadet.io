@@ -20,8 +20,15 @@
       {{> afQuickField name='contactEmail'}}
       {{> afQuickField name='contactPhone'}}
       {{> afQuickField name='contactEntity'}}
+      {{> afQuickField name='cardId' type='hidden' id="updateCartFormCardId"}}
+      {{> afQuickField name='state' type='hidden' value=awaitingPaymentState}}
     </fieldset>
     <button type="submit" class="btn btn-primary">Checkout now</button>
+    {{#if afFieldIsInvalid name='cardId'}}
+      <p>
+        Must select a credit card
+      </p>
+    {{/if}}
   {{/autoForm}}
 {{/with}}
 </template>

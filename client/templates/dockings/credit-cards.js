@@ -1,5 +1,6 @@
 Template.creditCards.onCreated(function() {
   Meteor.subscribe("mart/cards");
+  Session.set("addingCreditCard", false);
 
   var hooksObject = {
     // Called when any submit operation succeeds
@@ -13,6 +14,7 @@ Template.creditCards.onCreated(function() {
           console.log("ERROR: " + err.message)
           that.done(new Error("Could not create new card"));
         } else {
+          Session.set("addingCreditCard", false);
           that.done();
         }
       });
@@ -37,6 +39,20 @@ Template.creditCards.helpers({
   },
   expMonthOptions: function() {
     return _.map(makeList(0, 12), function(month) { return {lable: month, value: month}})
+  },
+  addingCreditCard: function() {
+    return Session.get('addingCreditCard')
+  }
+});
+
+Template.creditCards.events({
+  "click #add-credit-card": function(event, template) {
+    event.preventDefault();
+    Session.set("addingCreditCard", true);
+  },
+  "click #cancel-add-credit-card": function(event, template) {
+    event.preventDefault();
+    Session.set("addingCreditCard", false);
   }
 });
 
@@ -50,6 +66,12 @@ Template.creditCardRadio.helpers({
     " **" + this.last4 + ", " +
     this.expMonth + "/" + this.expYear
   },
+});
+
+Template.creditCardRadio.events({
+  "click .creditCardRadio": function(event, template) {
+    $('#updateCartFormCardId').val(template.data._id )
+  }
 });
 
 var makeList = function(start, end) {
