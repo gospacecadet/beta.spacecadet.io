@@ -4,7 +4,7 @@ Template.reserveDocking.events({
   }
 });
 
-Template.reserveDocking.helpers({
+Template.reserveDockingDetails.helpers({
   // Link to station for current LI or home if not found
   stationPath: function() {
     var product = Mart.Products.findOne(this.productId)
@@ -17,18 +17,21 @@ Template.reserveDocking.helpers({
   }
 });
 
-var hooksObject = {
-  // Called when any submit operation succeeds
-  onSuccess: function(formType, result) {
-    console.log(formType);
-    console.log(result);
-    FlowRouter.redirect(dockingPath(this.docId))
-  },
-  // Called when any submit operation fails
-  onError: function(formType, error) {},
-};
-AutoForm.addHooks(['updateCartForm'], hooksObject);
+Template.reserveDocking.onCreated(function() {
+  var hooksObject = {
+    // Called when any submit operation succeeds
+    onSuccess: function(formType, result) {
+      console.log(formType);
+      console.log(result);
+      FlowRouter.redirect(dockingPath(this.docId))
+    },
+    // Called when any submit operation fails
+    onError: function(formType, error) {},
+  };
 
-var dockingPath = function(dockingId) {
-  return FlowRouter.path("docking", {dockingId: dockingId})
-}
+  AutoForm.addHooks(['updateCartForm'], hooksObject);
+
+  var dockingPath = function(dockingId) {
+    return FlowRouter.path("docking", {dockingId: dockingId})
+  }
+})

@@ -7,7 +7,6 @@ Template.payment.onCreated(function() {
 
 Template.payment.helpers({
   gateways: function() {
-    // return []
     return Mart.Gateways.find({})
   }
 });

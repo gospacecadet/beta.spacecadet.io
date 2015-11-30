@@ -1,23 +1,38 @@
 <template name="reserveDocking">
-  <h2>Cart</h2>
-  {{#each lineItems}}
-    <p>
-      <strong><a href="{{stationPath stationId}}">{{storefrontName}}</a></strong> @{{productName}} X{{quantity}}
-      <button class="removeBooking btn btn-danger btn-sm">Remove Booking</button>
-    </p>
-  {{/each}}
-  <h3>Subtotal: {{cartSubtotal}}</h3>
+  <div class="row">
+    <div class="col-md-8">
+      {{> reserveDockingForm}}
+    </div>
+    <div class="col-md-4">
+      {{> reserveDockingDetails}}
+    </div>
+  </div>
+</template>
 
-  {{#with cart}}
-    {{#autoForm collection="Mart.Carts" id="updateCartForm" type="update" doc=this}}
-      <fieldset>
-        <legend>Checkout</legend>
-        {{> afQuickField name='contactName'}}
-        {{> afQuickField name='contactEmail'}}
-        {{> afQuickField name='contactPhone'}}
-        {{> afQuickField name='contactEntity'}}
-      </fieldset>
-      <button type="submit" class="btn btn-primary">Checkout now</button>
-    {{/autoForm}}
-  {{/with}}
+<template name="reserveDockingForm">
+<h3>Credit Card</h3>
+{{> creditCards}}
+{{#with cart}}
+  {{#autoForm collection="Mart.Carts" id="updateCartForm" type="update" doc=this}}
+    <fieldset>
+      <legend>Contact Details</legend>
+      {{> afQuickField name='contactName'}}
+      {{> afQuickField name='contactEmail'}}
+      {{> afQuickField name='contactPhone'}}
+      {{> afQuickField name='contactEntity'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Checkout now</button>
+  {{/autoForm}}
+{{/with}}
+</template>
+
+<template name="reserveDockingDetails">
+<h2>Cart</h2>
+{{#each lineItems}}
+  <p>
+    <strong><a href="{{stationPath stationId}}">{{storefrontName}}</a></strong> @{{productName}} X{{quantity}}
+    <button class="removeBooking btn btn-danger btn-sm">Remove Booking</button>
+  </p>
+{{/each}}
+<h3>Subtotal: {{cartSubtotal}}</h3>
 </template>
