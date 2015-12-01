@@ -43,3 +43,8 @@ Deploy
 ------
 
 modulus env set METEOR_SETTINGS "$(cat settings.json)"
+
+Development
+-----------
+
+Line count: cloc . --exclude-dir .meteor,packages
