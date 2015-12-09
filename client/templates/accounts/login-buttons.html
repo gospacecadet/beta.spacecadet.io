@@ -1,0 +1,10 @@
+<template name="loginButtons">
+  {{#if loggedIn}}
+    <button id="log-out-button" class='btn btn-danger'>Log out</button>
+    <p>
+      Logged in as: {{currentUsername}}
+    </p>
+  {{else}}
+    <button id="log-in-button" class='btn btn-danger'>Log in</button>
+  {{/if}}
+</template>
