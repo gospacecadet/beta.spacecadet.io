@@ -1,7 +1,10 @@
 <template name="station">
 {{#with station}}
   <h2>{{name}}</h2>
-  {{> newLandingPad}}
+  {{#if canEdit}}
+    {{> newLandingPad}}
+  {{/if}}
+
   {{#each landingPads}}
     {{> landingPad}}
   {{/each}}

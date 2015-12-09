@@ -21,5 +21,13 @@ Template.station.helpers({
   },
   landingPads: function() {
     return Mart.Products.find()
+  },
+  canEdit: function() {
+    // return true
+    return Roles.userIsInRole(Meteor.userId(), [
+      Mart.ROLES.GLOBAL.MERCHANT,
+      Mart.ROLES.GLOBAL.ADMIN,
+      Mart.ROLES.GLOBAL.REP
+    ], Mart.ROLES.GROUPS.GLOBAL)
   }
 });

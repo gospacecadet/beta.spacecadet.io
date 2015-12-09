@@ -26,3 +26,12 @@ Template.docking.helpers({
     return flowRouterPath("homepage")
   }
 });
+
+Meteor.startup(function () {
+  if(Meteor.userId()) {
+    Meteor.call('mart/cart/findCurrentOrCreate')
+    Meteor.subscribe("mart/carts", [Mart.Cart.STATES.SHOPPING]);
+  } else {
+    // TODO create a local cart
+  }
+});
