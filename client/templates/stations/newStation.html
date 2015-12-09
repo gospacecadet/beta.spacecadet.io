@@ -1,11 +1,16 @@
 <template name="newStation">
-{{#autoForm collection="Mart.Storefronts" id="insertStationForm" type="insert"}}
-  <fieldset>
-    <legend>Add a Station</legend>
-    {{> afQuickField name='name'}}
-    {{> afQuickField name='description'}}
-    {{> afQuickField name='isActive'}}
-  </fieldset>
-  <button type="submit" class="btn btn-primary">Insert</button>
-{{/autoForm}}
+{{#if isInRole 'mart-roles-golbal-merchant'}}
+  {{#autoForm collection="Mart.Storefronts" id="insertStationForm" type="insert"}}
+    <fieldset>
+      <legend>Add a Station</legend>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='description'}}
+      {{> afQuickField name='isPublished'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Insert</button>
+  {{/autoForm}}
+{{else}}
+  <p>You are not authorized to view this page.</p>
+  <p>Please <a href="/login">login</a> to view this page</p>
+{{/if}}
 </template>

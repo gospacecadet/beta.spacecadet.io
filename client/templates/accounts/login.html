@@ -1,0 +1,37 @@
+<template name="login">
+  {{#if signingIn}}
+    {{> signIn}}
+  {{else}}
+    {{> signUp}}
+  {{/if}}
+</template>
+
+<template name="signIn">
+{{#autoForm schema="Mart.Accounts.SignInSchema" id="signInForm"}}
+  <fieldset>
+    {{> afQuickField name='email' type='email'}}
+    {{> afQuickField name='password' type='password'}}
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Sign In</button> or
+  <button class="btn btn-link" id='sign-up-instead'>Sign Up Instead</button>
+{{/autoForm}}
+</template>
+
+<template name="signUp">
+  {{#autoForm schema="Mart.Accounts.ShopperSignUpSchema" id="signUpForm"}}
+    <fieldset>
+      {{> afQuickField name='email' type='email'}}
+      {{> afQuickField name='password' type='password'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Sign Up</button> or
+    <button class="btn btn-link" id='sign-in-instead'>Sign In Instead</button>
+  {{/autoForm}}
+</template>
+
+<template name="loginButtons">
+  {{#if loggedIn}}
+    <button id="log-out-button" class='btn btn-danger'>Log out</button>
+  {{else}}
+    <button id="log-in-button" class='btn btn-danger'>Log in</button>
+  {{/if}}
+</template>

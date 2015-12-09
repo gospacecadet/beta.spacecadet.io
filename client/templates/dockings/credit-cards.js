@@ -11,7 +11,6 @@ Template.creditCards.onCreated(function() {
       var that = this
       Mart.Card.createCard("Stripe", insertDoc, {}, function(err, cardId) {
         if (err) {
-          console.log("ERROR: " + err.message)
           that.done(new Error("Could not create new card"));
         } else {
           Session.set("addingCreditCard", false);

@@ -1,0 +1,12 @@
+<template name="authorizedLayout">
+  {{#if authInProcess}}
+    <p>loading ...</p>
+  {{else}}
+    {{#if canShow}}
+      {{>Template.dynamic template=content}}
+    {{else}}
+      <p>You are not authorized to view this page.</p>
+      {{> login}}
+    {{/if}}
+  {{/if}}
+</template>

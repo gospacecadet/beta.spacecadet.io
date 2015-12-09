@@ -14,6 +14,11 @@
 {{> creditCards}}
 {{#with cart}}
   {{#autoForm collection="Mart.Carts" id="updateCartForm" type="update" doc=this}}
+    {{#if afFieldIsInvalid name='cardId'}}
+      <p>
+        Must select a credit card
+      </p>
+    {{/if}}
     <fieldset>
       <legend>Contact Details</legend>
       {{> afQuickField name='contactName'}}
@@ -24,11 +29,6 @@
       {{> afQuickField name='state' type='hidden' value=awaitingPaymentState}}
     </fieldset>
     <button type="submit" class="btn btn-primary">Checkout now</button>
-    {{#if afFieldIsInvalid name='cardId'}}
-      <p>
-        Must select a credit card
-      </p>
-    {{/if}}
   {{/autoForm}}
 {{/with}}
 </template>

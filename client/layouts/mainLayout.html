@@ -5,14 +5,13 @@
       {{#if cartHasItems}}
         <a href="{{checkoutPath}}" class="btn btn-default">Checkout ({{cartSize}})</a>
       {{/if}}
-
-      {{> loginButtons align="right"}}
+      {{> loginButtons}}
       <a href="{{newStationPath}}" class="btn btn-default">Create a new Station</a>
     </div>
   </header>
   <main>
     <div class="container">
-      {{>Template.dynamic template=content}}
+      {{> authorizedLayout}}
     </div>
   </main>
   <footer>

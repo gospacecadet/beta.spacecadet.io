@@ -1,7 +1,5 @@
-// var hookObject = {
-//   onSuccess: function(formType, result) {
-//
-//   }
-// }
-//
-// AutoForm.addHooks(['insertStationForm'])
+Template.newStation.helpers({
+  canShow: function(){
+    console.log(Meteor.user().roles);
+  }
+});
