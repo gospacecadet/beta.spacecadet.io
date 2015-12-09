@@ -1,5 +1,5 @@
 <template name="newStation">
-{{#if isInRole 'mart-roles-golbal-merchant'}}
+{{#if canShow}}
   {{#autoForm collection="Mart.Storefronts" id="insertStationForm" type="insert"}}
     <fieldset>
       <legend>Add a Station</legend>
@@ -10,7 +10,7 @@
     <button type="submit" class="btn btn-primary">Insert</button>
   {{/autoForm}}
 {{else}}
-  <p>You are not authorized to view this page.</p>
+  <p>You are not authorized to view this page. (newStation)</p>
   <p>Please <a href="/login">login</a> to view this page</p>
 {{/if}}
 </template>
