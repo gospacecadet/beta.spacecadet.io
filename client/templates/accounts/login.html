@@ -1,8 +1,14 @@
 <template name="login">
   {{#if signingIn}}
     {{> signIn}}
-  {{else}}
+  {{/if}}
+
+  {{#if shopperSigningUp}}
     {{> signUp}}
+  {{/if}}
+
+  {{#if merchantSigningUp}}
+    {{> merchantSignUp}}
   {{/if}}
 </template>
 
@@ -13,7 +19,8 @@
     {{> afQuickField name='password' type='password'}}
   </fieldset>
   <button type="submit" class="btn btn-primary">Sign In</button> or
-  <button class="btn btn-link" id='sign-up-instead'>Sign Up Instead</button>
+  {{> shopperSignUpInsteadButton}} or
+  {{> merchantSignUpInsteadButton}}
 {{/autoForm}}
 </template>
 
@@ -24,8 +31,21 @@
       {{> afQuickField name='password' type='password'}}
     </fieldset>
     <button type="submit" class="btn btn-primary">Sign Up</button> or
-    <button class="btn btn-link" id='sign-in-instead'>Sign In Instead</button>
+    {{> signInInsteadButton}} or
+    {{> merchantSignUpInsteadButton}}
   {{/autoForm}}
+</template>
+
+<template name="shopperSignUpInsteadButton">
+  <button class="btn btn-link" id='sign-up-instead'>Sign Up Instead</button>
+</template>
+
+<template name="merchantSignUpInsteadButton">
+  <button class="btn btn-link" id='merchant-sign-up-instead'>Sign Up as a Merchant</button>
+</template>
+
+<template name="signInInsteadButton">
+  <button class="btn btn-link" id='sign-in-instead'>Sign In Instead</button>
 </template>
 
 <template name="loginButtons">

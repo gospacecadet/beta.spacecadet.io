@@ -6,29 +6,52 @@ Template.loginButtons.events({
   }
 });
 
-var martLoginSigningIn = 'mart-login-signing-in'
+var signInButtons = {
+  martSigningIn: 'mart-signing-in',
+  martShopperSigningUp: 'mart-shopper-signing-up',
+  martMerchantSigningUp: 'mart-merchant-signing-up'
+}
 
 Template.login.helpers({
   signingIn: function() {
-    return Session.get(martLoginSigningIn)
-  }
+    return Session.get(signInButtons.martSigningIn)
+  },
+  shopperSigningUp: function() {
+    return Session.get(signInButtons.martShopperSigningUp)
+  },
+  merchantSigningUp: function() {
+    return Session.get(signInButtons.martMerchantSigningUp)
+  },
 });
+
+var setSignInButtons = function(allFalseExcept) {
+  _.each(signInButtons, function(value, key) {
+    Session.set(value, value === allFalseExcept);
+  })
+}
 
 Meteor.startup(function() {
-  Session.setDefault(martLoginSigningIn, true);
+  Session.setDefault(signInButtons.martSigningIn, true)
 });
 
-Template.signIn.events({
+Template.shopperSignUpInsteadButton.events({
   "click #sign-up-instead": function(event, template){
      event.preventDefault()
-     Session.set(martLoginSigningIn, false)
+     setSignInButtons(signInButtons.martShopperSigningUp)
   }
 });
 
-Template.signUp.events({
+Template.merchantSignUpInsteadButton.events({
+  "click #merchant-sign-up-instead": function(event, template){
+     event.preventDefault()
+     setSignInButtons(signInButtons.martMerchantSigningUp)
+  }
+});
+
+Template.signInInsteadButton.events({
   "click #sign-in-instead": function(event, template){
      event.preventDefault()
-     Session.set(martLoginSigningIn, true)
+     setSignInButtons(signInButtons.martSigningIn)
   }
 });
 
@@ -62,7 +85,6 @@ Template.signIn.onCreated(function() {
 })
 
 Template.signUp.onCreated(function() {
-
   var hooksObject = {
     // Called when any submit operation succeeds
     // insertDoc: The form input values in a document, suitable for use with insert(). This object has been cleaned and validated, but auto values and default values have not been added to it.

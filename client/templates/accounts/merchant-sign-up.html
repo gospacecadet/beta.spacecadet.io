@@ -1,0 +1,15 @@
+<template name="merchantSignUp">
+  {{#autoForm schema="Mart.Accounts.MerchantSignUpSchema" id="merchantSignUpForm"}}
+    <fieldset>
+      {{> afQuickField name='companyName'}}
+      {{> afQuickField name='contactFirstName'}}
+      {{> afQuickField name='contactLastName'}}
+      {{> afQuickField name='phoneNumber'}}
+      {{> afQuickField name='email' type='email'}}
+      {{> afQuickField name='password' type='password'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Sign Up as Merchant</button> or
+    {{> signInInsteadButton}} or
+    {{> shopperSignUpInsteadButton}}
+  {{/autoForm}}
+</template>
