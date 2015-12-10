@@ -7,7 +7,7 @@
 <template name="landingPad">
   <h2>{{name}} ({{unitPrice}})</h2>
   <h3>{{description}}</h3>
-  {{#autoForm collection="Mart.LineItems" id="inserLineItemForm" type="insert"}}
+  {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}
     <fieldset>
       {{> afQuickField name='quantity'}}
       {{> afQuickField name='cartId' type='hidden' value=cartId}}

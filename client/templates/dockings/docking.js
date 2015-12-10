@@ -30,7 +30,7 @@ Template.docking.helpers({
 Meteor.startup(function () {
   if(Meteor.userId()) {
     Meteor.call('mart/cart/findCurrentOrCreate')
-    Meteor.subscribe("mart/carts", [Mart.Cart.STATES.SHOPPING]);
+    Meteor.subscribe("mart/carts", [Mart.Cart.STATES.SHOPPING], Mart.guestId());
   } else {
     // TODO create a local cart
   }
