@@ -1,12 +1,3 @@
-Template.docking.onCreated(function() {
-  var self = this
-  self.autorun(function() {
-    var dockingId = FlowRouter.getParam('dockingId')
-    // Meteor.subscribe('mart/stations')
-    Meteor.subscribe("mart/cart", dockingId);
-  });
-})
-
 Template.docking.helpers({
   docking: function() {
     var dockingId = FlowRouter.getParam('dockingId')
@@ -24,14 +15,5 @@ Template.docking.helpers({
         return FlowRouter.path("station", {stationId: storefront._id})
     }
     return flowRouterPath("homepage")
-  }
-});
-
-Meteor.startup(function () {
-  if(Meteor.userId()) {
-    Meteor.call('mart/cart/findCurrentOrCreate')
-    Meteor.subscribe("mart/carts", [Mart.Cart.STATES.SHOPPING], Mart.guestId());
-  } else {
-    // TODO create a local cart
   }
 });
