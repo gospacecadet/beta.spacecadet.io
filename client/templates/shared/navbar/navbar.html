@@ -9,9 +9,13 @@
           src="/logo.png" alt="SpaceCadet logo">
    </a>
     <ul class="nav navbar-nav pull-xs-right">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">About</a>
-      </li>
+      {{#if loggedIn}}
+        <li class="nav-item active">
+          <a class="nav-link" href="#">{{username}}</a>
+        </li>
+      {{else}}
+
+      {{/if}}
     </ul>
   </div>
 </nav>

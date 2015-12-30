@@ -1,8 +1,5 @@
 Template.stations.onCreated(function() {
-  var self = this;
-  self.autorun(function() {
-    self.subscribe('mart/storefronts')
-  })
+  Meteor.subscribe('mart/storefronts')
 })
 
 Template.stations.helpers({
