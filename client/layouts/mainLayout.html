@@ -1,22 +1,3 @@
 <template name="mainLayout">
-  <header>
-    <div class="container-fluid">
-      <h1><a href="/">SpaceCadet</a> </h1>
-      {{#if cartHasItems}}
-        <a href="{{checkoutPath}}" class="btn btn-default">Checkout ({{cartSize}})</a>
-      {{/if}}
-      {{> loginButtons}}
-      <a href="{{newStationPath}}" class="btn btn-default">Create a new Station</a>
-    </div>
-  </header>
-  <main>
-    <div class="container">
-      {{> guestLayout}}
-    </div>
-  </main>
-  <footer>
-    <div class="container-fluid">
-      We love Meteor
-    </div>
-  </footer>
+{{> navbar}}
 </template>

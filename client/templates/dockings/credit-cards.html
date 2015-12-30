@@ -12,7 +12,7 @@
 {{/if}}
 
 {{#if addingCreditCard}}
-  {{#autoForm collection="Mart.Card.NotStored" id="createCardForm" type="normal" doc=this}}
+  {{#autoForm schema="Mart.Card.notStoredSchema" id="createCardForm" type="normal" doc=this}}
     <fieldset>
       <legend>Card Details</legend>
       {{> afQuickField name='nameOnCard'}}
