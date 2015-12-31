@@ -11,3 +11,10 @@ FlowRouter.route('/stations/:stationId', {
     BlazeLayout.render("mainLayout", {content: "station"});
   }
 });
+
+FlowRouter.route('/stations/:stationId/edit', {
+  name: "editStation",
+  action: function() {
+    BlazeLayout.render("mainLayout", {content: "editStation"});
+  }
+});

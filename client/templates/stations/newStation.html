@@ -1,16 +1,19 @@
 <template name="newStation">
-{{#if canShow}}
-  {{#autoForm collection="Mart.Storefronts" id="insertStationForm" type="insert"}}
-    <fieldset>
-      <legend>Add a Station</legend>
-      {{> afQuickField name='name'}}
-      {{> afQuickField name='description'}}
-      {{> afQuickField name='isPublished'}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Insert</button>
-  {{/autoForm}}
-{{else}}
-  <p>You are not authorized to view this page. (newStation)</p>
-  <p>Please <a href="/login">login</a> to view this page</p>
-{{/if}}
+  <div class="col-md-8 col-md-offset-2">
+    {{#if canShow}}
+      {{#autoForm collection="Mart.Storefronts" id="insertStationForm" type="insert"}}
+        <fieldset>
+          <legend>Add a Station</legend>
+          {{> _sharedStationFields}}
+          {{> afQuickField name='isPublished' type='hidden' value="false"}}
+          {{> afQuickField name='isDeleted' type='hidden' value="false"}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Insert</button>
+      {{/autoForm}}
+    {{else}}
+      <p>You are not authorized to view this page. (newStation)</p>
+      <p>Please <a href="/login">login</a> to view this page</p>
+    {{/if}}
+  </div>
+
 </template>
