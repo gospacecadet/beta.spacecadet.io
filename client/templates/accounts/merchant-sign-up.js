@@ -19,6 +19,7 @@ Template.merchantSignUp.onCreated(function() {
       }
       console.log(merchant);
       Mart.Accounts.createUser(merchant, function(error) {
+        console.log(error);
         that.done(error)
       })
 
@@ -26,6 +27,7 @@ Template.merchantSignUp.onCreated(function() {
     },
     onError: function(operation, error) {
       if(error) {
+        console.log(error);
         alert('Could not sign up')
       }
     }

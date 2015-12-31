@@ -7,6 +7,16 @@
       {{> afQuickField name='phoneNumber'}}
       {{> afQuickField name='email' type='email'}}
       {{> afQuickField name='password' type='password'}}
+      <div class="form-group{{#if afFieldIsInvalid name='termsAccepted'}} has-error{{/if}}">
+        <div class="input-group">
+          <div class="checkbox">
+            {{> afFieldInput name='termsAccepted'}}
+          </div>
+        </div>
+        {{#if afFieldIsInvalid name='termsAccepted'}}
+        <span class="help-block">{{afFieldMessage name='termsAccepted'}}</span>
+        {{/if}}
+      </div>
     </fieldset>
     <button type="submit" class="btn btn-primary">Sign Up as Merchant</button> or
     {{> signInInsteadButton}} or
