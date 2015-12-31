@@ -1,6 +1,6 @@
 <template name="stations">
   <h2>Dock at a station</h2>
   {{#each stations}}
-    <h2>{{name}}</h2>
+    <h2><a href="{{stationPath}}">{{name}}</a></h2>
   {{/each}}
 </template>

@@ -1,13 +1,15 @@
 Meteor.startup(function() {
   if(Mart.Storefronts.find().count() === 0) {
-    let merchantId = Accounts.createUser({
-      email: "merchant@spacecadet.io",
-      password: "spacecadet",
-      profile: {
-        firstName: 'Steven',
-        lastName: "Quintanilla",
-      }
-    });
+    // let merchantId = Accounts.createUser({
+    //   email: "merchant@spacecadet.io",
+    //   password: "spacecadet",
+    //   profile: {
+    //     firstName: 'Steven',
+    //     lastName: "Quintanilla",
+    //   }
+    // });
+
+    // console.log("created merchant " + merchantId);
 
     for(let i = 0; i < 20; i++) {
       Mart.Storefronts.insert({
@@ -19,7 +21,9 @@ Meteor.startup(function() {
         zip: "70113",
         state: "LA",
         city: "New Orleans",
-        userId: merchantId
+        userId: "merchantId"
+      }, {
+        validate: false
       })
     }
   }

@@ -6,10 +6,7 @@ Template.stations.helpers({
   stations: function() {
     return Mart.Storefronts.find({})
   },
-  pathForStation: function() {
-    var station = this;
-
-    var path = FlowRouter.path('station', {stationId: station._id})
-    return path
+  stationPath: function() {
+    return FlowRouter.path('station', {stationId: this._id})
   }
 });
