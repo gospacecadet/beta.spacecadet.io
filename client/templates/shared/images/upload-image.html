@@ -1,9 +1,12 @@
 <template name="uploadImage">
   <div class="row">
     <form>
-      <div class="col-md-4"><img src={{url}} class="img-responsive"/></div>
-      <div class="col-md-4"><input type="file" class="file_bag" id="{{type}}-image-{{index}}"/></div>
+      <div class="col-md-4"><img src={{url}} class="img-rounded img-fluid"/></div>
+      <div class="col-md-4"><input type="file" class="file_bag" id="{{collection}}-image-{{index}}"/></div>
       <div class="col-md-4"><button type="submit" class="btn btn-success btn-upload btn-block">Upload</button></div>
     </form>
+    {{#if uploading}}
+      <progress class="progress progress-striped progress-success" value="{{progress}}" max="100">{{progress}}%</progress>
+    {{/if}}
   </div>
 </template>
