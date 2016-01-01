@@ -17,7 +17,10 @@ Template.uploadImage.events({
       // Upload the original image
       uploadImage(originalUploader, file, function(error, uploadUrl) {
         imageUrls.originalUrl = uploadUrl
-        insertImages(imageUrls, collection, objectId, index)
+        insertImages(imageUrls, collection, objectId, index, function(error, result) {
+          if(error)
+            console.log(error);
+        })
       })
 
       // Resize and upload as optimized
@@ -28,7 +31,10 @@ Template.uploadImage.events({
       }, function(error, blob) {
         uploadImage(optimizedUploader, blob, function(error, uploadUrl) {
           imageUrls.optimizedUrl = uploadUrl
-          insertImages(imageUrls, collection, objectId, index)
+          insertImages(imageUrls, collection, objectId, index, function(error, result) {
+            if(error)
+              console.log(error);
+          })
         })
       })
 
@@ -40,7 +46,10 @@ Template.uploadImage.events({
       }, function(error, blob) {
         uploadImage(thumbnailUploader, blob, function(error, uploadUrl) {
           imageUrls.thumbnailUrl = uploadUrl
-          insertImages(imageUrls, collection, objectId, index)
+          insertImages(imageUrls, collection, objectId, index, function(error, result) {
+            if(error)
+              console.log(error);
+          })
         })
       })
 
@@ -51,7 +60,7 @@ Template.uploadImage.events({
   }
 });
 
-var insertImages = function(imageUrls, objectId, objectCollection, index) {
+var insertImages = function(imageUrls, objectCollection, objectId, index, callback) {
   if(imageUrls.originalUrl && imageUrls.optimizedUrl && imageUrls.thumbnailUrl) {
     let image = _.extend(imageUrls, {
       objectCollection: objectCollection,
@@ -59,11 +68,17 @@ var insertImages = function(imageUrls, objectId, objectCollection, index) {
       index: index,
     })
 
-    // Mart.Images.upsert({
-    //   objectCollection: objectCollection,
-    //   objectId: objectId,
-    //   index: index
-    // }, {$set: image})
+    let img = Mart.Images.findOne({
+      objectCollection: objectCollection,
+      objectId: objectId,
+      index: index
+    })
+
+    if(!!img) {
+      Mart.Images.update(img._id, {$set: image}, callback)
+    } else {
+      Mart.Images.insert(image, callback)
+    }
   }
 }
 

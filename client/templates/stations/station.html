@@ -1,12 +1,13 @@
 <template name="station">
 {{#with station}}
+<img src="{{currentImageUrl}}" alt="{{name}}" class="img img-fluid station-banner"/>
+<div class="container-fluid">
   <h2>{{name}}</h2>
-  {{#if canEdit}}
-    {{> newLandingPad}}
-  {{/if}}
+
 
   {{#each landingPads}}
     {{> landingPad}}
   {{/each}}
+</div>
 {{/with}}
 </template>

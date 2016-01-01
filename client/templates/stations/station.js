@@ -25,5 +25,8 @@ Template.station.helpers({
       Mart.ROLES.GLOBAL.ADMIN,
       Mart.ROLES.GLOBAL.REP
     ], Mart.ROLES.GROUPS.GLOBAL)
+  },
+  currentImageUrl: function() {
+    return Mart.Images.findOne().optimizedUrl
   }
 });
