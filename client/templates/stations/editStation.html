@@ -1,17 +1,17 @@
 <template name="editStation">
-<div class="row">
-  <div class="col-md-5 col-md-offset-1">
-    {{#autoForm collection="Mart.Storefronts" id="updateStationForm" type="update"}}
-      <fieldset>
-        <legend>Edit Station</legend>
-        {{> _sharedStationFields}}
-        {{> afQuickField name='isPublished'}}
-        {{> afQuickField name='isDeleted'}}
-      </fieldset>
-      <button type="submit" class="btn btn-primary">Update</button>
-    {{/autoForm}}
-  </div>
-  {{#with station}}
+{{#with station}}
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      {{#autoForm collection="Mart.Storefronts" id="updateStationForm" type="update" doc=this}}
+        <fieldset>
+          <h1>Edit Station</h1>
+          {{> _sharedStationFields}}
+          {{> afQuickField name='isPublished'}}
+          {{> afQuickField name='isDeleted'}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Update</button>
+      {{/autoForm}}
+    </div>
     <div class="col-md-5">
       <h2>Upload images</h2>
       <p>
@@ -46,9 +46,7 @@
         thumbnailUploader=(uploader "StationsThumbnail" 4 _id)
       }}
     </div>
-  {{/with}}
-
-</div>
-
+  </div>
+{{/with}}
 
 </template>
