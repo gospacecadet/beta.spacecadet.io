@@ -1,6 +1,18 @@
 <template name="stations">
-  <h2>Dock at a station</h2>
+
+<h2>Dock at a station</h2>
+<div class="row">
   {{#each stations}}
-    <h2><a href="{{stationPath}}">{{name}}</a></h2>
+    <div class="col-md-4">
+      <div class="card col-md-4">
+        <img class="card-img-top" src="{{thumbnailUrl}}" alt="Card image cap">
+        <div class="card-block">
+          <a href="{{stationPath}}"><h4 class="card-title">{{name}}</h4></a>
+          <a href="{{stationPath}}"><p class="card-text">{{description}}</p></a>
+        </div>
+      </div>
+    </div>
   {{/each}}
+</div>
+
 </template>

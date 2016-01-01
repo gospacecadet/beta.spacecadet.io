@@ -8,5 +8,16 @@ Template.stations.helpers({
   },
   stationPath: function() {
     return FlowRouter.path('station', {stationId: this._id})
+  },
+  thumbnailUrl: function() {
+    var img = Mart.Images.findOne({
+      objectId: this._id,
+      objectCollection: "Storefronts",
+    })
+
+    console.log(img);
+
+    if(img)
+      return img.thumbnailUrl
   }
 });
