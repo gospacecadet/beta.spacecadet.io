@@ -53,10 +53,10 @@ logging@1.0.8
 marvin:javascript-load-image@2.1.1
 marvin:machina@0.1.2
 marvin:mart@0.0.2
-marvin:tether@0.0.1
 mdg:validation-error@0.1.0
 meteor@1.1.10
 meteor-base@1.0.1
+migrations.beta.spacecadet.io@0.0.1
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1
@@ -89,7 +89,7 @@ stevezhu:lodash@1.0.2
 templating@1.1.5
 templating-tools@1.0.0
 tracker@1.0.9
-twbs:bootstrap@4.0.0-alpha.2
+twbs:bootstrap@4.0.0-spacecadet
 ui@1.0.8
 underscore@1.0.4
 url@1.0.5
