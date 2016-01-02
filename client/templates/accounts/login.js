@@ -75,11 +75,11 @@ Template.signIn.onCreated(function() {
 
       return false;
     },
-    onError: function(operation, error) {
-      if(error) {
-        alert('login failed')
-      }
-    }
+    // onError: function(operation, error) {
+    //   if(error) {
+    //     alert('login failed')
+    //   }
+    // }
   };
   AutoForm.addHooks(['signInForm'], hooksObject);
 })

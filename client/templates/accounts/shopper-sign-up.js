@@ -24,10 +24,10 @@ Template.shopperSignUp.onCreated(function() {
       return false;
     },
     onError: function(operation, error) {
-      if(error) {
-        console.log(error);
-        alert('Could not sign up')
-      }
+      // if(error) {
+      //   console.log(error);
+      //   alert('Could not sign up')
+      // }
     }
   };
   AutoForm.addHooks(['shopperSignUpForm'], hooksObject);
