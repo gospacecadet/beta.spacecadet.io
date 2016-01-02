@@ -5,6 +5,7 @@ Template.shopperSignUp.onCreated(function() {
     // updateDoc: The form input values in a modifier, suitable for use with update(). This object has not been validated.
     // currentDoc: The object that's currently bound to the form through the doc attribute
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
+      Mart.Accounts.ShopperSignUpSchema.clean(insertDoc);
       console.log('onSubmit');
       var that = this
       var shopper = {
@@ -15,20 +16,19 @@ Template.shopperSignUp.onCreated(function() {
           phoneNumber: insertDoc.phoneNumber,
         }
       }
-      console.log(shopper);
+
       Mart.Accounts.createUser(shopper, function(error) {
-        console.log(error);
         that.done(error)
       })
 
       return false;
     },
     onError: function(operation, error) {
-      // if(error) {
-      //   console.log(error);
-      //   alert('Could not sign up')
-      // }
+      if(error) {
+        sAlert.error(error.message)
+      }
     }
   };
+  AutoForm.resetForm('shopperSignUpForm')
   AutoForm.addHooks(['shopperSignUpForm'], hooksObject);
 })

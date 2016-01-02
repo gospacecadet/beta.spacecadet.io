@@ -1,10 +1,13 @@
 <template name="shopperSignUp">
   <h2>Create an account</h2>
-  {{#autoForm schema="Mart.Accounts.ShopperSignUpSchema" id="shopperSignUpForm"}}
+  {{#autoForm schema="Mart.Accounts.ShopperSignUpSchema" id="shopperSignUpForm"
+    resetOnSuccess=true preserveForm=false type="normal"}}
+
     <fieldset>
       {{> afQuickField name='phoneNumber'}}
       {{> afQuickField name='email' type='email'}}
       {{> afQuickField name='password' type='password'}}
+
       <div class="form-group{{#if afFieldIsInvalid name='termsAccepted'}} has-error{{/if}}">
         <div class="input-group">
           <div class="checkbox">

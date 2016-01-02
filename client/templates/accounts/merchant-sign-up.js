@@ -5,6 +5,7 @@ Template.merchantSignUp.onCreated(function() {
     // updateDoc: The form input values in a modifier, suitable for use with update(). This object has not been validated.
     // currentDoc: The object that's currently bound to the form through the doc attribute
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
+      Mart.Accounts.MerchantSignUpSchema.clean(insertDoc);
       var that = this
       var merchant = {
         email: insertDoc.email,
@@ -17,6 +18,7 @@ Template.merchantSignUp.onCreated(function() {
           companyName: insertDoc.companyName
         }
       }
+
 
       Mart.Accounts.createUser(merchant, function(error) {
         console.log(error);
