@@ -30,9 +30,13 @@ Change settings.json to match values given by Stripe:
 ```
 {
   "MartStripePublicKey": "PK_KEY",
-  "MartStripeSecretKey": "SK_KEY"
+  "MartStripeSecretKey": "SK_KEY",
+  "AWSAccessKeyId": "KEY",
+  "AWSSecretAccessKey": "KEY"
 }
 ```
+
+Setup CORS on AWS for [Slingshot](https://github.com/CulturalMe/meteor-slingshot).
 
 Usage
 -----

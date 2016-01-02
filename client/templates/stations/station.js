@@ -27,6 +27,9 @@ Template.station.helpers({
     ], Mart.ROLES.GROUPS.GLOBAL)
   },
   currentImageUrl: function() {
-    return Mart.Images.findOne().optimizedUrl
+    let img = Mart.Images.findOne({objectId: this._id, objectCollection: "Storefronts"})
+
+    if(img)
+      return img.optimizedUrl
   }
 });

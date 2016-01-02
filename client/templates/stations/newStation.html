@@ -1,4 +1,5 @@
 <template name="newStation">
+<div class="container-fluid">
   <div class="col-md-8 col-md-offset-2">
     {{#if canShow}}
       {{#autoForm collection="Mart.Storefronts" id="insertStationForm" type="insert"}}
@@ -15,5 +16,5 @@
       <p>Please <a href="/login">login</a> to view this page</p>
     {{/if}}
   </div>
-
+</div>
 </template>

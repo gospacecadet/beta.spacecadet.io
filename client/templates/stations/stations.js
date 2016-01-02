@@ -15,8 +15,6 @@ Template.stations.helpers({
       objectCollection: "Storefronts",
     })
 
-    console.log(img);
-
     if(img)
       return img.thumbnailUrl
   }
