@@ -24,8 +24,8 @@ Template.shopperSignUp.onCreated(function() {
       return false;
     },
     onError: function(operation, error) {
-      if(error) {
-        sAlert.error(error.message)
+      if(error && error.reason) { // a special Meteor.error
+        sAlert.error(error.reason)
       }
     }
   };

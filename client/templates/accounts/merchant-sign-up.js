@@ -21,16 +21,14 @@ Template.merchantSignUp.onCreated(function() {
 
 
       Mart.Accounts.createUser(merchant, function(error) {
-        console.log(error);
         that.done(error)
       })
 
       return false;
     },
     onError: function(operation, error) {
-      if(error) {
-        console.log(error);
-        alert('Could not sign up')
+      if(error && error.reason) { // a special Meteor.error
+        sAlert.error(error.reason)
       }
     }
   };
