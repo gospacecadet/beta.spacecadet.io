@@ -40,4 +40,21 @@ Template.editStation.helpers({
 
     return new Slingshot.Upload(directiveName, metaContext);
   },
+  landingPads: function() {
+    var stationId = FlowRouter.getParam('stationId')
+    return Mart.Products.find({storefrontId: stationId})
+  }
 })
+
+Template.editStation.events({
+  "click #publish-station": function(event, template) {
+     Meteor.call("mart/storefront/publish", this._id, function(error, result) {
+       if(error){
+         sAlert.error(error.reason)
+       }
+       if(result){
+          sAlert.success("Property activated")
+       }
+     });
+  }
+});

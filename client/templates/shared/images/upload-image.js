@@ -18,8 +18,10 @@ Template.uploadImage.events({
       uploadImage(originalUploader, file, function(error, uploadUrl) {
         imageUrls.originalUrl = uploadUrl
         insertImages(imageUrls, collection, objectId, index, function(error, result) {
-          if(error)
+          if(error) {
             console.log(error);
+            sAlert.error("Image could not be added")
+          }
         })
       })
 
@@ -32,8 +34,10 @@ Template.uploadImage.events({
         uploadImage(optimizedUploader, blob, function(error, uploadUrl) {
           imageUrls.optimizedUrl = uploadUrl
           insertImages(imageUrls, collection, objectId, index, function(error, result) {
-            if(error)
+            if(error) {
               console.log(error);
+              sAlert.error("Image could not be added")
+            }
           })
         })
       })
@@ -47,8 +51,10 @@ Template.uploadImage.events({
         uploadImage(thumbnailUploader, blob, function(error, uploadUrl) {
           imageUrls.thumbnailUrl = uploadUrl
           insertImages(imageUrls, collection, objectId, index, function(error, result) {
-            if(error)
+            if(error) {
               console.log(error);
+              sAlert.error("Image could not be added")
+            }
           })
         })
       })

@@ -1,4 +1,5 @@
 <template name="editStation">
+<div class="container-fluid">
 {{#with station}}
   <div class="row">
     <div class="col-md-5 col-md-offset-1">
@@ -6,10 +7,9 @@
         <fieldset>
           <h1>Edit Station</h1>
           {{> _sharedStationFields}}
-          {{> afQuickField name='isPublished'}}
-          {{> afQuickField name='isDeleted'}}
         </fieldset>
         <button type="submit" class="btn btn-primary">Update</button>
+        <button id="publish-station" class='btn btn-primary-outline'>Publish</button>
       {{/autoForm}}
     </div>
     <div class="col-md-5">
@@ -47,6 +47,10 @@
       }}
     </div>
   </div>
+  <h2>Rentable Areas</h2>
+  <div class="row">
+    {{> editLandingPads landingPads=landingPads stationId=_id}}
+  </div>
 {{/with}}
-
+</div>
 </template>

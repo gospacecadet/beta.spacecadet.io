@@ -1,12 +1,10 @@
 <template name="newLandingPad">
 {{#autoForm collection="Mart.Products" id="insertLandingPadForm" type="insert"}}
   <fieldset>
-    <legend>Add a Landing Pad</legend>
+    <legend>Add a Rentable Area</legend>
     {{> afQuickField name='name'}}
     {{> afQuickField name='description'}}
-    {{> afQuickField name='unitPrice'}}
-    {{> afQuickField name='isPublished'}}
-    {{> afQuickField name='storefrontId' type='hidden' value=stationId}}
+    {{> afQuickField name='storefrontId' type='hidden' value=storefrontId}}
   </fieldset>
   <button type="submit" class="btn btn-primary">Insert</button>
 {{/autoForm}}
