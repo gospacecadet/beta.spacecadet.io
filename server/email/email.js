@@ -7,4 +7,7 @@ Meteor.startup(function () {
   }
 
   process.env.MAIL_URL = 'smtp://' + encodeURIComponent(smtp.username) + ':' + encodeURIComponent(smtp.password) + '@' + encodeURIComponent(smtp.server) + ':' + smtp.port;
+
+  Accounts.emailTemplates.siteName = "SpaceCadet";
+  Accounts.emailTemplates.from = "SpaceCadet <hello@spacecadet.io>";
 });
