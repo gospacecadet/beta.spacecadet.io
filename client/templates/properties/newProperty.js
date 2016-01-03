@@ -1,14 +1,8 @@
-Template.newStation.helpers({
-  canShow: function() {
-    return Roles.userIsInRole(Meteor.user(), [
-      Mart.ROLES.GLOBAL.ADMIN,
-      Mart.ROLES.GLOBAL.MERCHANT,
-      Mart.ROLES.GLOBAL.REP,
-    ], Mart.ROLES.GROUPS.GLOBAL)
-  }
+Template.newProperty.helpers({
+
 });
 
-Template.newStation.onCreated(function() {
+Template.newProperty.onCreated(function() {
   var hooksObject = {
     // Called when any submit operation succeeds
     // insertDoc: The form input values in a document, suitable for use with insert(). This object has been cleaned and validated, but auto values and default values have not been added to it.
@@ -17,7 +11,7 @@ Template.newStation.onCreated(function() {
     after: {
       insert: function(error, result) {
         console.log(result);
-        FlowRouter.go(FlowRouter.path('editStation', {stationId: result}))
+        FlowRouter.go(FlowRouter.path('editProperty', {propertyId: result}))
       }
     },
     onError: function(operation, error) {
@@ -27,5 +21,5 @@ Template.newStation.onCreated(function() {
       }
     }
   };
-  AutoForm.addHooks(['insertStationForm'], hooksObject);
+  AutoForm.addHooks(['insertPropertyForm'], hooksObject);
 })

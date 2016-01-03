@@ -1,12 +1,12 @@
-<template name="editStation">
+<template name="editProperty">
 <div class="container-fluid">
-{{#with station}}
+{{#with property}}
   <div class="row">
     <div class="col-md-5 col-md-offset-1">
       {{#autoForm collection="Mart.Storefronts" id="updateStationForm" type="update" doc=this}}
         <fieldset>
-          <h1>Edit Station</h1>
-          {{> _sharedStationFields}}
+          <h1>Edit Property</h1>
+          {{> _sharedPropertyFields}}
         </fieldset>
         <button type="submit" class="btn btn-primary">Update</button>
         <button id="publish-station" class='btn btn-primary-outline'>Publish</button>
@@ -20,36 +20,36 @@
 
       <h3>Photo 1</h3>
       {{> uploadImage collection="Storefronts" index=1 objectId=_id
-        originalUploader=(uploader "StationsOriginal" 1 _id)
-        optimizedUploader=(uploader "StationsOptimized" 1 _id)
-        thumbnailUploader=(uploader "StationsThumbnail" 1 _id)
+        originalUploader=(uploader "PropertiesOriginal" 1 _id)
+        optimizedUploader=(uploader "PropertiesOptimized" 1 _id)
+        thumbnailUploader=(uploader "PropertiesThumbnail" 1 _id)
       }}
 
       <h3>Photo 2</h3>
       {{> uploadImage collection="Storefronts" index=2 objectId=_id
-        originalUploader=(uploader "StationsOriginal" 2 _id)
-        optimizedUploader=(uploader "StationsOptimized" 2 _id)
-        thumbnailUploader=(uploader "StationsThumbnail" 2 _id)
+        originalUploader=(uploader "PropertiesOriginal" 2 _id)
+        optimizedUploader=(uploader "PropertiesOptimized" 2 _id)
+        thumbnailUploader=(uploader "PropertiesThumbnail" 2 _id)
       }}
 
       <h3>Photo 3</h3>
       {{> uploadImage collection="Storefronts" index=3 objectId=_id
-        originalUploader=(uploader "StationsOriginal" 3 _id)
-        optimizedUploader=(uploader "StationsOptimized" 3 _id)
-        thumbnailUploader=(uploader "StationsThumbnail" 3 _id)
+        originalUploader=(uploader "PropertiesOriginal" 3 _id)
+        optimizedUploader=(uploader "PropertiesOptimized" 3 _id)
+        thumbnailUploader=(uploader "PropertiesThumbnail" 3 _id)
       }}
 
       <h3>Photo 4</h3>
       {{> uploadImage collection="Storefronts" index=4 objectId=_id
-        originalUploader=(uploader "StationsOriginal" 4 _id)
-        optimizedUploader=(uploader "StationsOptimized" 4 _id)
-        thumbnailUploader=(uploader "StationsThumbnail" 4 _id)
+        originalUploader=(uploader "PropertiesOriginal" 4 _id)
+        optimizedUploader=(uploader "PropertiesOptimized" 4 _id)
+        thumbnailUploader=(uploader "PropertiesThumbnail" 4 _id)
       }}
     </div>
   </div>
   <h2>Rentable Areas</h2>
   <div class="row">
-    {{> editLandingPads landingPads=landingPads stationId=_id}}
+    {{> editSpaces spaces=spaces propertyId=_id}}
   </div>
 {{/with}}
 </div>

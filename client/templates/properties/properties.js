@@ -1,13 +1,13 @@
-Template.stations.onCreated(function() {
+Template.properties.onCreated(function() {
   Meteor.subscribe('mart/storefronts')
 })
 
-Template.stations.helpers({
-  stations: function() {
+Template.properties.helpers({
+  properties: function() {
     return Mart.Storefronts.find({})
   },
-  stationPath: function() {
-    return FlowRouter.path('station', {stationId: this._id})
+  propertyPath: function() {
+    return FlowRouter.path('property', {propertyId: this._id})
   },
   thumbnailUrl: function() {
     var img = Mart.Images.findOne({

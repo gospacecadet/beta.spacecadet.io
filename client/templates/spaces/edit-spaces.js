@@ -1,7 +1,7 @@
-Template.editLandingPads.helpers({
-  stationId: function() {
-    console.log(this.stationId);
-    return this.stationId;
+Template.editSpaces.helpers({
+  propertyId: function() {
+    console.log(this.propertyId);
+    return this.propertyId;
   },
   uploader: function(directiveName, index, objectId) {
     let metaContext = {
@@ -13,15 +13,15 @@ Template.editLandingPads.helpers({
   },
 });
 
-Template.editLandingPad.helpers({
-  stationId: function() {
-    console.log(this.stationId);
-    return this.stationId;
+Template.editSpace.helpers({
+  propertyId: function() {
+    console.log(this.propertyId);
+    return this.propertyId;
   },
   uploader: function(directiveName, index, objectId) {
     let metaContext = {
       index: index,
-      objectId: this._id, //stationId
+      objectId: this._id, //propertyId
     }
 
     return new Slingshot.Upload(directiveName, metaContext);

@@ -1,4 +1,4 @@
-Template.editStation.onCreated(function() {
+Template.editProperty.onCreated(function() {
     // var hooksObject = {
     //   // Called when any submit operation succeeds
     //   // insertDoc: The form input values in a document, suitable for use with insert(). This object has been cleaned and validated, but auto values and default values have not been added to it.
@@ -7,7 +7,7 @@ Template.editStation.onCreated(function() {
     //   after: {
     //     update: function(error, result) {
     //       console.log(result);
-    //       FlowRouter.go(FlowRouter.path('editStation', {stationId: result}))
+    //       FlowRouter.go(FlowRouter.path('editProperty', {propertyId: result}))
     //     }
     //   },
     //   onError: function(operation, error) {
@@ -17,20 +17,20 @@ Template.editStation.onCreated(function() {
     //     }
     //   }
     // };
-    // AutoForm.addHooks(['insertStationForm'], hooksObject);
+    // AutoForm.addHooks(['insertPropertyForm'], hooksObject);
 
 
   Tracker.autorun(function() {
-    var stationId = FlowRouter.getParam('stationId')
-    Meteor.subscribe("mart/storefront", stationId);
+    var propertyId = FlowRouter.getParam('propertyId')
+    Meteor.subscribe("mart/storefront", propertyId);
   });
 
 });
 
-Template.editStation.helpers({
-  station: function() {
-    var stationId = FlowRouter.getParam('stationId')
-    return Mart.Storefronts.findOne(stationId)
+Template.editProperty.helpers({
+  property: function() {
+    var propertyId = FlowRouter.getParam('propertyId')
+    return Mart.Storefronts.findOne(propertyId)
   },
   uploader: function(directiveName, index, objectId) {
     let metaContext = {
@@ -40,14 +40,14 @@ Template.editStation.helpers({
 
     return new Slingshot.Upload(directiveName, metaContext);
   },
-  landingPads: function() {
-    var stationId = FlowRouter.getParam('stationId')
-    return Mart.Products.find({storefrontId: stationId})
+  spaces: function() {
+    var propertyId = FlowRouter.getParam('propertyId')
+    return Mart.Products.find({storefrontId: propertyId})
   }
 })
 
-Template.editStation.events({
-  "click #publish-station": function(event, template) {
+Template.editProperty.events({
+  "click #publish-property": function(event, template) {
      Meteor.call("mart/storefront/publish", this._id, function(error, result) {
        if(error){
          sAlert.error(error.reason)

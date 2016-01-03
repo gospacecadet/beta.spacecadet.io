@@ -1,19 +1,19 @@
-Template.station.onCreated(function() {
+Template.property.onCreated(function() {
   var self = this
   self.autorun(function() {
-    var stationId = FlowRouter.getParam('stationId')
-    Meteor.subscribe("mart/storefront", stationId);
+    var propertyId = FlowRouter.getParam('propertyId')
+    Meteor.subscribe("mart/storefront", propertyId);
   });
 
   self.autorun(function() {
-    var stationId = FlowRouter.getParam('stationId')
+    var propertyId = FlowRouter.getParam('propertyId')
   });
 })
 
-Template.station.helpers({
-  station: function() {
-    var stationId = FlowRouter.getParam('stationId')
-    return Mart.Storefronts.findOne(stationId)
+Template.property.helpers({
+  property: function() {
+    var propertyId = FlowRouter.getParam('propertyId')
+    return Mart.Storefronts.findOne(propertyId)
   },
   landingPads: function() {
     return Mart.Products.find()

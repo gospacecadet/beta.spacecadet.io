@@ -1,7 +1,7 @@
 var directives = [
-  {name: "LandingPadsOriginal", path: "/original/"},
-  {name: "LandingPadsOptimized", path: "/optimized/"},
-  {name: "LandingPadsThumbnail", path: "/thumbnail/"},
+  {name: "SpacesOriginal", path: "/original/"},
+  {name: "SpacesOptimized", path: "/optimized/"},
+  {name: "SpacesThumbnail", path: "/thumbnail/"},
 ]
 
 _.each(directives, function(directive) {

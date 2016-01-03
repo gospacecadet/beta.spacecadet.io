@@ -1,0 +1,18 @@
+<template name="manageProperties">
+  <div class="container-fluid">
+    <h2>Choose a property to manage</h2>
+    <div class="row">
+      {{#each properties}}
+        <div class="col-md-4">
+          <div class="card col-md-4">
+            <img class="card-img-top" src="{{thumbnailUrl}}" alt="Card image cap">
+            <div class="card-block">
+              <a href="{{editPropertyPath}}"><h4 class="card-title">{{name}}</h4></a>
+              <a href="{{editPropertyPath}}"><p class="card-text">{{description}}</p></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

@@ -1,10 +1,10 @@
-<template name="landingPads">
-{{#each landingPads}}
-  {{> landingPad}}
+<template name="spaces">
+{{#each spaces}}
+  {{> space}}
 {{/each}}
 </template>
 
-<template name="landingPad">
+<template name="space">
   <h2>{{name}} ({{unitPrice}})</h2>
   <h3>{{description}}</h3>
   {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}

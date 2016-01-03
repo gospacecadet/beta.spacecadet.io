@@ -1,0 +1,11 @@
+<template name="newSpace">
+{{#autoForm collection="Mart.Products" id="insertSpaceForm" type="insert"}}
+  <fieldset>
+    <legend>Add a Space for rent</legend>
+    {{> afQuickField name='name'}}
+    {{> afQuickField name='description'}}
+    {{> afQuickField name='storefrontId' type='hidden' value=storefrontId}}
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Add Space</button>
+{{/autoForm}}
+</template>

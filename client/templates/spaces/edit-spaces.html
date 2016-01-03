@@ -1,0 +1,37 @@
+<template name="editSpaces">
+  <div class="col-md-6">
+    {{> newSpace propertyId=propertyId}}
+  </div>
+  {{#each spaces}}
+    <div class="col-md-6">
+      <h2>Space for Rent</h2>
+      {{> editSpace }}
+    </div>
+  {{/each}}
+</template>
+
+<template name="editSpace">
+  {{#autoForm collection="Mart.Products" id="updateSpace" type="update" doc=this}}
+    <fieldset>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='description'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Update Space</button>
+  {{/autoForm}}
+
+  <h3>Upload up to two images</h3>
+  <h3>Photo 1</h3>
+  {{> uploadImage collection="Products" index=1 objectId=_id
+    originalUploader=(uploader "SpacesOriginal" 1 _id)
+    optimizedUploader=(uploader "SpacesOptimized" 1 _id)
+    thumbnailUploader=(uploader "SpacesThumbnail" 1 _id)
+  }}
+
+  <h3>Photo 2</h3>
+  {{> uploadImage collection="Products" index=2 objectId=_id
+    originalUploader=(uploader "SpacesOriginal" 2 _id)
+    optimizedUploader=(uploader "SpacesOptimized" 2 _id)
+    thumbnailUploader=(uploader "SpacesThumbnail" 2 _id)
+  }}
+
+</template>

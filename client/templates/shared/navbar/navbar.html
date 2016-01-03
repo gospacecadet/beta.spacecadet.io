@@ -1,28 +1,54 @@
 <template name='navbar'>
-  <nav class="navbar navbar-light navbar-fixed-top bg-gray-lightest">
+<nav class="navbar navbar-light navbar-fixed-top bg-gray-lightest">
   <a class="navbar-brand" rel="home" href="/" title="Space Cadet">SpaceCadet
    <!-- <img style="max-width:100px; margin-top: -7px;"
         src="/logo.png" alt="SpaceCadet logo"> -->
  </a>
-  <ul class="nav navbar-nav pull-xs-right">
-    {{#if loggedIn}}
-      <li class="nav-item">
-        <a class="nav-link" href="#" id="logout-button">Logout</a>
-      </li>
-      {{#if merchantish}}
-        <li class="nav-item">
-          <a class="nav-link" href="{{newStationPath}}">New Station</a>
-        </li>
-      {{/if}}
-      <li class="nav-item">
-        <a class="nav-link" href="#">{{username}}</a>
-      </li>
-    {{else}}
+
+ {{#if loggedIn}}
+   {{> navbarLoggedInLinks}}
+ {{else}}
+   {{> navbarLoggedOutLinks}}
+   {{> navbarLogin}}
+ {{/if}}
+
+</nav>
+</template>
+
+<template name="navbarLoggedOutLinks">
+  <ul class="nav navbar-nav pull-xs-left">
+    <li class='nav-item'>
+      <a class='nav-link' href="{{aboutPath}}">About SpaceCadet</a>
+    </li>
     <li class='nav-item'>
       <a class='nav-link' href="{{listSpacePath}}">List Your Space</a>
     </li>
-    {{/if}}
   </ul>
+</template>
 
-</nav>
+<template name="navbarLoggedInLinks">
+  <ul class="nav navbar-nav pull-xs-right">
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="logout-button">Logout</a>
+    </li>
+    {{#if canActAsMerchant}}
+      <li class="nav-item">
+        <a class="nav-link" href="{{newPropertyPath}}">New Property</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{managePropertiesPath}}">Manage Properties</a>
+      </li>
+    {{/if}}
+    <li class="nav-item">
+      <a class="nav-link" href="#">{{username}}</a>
+    </li>
+  </ul>
+</template>
+
+<template name="navbarLogin">
+  <form class="form-inline pull-xs-right" id='navbar-login'>
+    <input class="form-control" name="email" type="email" placeholder="Email">
+    <input class="form-control" name="password" type="password" placeholder="Password">
+    <button class="btn btn-primary-outline" type="submit">Log In</button>
+  </form>
 </template>
