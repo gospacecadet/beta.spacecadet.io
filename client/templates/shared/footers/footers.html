@@ -6,12 +6,37 @@
 </template>
 
 <template name="footer1">
-  <div class="footer1 bg-gray p-a-3">
-    <ul class="list-inline">
-      <li class="list-inline-item m-x-0"><a href="{{aboutPath}}">About SpaceCadet</a></li> |
-      <li class="list-inline-item m-x-0"><a href="{{listSpacePath}}">List Your Space</a></li>
-    </ul>
+  <div class="footer1 bg-gray p-a-3 row">
+    <div class="col-md-6">
+      <ul class="list-inline">
+        <li class="list-inline-item m-x-0"><a href="{{aboutPath}}">About SpaceCadet</a></li> |
+        <li class="list-inline-item m-x-0"><a href="{{listSpacePath}}">List Your Space</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6 text-xs-right">
+      {{> footer1SocialIcons}}
+    </div>
   </div>
+</template>
+
+<template name="footer1SocialIcons">
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <a href="http://facebook.com/spacecadet.io">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    </li>
+    <li class="list-inline-item m-l-1">
+      <a href="http://instagram.com/gospacecadet">
+        <i class="fa fa-instagram fa-lg"></i>
+      </a>
+    </li>
+    <li class="list-inline-item m-l-1">
+      <a href="http://twitter.com/gospacecadet">
+        <i class="fa fa-twitter fa-lg"></i>
+      </a>
+    </li>
+  </ul>
 </template>
 
 <template name="footer2">

@@ -16,5 +16,11 @@ stations.push({
       entityName: "The Ten Eleven",
       phoneNumber: "210-685-4497",
     }
-  }
+  },
+  landing_pads: [{
+    name: "Entire Venue ",
+    description: "Access to entire indoor / outdoor area, bar service (cash/credit craft beer bar,) P.A. / Stage Equipment, Merch / Vendor Table Space ",
+    occupancy: 150,
+    size: ""
+  }]
 })

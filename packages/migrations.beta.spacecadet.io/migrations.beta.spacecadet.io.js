@@ -4,8 +4,22 @@ SpaceCadetMigration = {
       _.each(stations, function(details) {
         var merchantId = createUser(details.merchant)
         var stationId = createStorefront(details.station, merchantId)
+
+        _.each(details.landing_pads, function(landing_pad) {
+          createProduct(_.extend({storefrontId: stationId}, landing_pad))
+        })
       })
     }
+  }
+}
+
+var createProduct = function(product) {
+  product = {
+    name: product.name,
+    description: product.description,
+    storefrontId: product.storefrontId,
+    isPublished: true,
+    isDeleted: false
   }
 }
 
@@ -32,13 +46,13 @@ var createStorefront = function(storefront, merchantId) {
     isPublished: true,
     isDeleted: false,
     userId: merchantId,
-    createdAt: new Date(),
     name: storefront.name,
     description: storefront.description,
     address: storefront.address,
     city: storefront.city,
     state: storefront.state,
     zip: storefront.zip,
+    createdAt: new Date()
   }
 
   return Mart.Storefronts.insert(storefront, {getAutoValues: false})
