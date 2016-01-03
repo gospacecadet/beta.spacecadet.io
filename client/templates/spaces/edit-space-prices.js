@@ -7,12 +7,10 @@ Template.editSpacePrices.onCreated(function() {
     var hooksObject = {
       after: {
         insert: function(error, result) {
-          console.log('inserted');
         }
       },
       onError: function(operation, error) {
         if(error) {
-          console.log(error);
           sAlert.error('Could not add price')
         }
       }
@@ -38,6 +36,13 @@ Template.newPrice.helpers({
     return formId(this.productId, this.unit)
   }
 });
+
+Template.editPrice.helpers({
+  id: function() {
+    return formId(this.productId, this.unit)
+  }
+});
+
 
 var formId = function(productId, unit) {
   return "insertPrice-" + productId + "-" + unit

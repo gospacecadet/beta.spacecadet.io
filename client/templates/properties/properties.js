@@ -17,5 +17,9 @@ Template.properties.helpers({
 
     if(img)
       return img.thumbnailUrl
+  },
+  spaces: function() {
+    console.log(this._id);
+    return Mart.Products.find({storefrontId: this._id})
   }
 });

@@ -19,7 +19,12 @@
 </template>
 
 <template name="editPrice">
-  <h4>Add {{unit}} price</h4>
+  {{#autoForm collection="Mart.Prices" id=id type="update" doc=price}}
+    <fieldset>
+      {{> afQuickField name='priceInCents'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Update price</button>
+  {{/autoForm}}
 </template>
 
 <template name="newPrice">

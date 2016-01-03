@@ -10,13 +10,11 @@ Template.newProperty.onCreated(function() {
     // currentDoc: The object that's currently bound to the form through the doc attribute
     after: {
       insert: function(error, result) {
-        console.log(result);
         FlowRouter.go(FlowRouter.path('editProperty', {propertyId: result}))
       }
     },
     onError: function(operation, error) {
       if(error) {
-        console.log(error);
         alert('Could not sign up')
       }
     }

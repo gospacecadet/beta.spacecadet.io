@@ -19,7 +19,6 @@ Template.uploadImage.events({
         imageUrls.originalUrl = uploadUrl
         insertImages(imageUrls, collection, objectId, index, function(error, result) {
           if(error) {
-            console.log(error);
             sAlert.error("Image could not be added")
           }
         })
@@ -35,7 +34,6 @@ Template.uploadImage.events({
           imageUrls.optimizedUrl = uploadUrl
           insertImages(imageUrls, collection, objectId, index, function(error, result) {
             if(error) {
-              console.log(error);
               sAlert.error("Image could not be added")
             }
           })
@@ -52,7 +50,6 @@ Template.uploadImage.events({
           imageUrls.thumbnailUrl = uploadUrl
           insertImages(imageUrls, collection, objectId, index, function(error, result) {
             if(error) {
-              console.log(error);
               sAlert.error("Image could not be added")
             }
           })
@@ -60,7 +57,7 @@ Template.uploadImage.events({
       })
 
     } else {
-      console.log('no file selected');
+      sAlert.error('No file selected');
     }
 
   }

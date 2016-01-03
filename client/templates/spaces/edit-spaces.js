@@ -1,6 +1,5 @@
 Template.editSpaces.helpers({
   propertyId: function() {
-    console.log(this.propertyId);
     return this.propertyId;
   },
   uploader: function(directiveName, index, objectId) {
@@ -15,7 +14,6 @@ Template.editSpaces.helpers({
 
 Template.editSpace.helpers({
   propertyId: function() {
-    console.log(this.propertyId);
     return this.propertyId;
   },
   uploader: function(directiveName, index, objectId) {
@@ -30,10 +28,8 @@ Template.editSpace.helpers({
 
 Template.editSpace.events({
   "click #publish-space": function(event, template) {
-    console.log(this._id);
      Meteor.call("mart/product/publish", this._id, function(error, result) {
        if(error) {
-         console.log(error);
          sAlert.error(error.reason)
        }
        if(result){

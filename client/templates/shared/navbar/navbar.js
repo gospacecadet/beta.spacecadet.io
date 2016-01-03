@@ -13,7 +13,6 @@ Template.navbarLogin.events({
 
      Meteor.loginWithPassword(email, password, function(error, response) {
        if(error) {
-         console.log(error);
          sAlert.error("You could not be logged in: " + error.reason)
        } else {
         //  sAlert.success("Logged in successfully!")
