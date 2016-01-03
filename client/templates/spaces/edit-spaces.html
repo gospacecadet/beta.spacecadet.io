@@ -11,27 +11,34 @@
 </template>
 
 <template name="editSpace">
-  {{#autoForm collection="Mart.Products" id="updateSpace" type="update" doc=this}}
-    <fieldset>
-      {{> afQuickField name='name'}}
-      {{> afQuickField name='description'}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Update Space</button>
-  {{/autoForm}}
+<div class="row">
+  <div class="col-md-6">
+    {{#autoForm collection="Mart.Products" id="updateSpace" type="update" doc=this}}
+      <fieldset>
+        {{> afQuickField name='name'}}
+        {{> afQuickField name='description'}}
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Update Space</button>
+      <button id="publish-space" class='btn btn-primary-outline'>Publish</button>
+    {{/autoForm}}
 
-  <h3>Upload up to two images</h3>
-  <h3>Photo 1</h3>
-  {{> uploadImage collection="Products" index=1 objectId=_id
-    originalUploader=(uploader "SpacesOriginal" 1 _id)
-    optimizedUploader=(uploader "SpacesOptimized" 1 _id)
-    thumbnailUploader=(uploader "SpacesThumbnail" 1 _id)
-  }}
+    <h3>Upload up to two images</h3>
+    <h3>Photo 1</h3>
+    {{> uploadImage collection="Products" index=1 objectId=_id
+      originalUploader=(uploader "SpacesOriginal" 1 _id)
+      optimizedUploader=(uploader "SpacesOptimized" 1 _id)
+      thumbnailUploader=(uploader "SpacesThumbnail" 1 _id)
+    }}
 
-  <h3>Photo 2</h3>
-  {{> uploadImage collection="Products" index=2 objectId=_id
-    originalUploader=(uploader "SpacesOriginal" 2 _id)
-    optimizedUploader=(uploader "SpacesOptimized" 2 _id)
-    thumbnailUploader=(uploader "SpacesThumbnail" 2 _id)
-  }}
-
+    <h3>Photo 2</h3>
+    {{> uploadImage collection="Products" index=2 objectId=_id
+      originalUploader=(uploader "SpacesOriginal" 2 _id)
+      optimizedUploader=(uploader "SpacesOptimized" 2 _id)
+      thumbnailUploader=(uploader "SpacesThumbnail" 2 _id)
+    }}
+  </div>
+  <div class="col-md-6">
+    {{> editSpacePrices}}
+  </div>
+</div>
 </template>

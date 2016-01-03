@@ -27,3 +27,18 @@ Template.editSpace.helpers({
     return new Slingshot.Upload(directiveName, metaContext);
   },
 });
+
+Template.editSpace.events({
+  "click #publish-space": function(event, template) {
+    console.log(this._id);
+     Meteor.call("mart/product/publish", this._id, function(error, result) {
+       if(error) {
+         console.log(error);
+         sAlert.error(error.reason)
+       }
+       if(result){
+          sAlert.success("Space activated")
+       }
+     });
+  }
+});
