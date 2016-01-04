@@ -1,0 +1,78 @@
+<template name="space">
+  {{#with spaceData}}
+  <div class="row">
+    {{> spaceTop}}
+    {{> spaceDetails}}
+  </div>
+  {{/with}}
+</template>
+
+<template name="spaceTop">
+  <div class="col-md-4">
+    {{> spaceTopImageAndButtons}}
+  </div>
+  <div class="col-md-8">
+    {{> spaceTopName}}
+    {{> spaceTopUnitSelection}}
+  </div>
+</template>
+
+<template name="spaceTopImageAndButtons">
+  <img src="{{thumbnailUrl}}" alt="{{name}}" class='img img-fluid space-thumbnail img-rounded'/>
+
+  {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}
+    <fieldset>
+      {{> afQuickField name='quantity' type='hidden' value='1'}}
+      {{> afQuickField name='cartId' type='hidden' value=cartId}}
+      {{> afQuickField name='productId' type='hidden' value=_id}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary m-t-1 btn-block btn-lg">Make a booking</button>
+    <button class="btn btn-info-outline m-t-1 btn-block">Direct message landlord</button>
+
+  {{/autoForm}}
+</template>
+
+<template name="spaceTopName">
+  <h2>{{propertyName}}</h2>
+  <h3>{{name}}</h3>
+  <h4 class='text-muted'>{{address}}</h4>
+</template>
+
+<template name="spaceTopUnitSelection">
+  <ul class="nav nav-pills text-xs-center">
+    <li class="nav-item">
+      <a class="nav-link btn-info-outline btn" href="#">
+        <h5>Hourly Price</h5>
+        <h6>{{hourlyPrice}}</h6>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn-info-outline btn" href="#">
+        <h5>Daily Price</h5>
+        <h6>{{dailyPrice}}</h6>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link btn-info-outline btn" href="#">
+        <h5>Monthly Price</h5>
+        <h6>{{monthlyPrice}}</h6>
+      </a>
+    </li>
+  </ul>
+</template>
+
+<template name="spaceDetails">
+  <div class="row m-t-1">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Location</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Reviews</a>
+      </li>
+    </ul>
+  </div>
+</template>

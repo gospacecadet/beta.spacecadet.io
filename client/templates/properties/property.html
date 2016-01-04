@@ -4,7 +4,14 @@
 
   <div class="container">
     {{#each spaces}}
-      {{> space propertyName=propertyName address=address space=this}}
+    <div class="row m-t-1">
+      <div class="col-md-3">
+        {{> spaceTabs}}
+      </div>
+      <div class="col-md-9">
+        {{> space spaceData=spaceData}}
+      </div>
+    </div>
     {{/each}}
   </div>
 {{/with}}

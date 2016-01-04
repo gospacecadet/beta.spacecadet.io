@@ -46,7 +46,7 @@ Run `meteor --settings settings.json`
 Deploy
 ------
 
-modulus env set METEOR_SETTINGS "$(cat settings.json)"
+modulus env set METEOR_SETTINGS "$(cat staging_settings.json)"
 
 Development
 -----------
