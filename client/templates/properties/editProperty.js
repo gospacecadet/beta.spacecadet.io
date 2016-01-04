@@ -49,8 +49,9 @@ Template.editProperty.helpers({
 Template.editProperty.events({
   "click #publish-property": function(event, template) {
      Meteor.call("mart/storefront/publish", this._id, function(error, result) {
-       if(error){
-         sAlert.error(error.reason)
+       if(error) {
+         console.log(error);
+         sAlert.error(error)
        }
        if(result){
           sAlert.success("Property activated")

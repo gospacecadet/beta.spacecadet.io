@@ -2,24 +2,17 @@ Template.editSpaces.helpers({
   propertyId: function() {
     return this.propertyId;
   },
-  uploader: function(directiveName, index, objectId) {
-    let metaContext = {
-      index: index,
-      objectId: this.stationId,
-    }
 
-    return new Slingshot.Upload(directiveName, metaContext);
-  },
 });
 
 Template.editSpace.helpers({
-  propertyId: function() {
-    return this.propertyId;
+  updateSpaceId: function() {
+    return 'update-space-' + this._id
   },
   uploader: function(directiveName, index, objectId) {
     let metaContext = {
       index: index,
-      objectId: this._id, //propertyId
+      objectId: this.storefrontId, //propertyId
     }
 
     return new Slingshot.Upload(directiveName, metaContext);

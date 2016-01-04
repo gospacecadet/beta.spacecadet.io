@@ -5,7 +5,7 @@
   {{#each spaces}}
     <div class="col-md-6">
       <h2>Space for Rent</h2>
-      {{> editSpace }}
+      {{> editSpace}}
     </div>
   {{/each}}
 </template>
@@ -13,7 +13,7 @@
 <template name="editSpace">
 <div class="row">
   <div class="col-md-6">
-    {{#autoForm collection="Mart.Products" id="updateSpace" type="update" doc=this}}
+    {{#autoForm collection="Mart.Products" id=updateSpaceId type="update" doc=this}}
       <fieldset>
         {{> afQuickField name='name'}}
         {{> afQuickField name='description'}}

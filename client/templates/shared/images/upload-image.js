@@ -65,12 +65,6 @@ Template.uploadImage.events({
 
 var insertImages = function(imageUrls, objectCollection, objectId, index, callback) {
   if(imageUrls.originalUrl && imageUrls.optimizedUrl && imageUrls.thumbnailUrl) {
-    let image = _.extend(imageUrls, {
-      objectCollection: objectCollection,
-      objectId: objectId,
-      index: index,
-    })
-
     let img = Mart.Images.findOne({
       objectCollection: objectCollection,
       objectId: objectId,
@@ -78,9 +72,13 @@ var insertImages = function(imageUrls, objectCollection, objectId, index, callba
     })
 
     if(!!img) {
-      Mart.Images.update(img._id, {$set: image}, callback)
+      Mart.Images.update(img._id, {$set: imageUrls}, callback)
     } else {
-      Mart.Images.insert(image, callback)
+      Mart.Images.insert(_.extend(imageUrls, {
+        objectCollection: objectCollection,
+        objectId: objectId,
+        index: index,
+      }), callback)
     }
   }
 }
