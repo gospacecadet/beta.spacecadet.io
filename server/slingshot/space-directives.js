@@ -6,7 +6,7 @@ var directives = [
 
 _.each(directives, function(directive) {
   Slingshot.createDirective(directive.name, Slingshot.S3Storage, {
-    bucket: "local.beta.spacecadet.io",
+    bucket: Meteor.settings.AWSBucket,
     acl: "public-read",
 
     authorize: function (file, metaContext) {

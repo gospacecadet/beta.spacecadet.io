@@ -26,8 +26,10 @@ Template.uploadImage.events({
 
       // Resize and upload as optimized
       resizeImage(file, {
-        maxWidth: 400,
-        maxHeight: 400,
+        maxWidth: 1000,
+        // minWidth: 1000,
+        maxHeight: 300,
+        crop: true,
         canvas: true
       }, function(error, blob) {
         uploadImage(optimizedUploader, blob, function(error, uploadUrl) {
@@ -42,8 +44,10 @@ Template.uploadImage.events({
 
       // Resize and upload as thumbnail
       resizeImage(file, {
-        maxWidth: 100,
-        maxHeight: 100,
+        maxWidth: 300,
+        // minWidth: 300,
+        maxHeight: 200,
+        crop: true,
         canvas: true
       }, function(error, blob) {
         uploadImage(thumbnailUploader, blob, function(error, uploadUrl) {
@@ -149,15 +153,6 @@ Template.uploadImage.helpers({
     return false
   },
   url: function () {
-    console.log('url');
-    console.log(this);
-    console.log(this.thumbnailUploader.url(true));
-    console.log(Mart.Images.findOne({
-        objectCollection: this.collection,
-        objectId: this.objectId,
-        index: this.index
-      }));
-
     var justLoaded = this.thumbnailUploader.url(true)
     if(justLoaded)
       return justLoaded
