@@ -1,7 +1,5 @@
 Template.spaceTopImageAndButtons.helpers({
   thumbnailUrl: function() {
-    console.log('thumbnailUrl');
-    console.log(this);
     let img = Mart.Images.findOne({objectId: this._id, objectCollection: "Products"})
 
     if(img)
@@ -10,21 +8,31 @@ Template.spaceTopImageAndButtons.helpers({
 });
 
 Template.space.onCreated(function() {
-  var productId = Template.currentData()._id
+  var productId = Template.currentData().spaceData._id
   Meteor.subscribe("mart/images/product", productId);
+  Meteor.subscribe("mart/prices", productId);
 })
 
 Template.spaceTopUnitSelection.helpers({
   hourlyPrice: function() {
-    console.log('hourlyPrice');
-    console.log(this);
-    // Mart.Prices.find()
-    return "$10"
+    return unitPrice(this._id, Mart.Product.UNITS.HOUR)
   },
   dailyPrice: function() {
-    return "$100"
+    return unitPrice(this._id, Mart.Product.UNITS.DAY)
   },
   monthlyPrice: function() {
-    return "$1000"
+    return unitPrice(this._id, Mart.Product.UNITS.MONTH)
   }
 });
+
+var unitPrice = function(productId, unit) {
+  var p = Mart.Prices.findOne({
+    productId: productId,
+    unit: unit
+  })
+
+  if(p)
+    return p.priceInCents
+
+  return 0
+}
