@@ -149,6 +149,25 @@ Template.uploadImage.helpers({
     return false
   },
   url: function () {
-    return this.thumbnailUploader.url(true);
+    console.log('url');
+    console.log(this);
+    console.log(this.thumbnailUploader.url(true));
+    console.log(Mart.Images.findOne({
+        objectCollection: this.collection,
+        objectId: this.objectId,
+        index: this.index
+      }));
+
+    var justLoaded = this.thumbnailUploader.url(true)
+    if(justLoaded)
+      return justLoaded
+
+    var previouslyLoaded = Mart.Images.findOne({
+        objectCollection: this.collection,
+        objectId: this.objectId,
+        index: this.index
+      });
+    if(previouslyLoaded)
+      return previouslyLoaded.thumbnailUrl
   }
 })
