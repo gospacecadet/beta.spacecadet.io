@@ -15,8 +15,24 @@ Template.property.helpers({
     var propertyId = FlowRouter.getParam('propertyId')
     return Mart.Storefronts.findOne(propertyId)
   },
-  landingPads: function() {
-    return Mart.Products.find()
+  propertyName: function() {
+    var propertyId = FlowRouter.getParam('propertyId')
+    return Mart.Storefronts.findOne(propertyId).name
+  },
+  address: function() {
+    console.log('address');
+    var propertyId = FlowRouter.getParam('propertyId')
+    var p = Mart.Storefronts.findOne(propertyId)
+
+    if(p) {
+      console.log('found one');
+      var a = [p.address, p.address2, p.city, p.state, p.zip]
+      a = _.filter(a, function(e) { e && e.length > 0})
+      return a.join(", ")
+    }
+  },
+  spaces: function() {
+    return Mart.Products.find({storefrontId: this._id})
   },
   canEdit: function() {
     // return true

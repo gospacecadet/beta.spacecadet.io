@@ -127,8 +127,10 @@ var resizeImage = function(file, options, callback) {
 var uploadImage = function(uploader, blob, callback) {
   uploader.send(blob, function (error, downloadUrl) {
     if (error) {
+      console.log(error);
       // Log service detailed response.
-      console.error('Error uploading', uploader.xhr.response);
+      // console.error('Error uploading', uploader.xhr.response);
+      sAlert.error("Error uploading. Please try again later.")
     }
     callback(undefined, downloadUrl)
   });
@@ -162,6 +164,7 @@ Template.uploadImage.helpers({
         objectId: this.objectId,
         index: this.index
       });
+
     if(previouslyLoaded)
       return previouslyLoaded.thumbnailUrl
   }

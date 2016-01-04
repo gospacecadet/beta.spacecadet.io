@@ -5,14 +5,55 @@
 </template>
 
 <template name="space">
-  <h2>{{name}} ({{unitPrice}})</h2>
-  <h3>{{description}}</h3>
-  {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}
-    <fieldset>
-      {{> afQuickField name='quantity'}}
-      {{> afQuickField name='cartId' type='hidden' value=cartId}}
-      {{> afQuickField name='productId' type='hidden' value=_id}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Make a booking</button>
-  {{/autoForm}}
+  <div class="row m-t-1">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        {{> spaceTop}}
+        {{> spaceDetails}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="spaceTop">
+  <div class="col-md-4">
+    {{#with space}}
+      <img src="{{thumbnailUrl}}" alt="{{name}}" class='img img-fluid space-thumbnail img-rounded'/>
+    {{/with}}
+
+    {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}
+      <fieldset>
+        {{> afQuickField name='quantity' type='hidden' value='1'}}
+        {{> afQuickField name='cartId' type='hidden' value=cartId}}
+        {{> afQuickField name='productId' type='hidden' value=_id}}
+      </fieldset>
+      <button type="submit" class="btn btn-primary m-t-1 btn-block btn-lg">Make a booking</button>
+      <button class="btn btn-info-outline m-t-1 btn-block">Direct message landlord</button>
+
+    {{/autoForm}}
+  </div>
+  <div class="col-md-8">
+    <h2>{{propertyName}}</h2>
+    {{#with space}}<h3>{{name}}</h3>{{/with}}
+    <h4 class='text-muted'>{{address}}</h4>
+  </div>
+</template>
+
+<template name="spaceDetails">
+  <div class="row m-t-1">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Location</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Reviews</a>
+      </li>
+    </ul>
+  </div>
 </template>

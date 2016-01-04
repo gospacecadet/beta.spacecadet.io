@@ -1,13 +1,11 @@
 <template name="property">
 {{#with property}}
-<img src="{{currentImageUrl}}" alt="{{name}}" class="img img-fluid property-banner"/>
-<div class="container-fluid">
-  <h2>{{name}}</h2>
+  <img src="{{currentImageUrl}}" alt="{{name}}" class="img img-fluid property-banner"/>
 
-
-  {{#each spaces}}
-    {{> space}}
-  {{/each}}
-</div>
+  <div class="container">
+    {{#each spaces}}
+      {{> space propertyName=propertyName address=address space=this}}
+    {{/each}}
+  </div>
 {{/with}}
 </template>
