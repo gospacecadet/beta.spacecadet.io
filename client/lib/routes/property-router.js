@@ -5,10 +5,10 @@ FlowRouter.route('/new-property', {
   }
 });
 
-FlowRouter.route('/:propertyId', {
-  name: "property",
+FlowRouter.route('/properties', {
+  name: "manageProperties",
   action: function() {
-    BlazeLayout.render("mainLayout", {content: "property"});
+    BlazeLayout.render("mainLayout", {content: "manageProperties"});
   }
 });
 
@@ -19,9 +19,9 @@ FlowRouter.route('/:propertyId/edit', {
   }
 });
 
-FlowRouter.route('/manage', {
-  name: "manageProperties",
+FlowRouter.route('/:propertyId', {
+  name: "property",
   action: function() {
-    BlazeLayout.render("mainLayout", {content: "manageProperties"});
+    BlazeLayout.render("mainLayout", {content: "property"});
   }
 });
