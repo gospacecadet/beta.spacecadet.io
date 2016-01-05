@@ -1,18 +1,24 @@
 <template name="property">
 {{#with property}}
-  <img src="{{currentImageUrl}}" alt="{{name}}" class="img img-fluid property-banner"/>
 
-  <div class="container">
-    {{#each spaces}}
-    <div class="row m-t-1">
-      <div class="col-md-3">
-        {{> spaceTabs}}
-      </div>
-      <div class="col-md-9">
-        {{> space spaceData=spaceData}}
+  <img src="{{currentImageUrl}}" alt="{{name}}" class="img img-fluid property-banner"/>
+  <div class="clearfix"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 bg-gray-lightest property">
+        {{#each spaces}}
+        <div class="row">
+          <div class="col-md-3 space-tabs">
+            {{> spaceTabs}}
+          </div>
+          <div class="col-md-9 m-t-1" id="space">
+            {{> space spaceData=spaceData}}
+          </div>
+        </div>
+        {{/each}}
       </div>
     </div>
-    {{/each}}
   </div>
+
 {{/with}}
 </template>

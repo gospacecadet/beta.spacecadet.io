@@ -1,9 +1,7 @@
 <template name="space">
   {{#with spaceData}}
-  <div class="row">
     {{> spaceTop}}
     {{> spaceDetails}}
-  </div>
   {{/with}}
 </template>
 
@@ -15,7 +13,22 @@
     <div class="col-md-8">
       {{> spaceTopName}}
       {{> spaceTopUnitSelection}}
+      {{> spaceTopForUnit}}
     </div>
+  </div>
+</template>
+
+<template name="spaceTopForUnit">
+  <div class="row">
+    {{#if hourlySelected}}
+      <h4>HOURLY</h4>
+    {{/if}}
+    {{#if dailySelected}}
+      <h4>DAILY</h4>
+    {{/if}}
+    {{#if monthlySelected}}
+      <h4>MONTHLY</h4>
+    {{/if}}
   </div>
 </template>
 
@@ -43,19 +56,19 @@
 <template name="spaceTopUnitSelection">
   <ul class="nav nav-pills text-xs-center">
     <li class="nav-item">
-      <a class="nav-link btn-info-outline btn" href="#">
+      <a class="nav-link btn-info-outline btn" id="hourly-price" href="#">
         <h5>Hourly Price</h5>
         <h6>{{money hourlyPrice}}</h6>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link btn-info-outline btn" href="#">
+      <a class="nav-link btn-info-outline btn" id="daily-price" href="#">
         <h5>Daily Price</h5>
         <h6>{{money dailyPrice}}</h6>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link btn-info-outline btn" href="#">
+      <a class="nav-link btn-info-outline btn" id="monthly-price" href="#">
         <h5>Monthly Price</h5>
         <h6>{{money monthlyPrice}}</h6>
       </a>
