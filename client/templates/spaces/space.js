@@ -14,6 +14,7 @@ Template.space.onCreated(function() {
 
   // By default, see daily price
   Session.setDefault(unitSession(this.propertyId), Mart.Product.UNITS.DAY)
+  Session.setDefault(detailsSession(this.propertyId), "details")
 })
 
 Template.spaceTopUnitSelection.helpers({
@@ -45,6 +46,36 @@ Template.spaceTopUnitSelection.events({
   },
 });
 
+Template.spaceDetails.helpers({
+  detailsSelected: function() {
+    return Session.get(detailsSession(this.propertyId)) === "details"
+  },
+  locationSelected: function() {
+    return Session.get(detailsSession(this.propertyId)) === "location"
+  },
+  reviewsSelected: function() {
+    return Session.get(detailsSession(this.propertyId)) === "reviews"
+  }
+});
+
+Template.spaceDetails.events({
+  "click #details-details": function(event, template) {
+    event.preventDefault()
+    Session.set(detailsSession(this.propertyId), "details")
+    $(event.target).tab('show')
+  },
+  "click #details-location": function(event, template) {
+    event.preventDefault()
+    Session.set(detailsSession(this.propertyId), "location")
+    $(event.target).tab('show')
+  },
+  "click #details-reviews": function(event, template) {
+    event.preventDefault()
+    Session.set(detailsSession(this.propertyId), "reviews")
+    $(event.target).tab('show')
+  },
+});
+
 Template.spaceTopForUnit.helpers({
   hourlySelected: function() {
     return Session.get(unitSession(this.propertyId)) === Mart.Product.UNITS.HOUR
@@ -56,6 +87,11 @@ Template.spaceTopForUnit.helpers({
     return Session.get(unitSession(this.propertyId)) === Mart.Product.UNITS.MONTH
   }
 });
+
+const DETAILS_SESSION_PREFIX = "details"
+var detailsSession = function(propertyId) {
+  return DETAILS_SESSION_PREFIX + propertyId
+}
 
 var unitSession = function(propertyId) {
   return UNIT_SESSION_PREFIX + propertyId

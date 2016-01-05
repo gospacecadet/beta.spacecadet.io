@@ -1,0 +1,36 @@
+<template name="spaceDetails">
+  <div class="row m-t-1">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" id='details-details'>Details</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id='details-location'>Location</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" id='details-reviews'>Reviews</a>
+      </li>
+    </ul>
+  </div>
+  {{#if detailsSelected}}
+    {{> spaceDetailDetails}}
+  {{/if}}
+  {{#if locationSelected}}
+    {{> spaceDetailLocation}}
+  {{/if}}
+  {{#if reviewsSelected}}
+    {{> spaceDetailReviews}}
+  {{/if}}
+</template>
+
+<template name="spaceDetailDetails">
+<h4>Details</h4>
+</template>
+
+<template name="spaceDetailLocation">
+<h4>Location</h4>
+</template>
+
+<template name="spaceDetailReviews">
+<h4>Reviews</h4>
+</template>
