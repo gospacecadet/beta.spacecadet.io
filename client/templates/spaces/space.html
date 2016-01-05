@@ -1,8 +1,6 @@
 <template name="space">
-  {{#with spaceData}}
-    {{> spaceTop}}
-    {{> spaceDetails}}
-  {{/with}}
+  {{> spaceTop}}
+  {{> spaceDetails}}
 </template>
 
 <template name="spaceTop">
@@ -50,7 +48,7 @@
 <template name="spaceTopName">
   <h2>{{propertyName}}</h2>
   <h3>{{name}}</h3>
-  <h4 class='text-muted'>{{address}}</h4>
+  <h4 class='text-muted'>{{propertyAddress}}</h4>
 </template>
 
 <template name="spaceTopUnitSelection">

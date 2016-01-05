@@ -8,13 +8,14 @@ Template.spaceTopImageAndButtons.helpers({
 });
 
 Template.space.onCreated(function() {
-  var productId = Template.currentData().spaceData._id
+  var propertyId = FlowRouter.getParam('propertyId')
+  var productId = Template.currentData()._id
   Meteor.subscribe("mart/images/product", productId);
   Meteor.subscribe("mart/prices", productId);
 
   // By default, see daily price
-  Session.setDefault(unitSession(this.propertyId), Mart.Product.UNITS.DAY)
-  Session.setDefault(detailsSession(this.propertyId), "details")
+  Session.setDefault(unitSession(propertyId), Mart.Product.UNITS.DAY)
+  Session.setDefault(detailsSession(propertyId), "details")
 })
 
 Template.spaceTopUnitSelection.helpers({
@@ -33,59 +34,82 @@ const UNIT_SESSION_PREFIX = "unit-selected-"
 Template.spaceTopUnitSelection.events({
   "click #hourly-price": function(event, template) {
      event.preventDefault()
-     Session.set(unitSession(this.propertyId), Mart.Product.UNITS.HOUR)
+     Session.set(unitSession(FlowRouter.getParam('propertyId')), Mart.Product.UNITS.HOUR)
   },
   "click #daily-price": function(event, template) {
      event.preventDefault()
-     Session.set(unitSession(this.propertyId), Mart.Product.UNITS.DAY)
+     Session.set(unitSession(FlowRouter.getParam('propertyId')), Mart.Product.UNITS.DAY)
 
   },
   "click #monthly-price": function(event, template) {
      event.preventDefault()
-     Session.set(unitSession(this.propertyId), Mart.Product.UNITS.MONTH)
+     Session.set(unitSession(FlowRouter.getParam('propertyId')), Mart.Product.UNITS.MONTH)
   },
 });
 
 Template.spaceDetails.helpers({
   detailsSelected: function() {
-    return Session.get(detailsSession(this.propertyId)) === "details"
+    return Session.get(detailsSession(FlowRouter.getParam('propertyId'))) === "details"
   },
   locationSelected: function() {
-    return Session.get(detailsSession(this.propertyId)) === "location"
+    return Session.get(detailsSession(FlowRouter.getParam('propertyId'))) === "location"
   },
   reviewsSelected: function() {
-    return Session.get(detailsSession(this.propertyId)) === "reviews"
+    return Session.get(detailsSession(FlowRouter.getParam('propertyId'))) === "reviews"
   }
 });
 
 Template.spaceDetails.events({
   "click #details-details": function(event, template) {
     event.preventDefault()
-    Session.set(detailsSession(this.propertyId), "details")
+    Session.set(detailsSession(FlowRouter.getParam('propertyId')), "details")
     $(event.target).tab('show')
   },
   "click #details-location": function(event, template) {
     event.preventDefault()
-    Session.set(detailsSession(this.propertyId), "location")
+    Session.set(detailsSession(FlowRouter.getParam('propertyId')), "location")
     $(event.target).tab('show')
   },
   "click #details-reviews": function(event, template) {
     event.preventDefault()
-    Session.set(detailsSession(this.propertyId), "reviews")
+    Session.set(detailsSession(FlowRouter.getParam('propertyId')), "reviews")
     $(event.target).tab('show')
   },
 });
 
 Template.spaceTopForUnit.helpers({
   hourlySelected: function() {
-    return Session.get(unitSession(this.propertyId)) === Mart.Product.UNITS.HOUR
+    return Session.get(unitSession(FlowRouter.getParam('propertyId'))) === Mart.Product.UNITS.HOUR
   },
   dailySelected: function() {
-    return Session.get(unitSession(this.propertyId)) === Mart.Product.UNITS.DAY
+    return Session.get(unitSession(FlowRouter.getParam('propertyId'))) === Mart.Product.UNITS.DAY
   },
   monthlySelected: function() {
-    return Session.get(unitSession(this.propertyId)) === Mart.Product.UNITS.MONTH
+    return Session.get(unitSession(FlowRouter.getParam('propertyId'))) === Mart.Product.UNITS.MONTH
   }
+});
+
+Template.spaceTopName.helpers({
+  propertyAddress: function() {
+    var propertyId = FlowRouter.getParam('propertyId')
+    var p = Mart.Storefronts.findOne(propertyId)
+
+    if(p) {
+      var a = [p.address, p.address2, p.city, p.state, p.zip]
+      a = _.filter(a, function(e) { return e && e.length > 0})
+      var a = a.join(", ")
+
+      return a
+    }
+  },
+  propertyName: function() {
+    var propertyId = FlowRouter.getParam('propertyId')
+    var p = Mart.Storefronts.findOne(propertyId)
+
+    if(p) {
+      return p.name
+    }
+  },
 });
 
 const DETAILS_SESSION_PREFIX = "details"

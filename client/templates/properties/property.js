@@ -31,19 +31,5 @@ Template.property.helpers({
 
     if(img)
       return img.optimizedUrl
-  },
-  spaceData: function() {
-    var propertyId = FlowRouter.getParam('propertyId')
-    var p = Mart.Storefronts.findOne(propertyId)
-
-    if(p) {
-      var a = [p.address, p.address2, p.city, p.state, p.zip]
-      a = _.filter(a, function(e) { return e && e.length > 0})
-      var a = a.join(", ")
-
-      return _.extend(this, {propertyName: p.name, address: a})
-    }
-
-    return this
   }
 });
