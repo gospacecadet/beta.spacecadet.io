@@ -28,9 +28,11 @@
 
 <template name="navbarLoggedInLinks">
   <ul class="nav navbar-nav pull-xs-right">
+    {{#if cartHasItems}}
     <li class="nav-item">
-      <a class="nav-link" href="#" id="logout-button">Logout</a>
+      <a class="nav-link" href="{{checkoutPath}}">Checkout</a>
     </li>
+    {{/if}}
     {{#if canActAsMerchant}}
       <li class="nav-item">
         <a class="nav-link" href="{{newPropertyPath}}">New Property</a>
@@ -42,6 +44,9 @@
     <li class="nav-item">
       <a class="nav-link" href="#">{{username}}</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" id="logout-button">Logout</a>
+    </li>
   </ul>
 </template>
 
@@ -50,5 +55,6 @@
     <input class="form-control" name="email" type="email" placeholder="Email">
     <input class="form-control" name="password" type="password" placeholder="Password">
     <button class="btn btn-primary-outline" type="submit">Log In</button>
+    <a href="/" class="btn btn-info-outline">Sign Up</a>
   </form>
 </template>

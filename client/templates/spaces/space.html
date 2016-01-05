@@ -18,17 +18,25 @@
 
 <template name="spaceTopImageAndButtons">
   <img src="{{thumbnailUrl}}" alt="{{name}}" class='img img-fluid space-thumbnail img-rounded'/>
+  {{#if loggedIn}}
+    {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}
+      <fieldset>
+        {{> afQuickField name='unit' type='hidden' value=currentUnit}}
+        {{> afQuickField name='quantity' type='hidden' value=currentQuantity}}
+        {{> afQuickField name='startAtDate' type='hidden' value=currentDate}}
+        {{> afQuickField name='startAtHour' type='hidden' value=currentHour}}
+        {{> afQuickField name='startAtMinute' type='hidden' value=currentMinute}}
 
-  {{#autoForm collection="Mart.LineItems" id="insertLineItemForm" type="insert"}}
-    <fieldset>
-      {{> afQuickField name='quantity' type='hidden' value='1'}}
-      {{> afQuickField name='cartId' type='hidden' value=cartId}}
-      {{> afQuickField name='productId' type='hidden' value=_id}}
-    </fieldset>
-    <button type="submit" class="btn btn-primary m-t-1 btn-block btn-lg">Make a booking</button>
-    <button class="btn btn-info-outline m-t-1 btn-block">Direct message landlord</button>
-
-  {{/autoForm}}
+        {{> afQuickField name='cartId' type='hidden' value="cartId"}}
+        {{> afQuickField name='productId' type='hidden' value=_id}}
+      </fieldset>
+      <button type="submit" class="btn btn-primary m-t-1 btn-block btn-lg">Make a booking</button>
+      <button class="btn btn-info-outline m-t-1 btn-block">Direct message landlord</button>
+    {{/autoForm}}
+  {{else}}
+    <button class="btn btn-primary m-t-1 btn-block btn-lg logged-out">Make a booking</button>
+    <button class="btn btn-info-outline m-t-1 btn-block logged-out">Direct message landlord</button>
+  {{/if}}
 </template>
 
 <template name="spaceTopName">
