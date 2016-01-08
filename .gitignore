@@ -1,4 +1,6 @@
 *settings.json
 packages/mart
+packages/mart-vibe-spacecadet
+packages/bootstrap
 design/
-packages/bootstrap*
+packages/mart-template-spacecadet
