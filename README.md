@@ -13,13 +13,13 @@ Installation
 **DEVELOPMENT** (current):
 
 ```
-[/beta.spacecadet.io]$ mkdir packages
-[/]$ cd ..
-[/]$ git clone git@github.com:marvinmarnold/mart.git
-[/]$ ln -s mart beta.spacecadet.io/packages
+mkdir packages && cd packages
+git clone git@github.com:marvinmarnold/mart.git packages/mart
+git clone git@github.com:marvinmarnold/mart-vibe-spacecadet.git
 ```
 
 **STABLE** (eventually): `meteor add marvin:mart`
+**STABLE** (eventually): `meteor add marvin:mart-vibe-spacecadet`
 
 ### Configure Mart
 

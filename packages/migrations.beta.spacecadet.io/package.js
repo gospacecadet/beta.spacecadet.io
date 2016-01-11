@@ -12,26 +12,18 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.2.1');
-  api.use(['ecmascript', 'underscore']);
+  api.use(['ecmascript', 'underscore', 'mongo', 'random', 'email']);
 
   api.use('marvin:mart')
 
   api.addFiles([
-    'stations/00-stations.js',
-    'stations/01-ten_eleven.js',
-    'stations/02-geekdom.js',
-    'stations/03-eastside_warehouse.js',
-    'stations/04-outdoor_lot.js',
-    // 'stations/05-ten_eleven.js',
-    // 'stations/06-ten_eleven.js',
-    // 'stations/07-ten_eleven.js',
-    // 'stations/08-ten_eleven.js',
-    // 'stations/09-ten_eleven.js',
+    'lib/email.js',
+    'lib/spacecadet-migrator.js',
+    'lib/imported-collections.js',
+    'lib/migrations.beta.spacecadet.io.js'
   ], 'server');
 
-  api.addFiles('migrations.beta.spacecadet.io.js', 'server');
-
-  api.export('SpaceCadetMigration', 'server')
+  api.export('Migrator', 'server')
 });
 
 Package.onTest(function(api) {
@@ -43,5 +35,5 @@ Package.onTest(function(api) {
   api.use('marvin:mart')
   api.use('migrations.beta.spacecadet.io');
 
-  api.addFiles('migrations.beta.spacecadet.io-tests.js', 'server');
+  api.addFiles('migration-tests.js', 'server');
 });
