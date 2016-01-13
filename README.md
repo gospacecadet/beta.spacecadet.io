@@ -46,9 +46,21 @@ Run `meteor --settings settings.json`
 Deploy
 ------
 
+Modulus
+=====
 modulus env set METEOR_SETTINGS "$(cat staging_settings.json)"
+
+Galaxy
+=====
+DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy galaxy.spacecadet.io --settings galaxy_settings.json
 
 Development
 -----------
 
 Line count: cloc . --exclude-dir .meteor,packages
+
+
+SSL
+---
+https://certsimple.com/blog/openssl-csr-command
+https://nicolas.perriault.net/code/2012/gandi-standard-ssl-certificate-nginx/

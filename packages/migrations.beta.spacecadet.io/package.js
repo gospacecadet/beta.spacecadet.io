@@ -17,7 +17,6 @@ Package.onUse(function(api) {
   api.use('marvin:mart')
 
   api.addFiles([
-    'lib/email.js',
     'lib/spacecadet-migrator.js',
     'lib/imported-collections.js',
     'lib/migrations.beta.spacecadet.io.js'

@@ -41,6 +41,7 @@ var sendEmail = function() {
   })
 
   Email.send({
+    from: "SpaceCadet <do-not-reply@spacecadet.io>",
     to: Meteor.settings.EMAIL_RECIPIENTS,
     subject: "SpaceCadet Migration Complete",
     text: text
