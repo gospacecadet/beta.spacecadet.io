@@ -54,7 +54,7 @@ var createProduct = function(product) {
     name: product.name,
     description: product.description,
     storefrontId: product.stationId,
-    isPublished: Meteor.settings.AUTO_PUBLISH,
+    isPublished: (Meteor.settings.AUTO_PUBLISH === "true"),
     isDeleted: false,
     size: product.size,
     occupancy: product.occupancy
@@ -100,7 +100,7 @@ var createNewUser = function(oldUserId, propertyName) {
 var createStorefront = function(station) {
   storefront = {
     _id: station._id,
-    isPublished: Meteor.settings.AUTO_PUBLISH,
+    isPublished: (Meteor.settings.AUTO_PUBLISH === "true"),
     isDeleted: false,
     userId: station.userId,
     name: station.name,

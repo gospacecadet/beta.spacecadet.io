@@ -1,8 +1,6 @@
 Template.merchantSignUp.onCreated(function() {
-  console.log('merchantSignUp');
   var hooksObject = {
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
-      console.log('merchantSignup#onSubmit');
 
       var that = this
       var merchant = {

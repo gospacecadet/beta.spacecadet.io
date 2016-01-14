@@ -1,22 +1,9 @@
-Template.property.onCreated(function() {
-  this.autorun(function() {
-    var propertyId = FlowRouter.getParam('propertyId')
-    Meteor.subscribe("mart/storefront", propertyId);
-  });
-})
-
-Template.property.helpers({
-  property: function() {
-    var propertyId = FlowRouter.getParam('propertyId')
-    return Mart.Storefronts.findOne(propertyId)
-  },
+Template.propertySpaces.helpers({
   spaces: function() {
-    return Mart.Products.find({storefrontId: this._id})
-  },
-  currentImageUrl: function() {
-    let img = Mart.Images.findOne({objectId: this._id, objectCollection: "Storefronts"})
+    var propertyId = FlowRouter.getParam('propertyId')
+    var property = Mart.Storefronts.findOne(propertyId)
 
-    if(img)
-      return img.optimizedUrl
-  }
+    if(property)
+      return property.products()
+  },
 });

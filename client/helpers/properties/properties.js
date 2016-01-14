@@ -1,7 +1,3 @@
-Template.properties.onCreated(function() {
-  Meteor.subscribe('mart/storefronts')
-})
-
 Template.properties.helpers({
   properties: function() {
     return Mart.Storefronts.find({})

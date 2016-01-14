@@ -48,11 +48,11 @@ Deploy
 
 Modulus
 =====
-modulus env set METEOR_SETTINGS "$(cat staging_settings.json)"
+modulus env set METEOR_SETTINGS "$(cat settings/staging_settings.json)"
 
 Galaxy
 =====
-DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy galaxy.spacecadet.io --settings galaxy_settings.json
+DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy galaxy.spacecadet.io --settings settings/galaxy_settings.json
 
 Development
 -----------
