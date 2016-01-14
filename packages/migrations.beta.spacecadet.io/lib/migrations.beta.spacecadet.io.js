@@ -62,14 +62,16 @@ var createProduct = function(product) {
 
   var productId = Mart.Products.insert(product, {getAutoValues: false, validate: false})
 
-  Mart.Images.insert({
-    objectCollection: "Products",
-    objectId: productId,
-    index: 1,
-    originalUrl: product.imagePath,
-    optimizedUrl: product.imagePath,
-    thumbnailUrl: product.imagePath
-  }, {validate: false})
+  if(product.imagePath) {
+    Mart.Images.insert({
+      objectCollection: "Products",
+      objectId: productId,
+      index: 1,
+      originalUrl: product.imagePath,
+      optimizedUrl: product.imagePath,
+      thumbnailUrl: product.imagePath
+    }, {validate: false})
+  }
 
   return productId
 }
@@ -113,14 +115,21 @@ var createStorefront = function(station) {
   }
   var storefrontId = Mart.Storefronts.insert(storefront, {getAutoValues: false, validate: false})
 
-  Mart.Images.insert({
-    objectCollection: "Storefronts",
-    objectId: storefrontId,
-    index: 1,
-    originalUrl: station.bannerPath,
-    optimizedUrl: station.bannerPath,
-    thumbnailUrl: station.previewPath
-  })
+  var bannerPath = station.bannerPath
+  var previewPath = station.previewPath || bannerPath
+  bannerPath = bannerPath || previewPath
+
+  if(bannerPath) {
+    Mart.Images.insert({
+      objectCollection: "Storefronts",
+      objectId: storefrontId,
+      index: 1,
+      originalUrl: bannerPath,
+      optimizedUrl: bannerPath,
+      thumbnailUrl: previewPath
+    })
+  }
+
 
   return storefrontId
 }

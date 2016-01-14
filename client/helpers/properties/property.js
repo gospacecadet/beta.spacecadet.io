@@ -8,5 +8,5 @@ Template.property.helpers({
 
     if(img)
       return img.optimizedUrl
-  }
+  },
 });
