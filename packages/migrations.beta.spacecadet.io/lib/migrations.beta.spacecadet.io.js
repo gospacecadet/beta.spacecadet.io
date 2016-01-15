@@ -48,32 +48,32 @@ var sendEmail = function() {
   });
 }
 
-var createProduct = function(product) {
-  product = {
-    _id: product._id,
-    name: product.name,
-    description: product.description,
-    storefrontId: product.stationId,
+var createProduct = function(oldProduct) {
+  var newProduct = {
+    _id: oldProduct._id,
+    name: oldProduct.name,
+    description: oldProduct.description,
+    storefrontId: oldProduct.stationId,
     isPublished: (Meteor.settings.AUTO_PUBLISH === "true"),
     isDeleted: false,
-    size: product.size,
-    occupancy: product.occupancy
+    size: oldProduct.size,
+    occupancy: oldProduct.occupancy
   }
 
-  var productId = Mart.Products.insert(product, {getAutoValues: false, validate: false})
+  var newProductId = Mart.Products.insert(newProduct, {getAutoValues: false, validate: false})
 
-  if(product.imagePath) {
+  if(oldProduct.imagePath) {
     Mart.Images.insert({
       objectCollection: "Products",
-      objectId: productId,
+      objectId: newProductId,
       index: 1,
-      originalUrl: product.imagePath,
-      optimizedUrl: product.imagePath,
-      thumbnailUrl: product.imagePath
+      originalUrl: oldProduct.imagePath,
+      optimizedUrl: oldProduct.imagePath,
+      thumbnailUrl: oldProduct.imagePath
     }, {validate: false})
   }
 
-  return productId
+  return newProductId
 }
 
 var createNewUser = function(oldUserId, propertyName) {

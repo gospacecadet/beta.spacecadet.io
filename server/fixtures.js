@@ -1,6 +1,6 @@
 Meteor.startup(function() {
-  Migrator.migrate()
-  // Migrator.forceMigrate()
+  // Migrator.migrate()
+  Migrator.forceMigrate()
   // createTestAccounts()
 });
 
