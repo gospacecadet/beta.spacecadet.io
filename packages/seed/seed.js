@@ -1,0 +1,5 @@
+Seed = {
+  storefronts: function() {
+
+  }
+}
