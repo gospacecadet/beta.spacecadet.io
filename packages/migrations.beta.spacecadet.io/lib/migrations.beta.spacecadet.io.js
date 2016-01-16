@@ -24,6 +24,7 @@ _.extend(Migrator, {
     Meteor.users.remove({})
     Mart.Images.remove({})
     Mart.Products.remove({})
+    Mart.Prices.remove({})
 
     this.migrate()
   }

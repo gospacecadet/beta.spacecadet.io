@@ -68,7 +68,9 @@ Seed = {
       description: this.randDesc(),
       isPublished: true,
       isDeleted: false,
-      createdAt: new Date()
+      createdAt: new Date(),
+      occupancy: this.rand(),
+      size: this.rand() + "x" + this.rand()
     }, {getAutoValues: false})
   },
   property: function() {
@@ -92,7 +94,12 @@ Seed = {
 
     var userDoc = {
       email: email,
-      password: "password"
+      password: "password",
+      profile: {
+        firstName: this.randWord(),
+        lastName: this.randWord(),
+        companyName: this.randName()
+      }
     }
     var user = Meteor.users.findOne({"emails.address": userDoc.email})
     var userId
@@ -106,27 +113,33 @@ Seed = {
 
     return userId
   },
+  randWord: function() {
+    return this.capitalize(loremIpsum({
+      count: 1,
+      units: 'words'
+    }))
+  },
   randName: function() {
-    return loremIpsum({
+    return this.capitalize(loremIpsum({
       count: 3,
       units: 'words'
-    })
+    }))
   },
   randDesc: function() {
-    return this.capitalize(loremIpsum({
+    return loremIpsum({
       count: 1,                      // Number of words, sentences, or paragraphs to generate.
       units: 'paragraphs',            // Generate words, sentences, or paragraphs.
       sentenceLowerBound: 5,         // Minimum words per sentence.
       sentenceUpperBound: 15,        // Maximum words per sentence.
       paragraphLowerBound: 1,        // Minimum sentences per paragraph.
       paragraphUpperBound: 4,        // Maximum sentences per paragraph.
-    }));
+    });
   },
   rand: function() {
-    return parseInt(Random.fraction * 1000)
+    return parseInt(Random.fraction() * 1000)
   },
   randAddress: function() {
-    return this.rand() + this.randName + _.sample(addressEndings)
+    return this.rand() + " " + this.randName() + " " + _.sample(addressEndings)
   },
   capitalize: function(s) {
     return s.charAt(0).toUpperCase() + s.slice(1);
