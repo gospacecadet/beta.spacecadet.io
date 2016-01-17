@@ -1,10 +1,10 @@
 Meteor.startup(function() {
-  // Migrator.migrate()
+  Migrator.migrate()
   // Migrator.forceMigrate()
   // createTestAccounts()
-  // if(Mart.Products.find().count() < 100) {
-  //   Seed.seed()
-  // }
+  if(Mart.Products.find().count() < 100) {
+    Seed.seed()
+  }
 });
 
 var createTestAccounts = function() {

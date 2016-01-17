@@ -4,14 +4,6 @@ Template.spaceCardButtons.helpers({
     if(_landlordId)
       return Talk.thread(_landlordId)
   },
-  tempThread: function() {
-    var template = this
-    return {
-      recipientId: function() {
-        return landlordId(template._id)
-      }
-    }
-  }
 });
 
 var landlordId = function(spaceId) {

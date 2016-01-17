@@ -1,5 +1,5 @@
 Template.threads.helpers({
   threads: function() {
-    return Talk.Threads.find()
-  }
+    return Talk.threads()
+  },
 });
