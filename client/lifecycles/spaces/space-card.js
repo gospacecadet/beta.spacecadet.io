@@ -1,3 +1,7 @@
 Template.spaceCard.onCreated(function() {
-  Meteor.subscribe("mart/images/product", Template.currentData()._id);
+  Tracker.autorun(function() {
+    var spaceId =  Template.currentData()._id
+    Meteor.subscribe("mart/images/product", spaceId);
+    Meteor.subscribe("mart/prices", spaceId);
+  });
 })
