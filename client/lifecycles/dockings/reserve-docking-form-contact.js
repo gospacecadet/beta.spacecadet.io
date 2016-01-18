@@ -3,7 +3,23 @@ Template.reserveDockingFormContact.onCreated(function() {
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
       console.log('onSubmit#reserveDockingFormContact');
       console.log(insertDoc);
-      var that = this
+      var hook = this
+
+      Meteor.call("mart/submit-carts", insertDoc, function(error, result) {
+        if(error) {
+          console.log(error);
+          if(error.error === 'invalid-card') {
+            sAlert.error("You must select a card")
+            hook.done()
+          } else {
+            sAlert.error(error.reason)
+            hook.done()
+          }
+        } else {
+          sAlert.success("Order submitted")
+          hook.done()
+        }
+      });
 
       return false;
     },
@@ -11,6 +27,7 @@ Template.reserveDockingFormContact.onCreated(function() {
       console.log(error);
       if(error && error.reason) { // a special Meteor.error
         sAlert.error(error.reason)
+        throwError("Please correct the errors and try again.")
       }
     }
   };
