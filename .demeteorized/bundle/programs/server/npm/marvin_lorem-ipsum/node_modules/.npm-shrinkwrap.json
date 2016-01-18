@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "lorem-ipsum": {
+      "version": "1.0.3",
+      "dependencies": {
+        "optimist": {
+          "version": "0.3.7",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.3"
+            }
+          }
+        }
+      }
+    }
+  }
+}

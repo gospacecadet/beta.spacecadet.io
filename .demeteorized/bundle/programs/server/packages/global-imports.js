@@ -1,0 +1,45 @@
+/* Imports for global scope */
+
+MongoInternals = Package.mongo.MongoInternals;
+Mongo = Package.mongo.Mongo;
+Tracker = Package.tracker.Tracker;
+Deps = Package.tracker.Deps;
+Date = Package['es5-shim'].Date;
+parseInt = Package['es5-shim'].parseInt;
+ECMAScript = Package.ecmascript.ECMAScript;
+Mart = Package['marvin:mart'].Mart;
+Random = Package.random.Random;
+_ = Package.underscore._;
+Migrator = Package['migrations.beta.spacecadet.io'].Migrator;
+Email = Package.email.Email;
+EmailInternals = Package.email.EmailInternals;
+loremIpsum = Package['marvin:lorem-ipsum'].loremIpsum;
+Seed = Package.seed.Seed;
+Talk = Package['marvin:talk'].Talk;
+Meteor = Package.meteor.Meteor;
+WebApp = Package.webapp.WebApp;
+main = Package.webapp.main;
+WebAppInternals = Package.webapp.WebAppInternals;
+DDP = Package['ddp-client'].DDP;
+DDPServer = Package['ddp-server'].DDPServer;
+LaunchScreen = Package['launch-screen'].LaunchScreen;
+Blaze = Package.ui.Blaze;
+UI = Package.ui.UI;
+Handlebars = Package.ui.Handlebars;
+Spacebars = Package.spacebars.Spacebars;
+babelHelpers = Package['babel-runtime'].babelHelpers;
+Symbol = Package['ecmascript-runtime'].Symbol;
+Map = Package['ecmascript-runtime'].Map;
+Set = Package['ecmascript-runtime'].Set;
+Promise = Package.promise.Promise;
+Slingshot = Package['edgee:slingshot'].Slingshot;
+Roles = Package['alanning:roles'].Roles;
+Security = Package['ongoworks:security'].Security;
+Accounts = Package['accounts-base'].Accounts;
+AccountsServer = Package['accounts-base'].AccountsServer;
+FlowRouter = Package['kadira:flow-router'].FlowRouter;
+Autoupdate = Package.autoupdate.Autoupdate;
+HTML = Package.htmljs.HTML;
+SimpleSchema = Package['aldeed:simple-schema'].SimpleSchema;
+MongoObject = Package['aldeed:simple-schema'].MongoObject;
+

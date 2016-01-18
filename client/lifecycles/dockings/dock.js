@@ -1,3 +1,4 @@
-// Template.reserveDockingDetailsCart.onCreated(function() {
-//   Meteor.subscribe("mart/cart", Template.currentData()._id);
-// })
+Template.reserveDockingDetailsCart.onCreated(function() {
+  Meteor.subscribe("mart/carts", [Mart.Cart.STATES.SHOPPING]);
+  Meteor.subscribe("mart/cards");
+})
