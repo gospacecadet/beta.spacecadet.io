@@ -1,20 +1,23 @@
 {
-  "IMPORT_MONGO_DB_URL": "",
-  "SMTP_USERNAME": "",
-  "SMTP_PASSWORD": "",
-  "SMTP_HOST": "smtp.gmail.com",
-  "SMTP_PORT": 587,
-  "EMAIL_RECIPIENTS": [
-    "test@example.com"
-  ],
-  "AUTO_PUBLISH": true,
-  "stripeSecretKey": "",
+  "STRIPE_SECRET_KEY": "",
   "AWSAccessKeyId": "",
   "AWSSecretAccessKey": "",
   "AWSBucket": "",
+  "SMTP_PASSWORD": "",
+  "SMTP_USERNAME": "postmaster@.mailgun.org",
+  "SMTP_HOST": "smtp.mailgun.org",
+  "SMTP_PORT": "587",
   "public": {
-    "connectionFeePct": 0.1,
-    "serviceFeePct": 0.01,
-    "stripePublicKey": "",
-  }
+    "SERVICE_FEE_PCT": "0.05",
+    "HOUR_CONNECTION_FEE_PCT": "0.1",
+    "DAY_CONNECTION_FEE_PCT": "0.075",
+    "MONTH_CONNECTION_FEE_PCT": "0.05",
+    "TAX_PCT": "0",
+    "STRIPE_PUBLIC_KEY": ""
+  },
+  "IMPORT_MONGO_DB_URL": "",
+  "EMAIL_RECIPIENTS": [
+    ""
+  ],
+  "AUTO_PUBLISH": "true"
 }
