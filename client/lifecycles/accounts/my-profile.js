@@ -1,12 +1,10 @@
-Template.merchantSignUp.onCreated(function() {
+Template.myProfile.onCreated(function() {
   var hooksObject = {
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
-      console.log('onSubmit');
-      var that = this
-      var merchant = {
+      var hook = this
+      var user = {
+        username: insertDoc.username,
         email: insertDoc.email,
-        password: insertDoc.password,
-        roles: [Mart.ROLES.GLOBAL.MERCHANT],
         profile: {
           firstName: insertDoc.firstName,
           lastName: insertDoc.lastName,
@@ -15,18 +13,24 @@ Template.merchantSignUp.onCreated(function() {
         }
       }
 
-      Mart.Accounts.createUser(merchant, function(error) {
-        that.done(error)
-      })
+      Meteor.call('mart/update-user', user, function(error) {
+        if(error) {
+          sAlert.error(error)
+        } else {
+          sAlert.success("Profile successfully updated.")
+        }
 
+        hook.done()
+      })
       return false;
     },
     onError: function(operation, error) {
+      console.log('error');
       console.log(error);
       if(error && error.reason) { // a special Meteor.error
         sAlert.error(error.reason)
       }
     }
   };
-  AutoForm.addHooks(['merchantSignUpForm'], hooksObject);
+  AutoForm.addHooks(['updateProfileForm'], hooksObject);
 })
