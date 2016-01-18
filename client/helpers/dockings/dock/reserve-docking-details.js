@@ -19,6 +19,8 @@ var groupCartsByProperty = function(ungroupedCarts) {
       if(groupedCarts[storefrontId]) {
         groupedCarts[storefrontId].lineItems.push(line)
       } else {
+        Meteor.subscribe("mart/cart", cart._id);
+
         // First item in cart for this property.
         // use this line's details as master reference
         groupedCarts[storefrontId] = {
