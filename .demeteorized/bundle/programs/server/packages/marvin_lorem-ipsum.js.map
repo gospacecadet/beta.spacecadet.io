@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/lorem-ipsum.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;AAAA,UAAU,GAAG,GAAG,CAAC,OAAO,CAAC,aAAa,CAAC,CAAC,iC","file":"/packages/marvin_lorem-ipsum.js","sourcesContent":["loremIpsum = Npm.require('lorem-ipsum');\n"]}

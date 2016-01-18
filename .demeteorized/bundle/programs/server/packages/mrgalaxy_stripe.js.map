@@ -1,1 +1,0 @@
-{"version":3,"sources":["meteor://💻app/packages/mrgalaxy_stripe/stripe_server.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAAA,yE","file":"/packages/mrgalaxy_stripe.js","sourcesContent":["this.StripeAPI = Npm.require('stripe');"]}
