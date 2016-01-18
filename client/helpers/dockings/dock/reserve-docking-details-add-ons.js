@@ -24,7 +24,6 @@ Template.reserveDockingDetailsAddOns.helpers({
     var shoppingCarts = Mart.Carts.find({state: Mart.Cart.STATES.SHOPPING}).fetch()
 
     return _.reduce(shoppingCarts, function(sum, cart) {
-      console.log(cart.total());
       return sum + cart.total()
     }, 0)
   }
