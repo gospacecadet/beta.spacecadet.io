@@ -1,7 +1,6 @@
 Template.reserveDockingFormBillingCard.onCreated(function() {
   var hooksObject = {
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
-      console.log(insertDoc);
       var hook = this
 
       Mart.Card.createCard("Stripe", insertDoc, function(error, cId) {

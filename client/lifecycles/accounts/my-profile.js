@@ -25,7 +25,6 @@ Template.myProfile.onCreated(function() {
       return false;
     },
     onError: function(operation, error) {
-      console.log('error');
       console.log(error);
       if(error && error.reason) { // a special Meteor.error
         sAlert.error(error.reason)
