@@ -1,8 +1,6 @@
 Template.reserveDockingFormContact.onCreated(function() {
   var hooksObject = {
     onSubmit: function(insertDoc, updateDoc, currentDoc) {
-      console.log('onSubmit#reserveDockingFormContact');
-      console.log(insertDoc);
       var hook = this
 
       Meteor.call("mart/submit-carts", insertDoc, function(error, cartIds) {
@@ -16,10 +14,8 @@ Template.reserveDockingFormContact.onCreated(function() {
             hook.done()
           }
         } else {
-          console.log('SUCCESS');
-          console.log(cartIds);
           sAlert.success("Order submitted")
-          var confirmationPath = FlowRouter.path('dockingConfirmation', {cartIds: cartIds})
+          var confirmationPath = FlowRouter.path('dockingHistory')
           FlowRouter.go(confirmationPath)
           hook.done()
         }
