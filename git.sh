@@ -1,5 +1,5 @@
 #!/bin/bash
-# echo $1
+# Commit all SpaceCadet repos in one go
 cd ~/workspace/spacecadet/beta.spacecadet.io
 git add .
 git commit -m "$1"
