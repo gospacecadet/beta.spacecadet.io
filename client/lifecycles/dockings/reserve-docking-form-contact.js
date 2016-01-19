@@ -16,8 +16,11 @@ Template.reserveDockingFormContact.onCreated(function() {
             hook.done()
           }
         } else {
+          console.log('SUCCESS');
+          console.log(cartIds);
           sAlert.success("Order submitted")
-          FlowRouter.go(dockingConfirmationPath(cartIds))
+          var confirmationPath = FlowRouter.path('dockingConfirmation', {cartIds: cartIds})
+          FlowRouter.go(confirmationPath)
           hook.done()
         }
       });
