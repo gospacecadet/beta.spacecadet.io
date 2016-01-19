@@ -10,17 +10,15 @@ Template.dockingHistory.helpers({
       Mart.Cart.STATES.SETTLED,
     ]
 
-    return Mart.Carts.find({state: {$in: states}})
+    return Mart.Carts.find({userId: Meteor.userId(), state: {$in: states}})
   },
   pendingDockings: function() {
-    console.log('pendingDockings');
     var states = [
       Mart.Cart.STATES.WAITING_CART_ACCEPTANCE,
       Mart.Cart.STATES.MAKING_PAYMENT,
     ]
 
-    var carts = Mart.Carts.find({state: {$in: states}})
-    console.log(carts.count());
+    var carts = Mart.Carts.find({userId: Meteor.userId(), state: {$in: states}})
     return carts
 
   },
@@ -31,6 +29,6 @@ Template.dockingHistory.helpers({
       Mart.Cart.STATES.CANCELLED_BY_ADMIN,
     ]
 
-    return Mart.Carts.find({state: {$in: states}})
+    return Mart.Carts.find({userId: Meteor.userId(), state: {$in: states}})
   }
 });
