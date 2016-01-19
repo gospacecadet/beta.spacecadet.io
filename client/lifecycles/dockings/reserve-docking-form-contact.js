@@ -5,7 +5,7 @@ Template.reserveDockingFormContact.onCreated(function() {
       console.log(insertDoc);
       var hook = this
 
-      Meteor.call("mart/submit-carts", insertDoc, function(error, result) {
+      Meteor.call("mart/submit-carts", insertDoc, function(error, cartIds) {
         if(error) {
           console.log(error);
           if(error.error === 'invalid-card') {
@@ -17,6 +17,7 @@ Template.reserveDockingFormContact.onCreated(function() {
           }
         } else {
           sAlert.success("Order submitted")
+          FlowRouter.go(dockingConfirmationPath(cartIds))
           hook.done()
         }
       });
