@@ -8,7 +8,12 @@ Meteor.startup(function() {
 });
 
 var createAdmins = function() {
-  var adminEmails = ['marvinmarnold@gmail.com', 'steven@spacecadet.io']
+  var adminEmails = [
+    'marvinmarnold@gmail.com',
+    'steven@spacecadet.io',
+    'robert@spacecadet.io'
+  ]
+
   _.each(adminEmails, function(email) {
     var admin = {
       email: email,
