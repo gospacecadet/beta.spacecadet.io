@@ -1,20 +1,23 @@
 Meteor.startup(function() {
   // Migrator.migrate()
   // Migrator.forceMigrate()
-  // createTestAccounts()
+  createAdmins()
   if(Mart.Products.find().count() < 100) {
     Seed.seed()
   }
 });
 
-var createTestAccounts = function() {
-  var merchant = {
-    email: "rubetube@gmail.com",
-    password: "password"
-  }
+var createAdmins = function() {
+  var adminEmails = ['marvinmarnold@gmail.com', 'steven@spacecadet.io']
+  _.each(adminEmails, function(email) {
+    var admin = {
+      email: email,
+      password: Meteor.settings.DEFAULT_ADMIN_PASSWORD
+    }
 
-  if(!Meteor.users.findOne({"emails.address": "rubetube@gmail.com"})) {
-    var userId = Accounts.createUser(merchant);
-    Roles.addUsersToRoles(userId, [Mart.ROLES.GLOBAL.MERCHANT], Mart.ROLES.GROUPS.GLOBAL);
-  }
+    if(!Meteor.users.findOne({"emails.address": email})) {
+      var userId = Accounts.createUser(admin);
+      Roles.addUsersToRoles(userId, [Mart.ROLES.GLOBAL.ADMIN], Mart.ROLES.GROUPS.GLOBAL);
+    }
+  })
 }

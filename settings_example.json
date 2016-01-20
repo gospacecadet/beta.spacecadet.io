@@ -19,5 +19,6 @@
   "EMAIL_RECIPIENTS": [
     ""
   ],
-  "AUTO_PUBLISH": "true"
+  "AUTO_PUBLISH": "true",
+  "DEFAULT_ADMIN_PASSWORD": ""
 }
