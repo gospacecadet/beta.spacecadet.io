@@ -5,3 +5,7 @@ Template.managePropertyPreview.onCreated(function() {
 Template.manageSpacePreview.onCreated(function() {
   Meteor.subscribe("mart/images/product", Template.currentData()._id);
 })
+
+Template.manageProperties.onCreated(function() {
+  Meteor.subscribe("mart/storefronts");
+})
