@@ -34,11 +34,15 @@ chmod +x scripts/push.sh
 
 cd packages/
 // Development - link to local versions of packages
-ln -s /PATH_TO_PROJECT/mart-vibe-spacecadet
+ln -s /PATH_TO_PROJECT/mart-vibe-spacecadet/packages/
 ln -s /PATH_TO_PROJECT/mart
 ln -s /PATH_TO_PROJECT/bootstrap
 ln -s /PATH_TO_PROJECT/talk
 ln -s /PATH_TO_PROJECT/lorem-ipsum
+
+// Change to spacecadet branch of bootstrap
+cd bootstrap
+git checkout spacecadet
 
 // Go back to root
 cd ..
