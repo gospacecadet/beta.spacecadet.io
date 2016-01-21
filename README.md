@@ -1,6 +1,36 @@
 SpaceCadet
 ==========
 
+````
+// Download all packages
+git clone git@github.com:marvinmarnold/beta.spacecadet.io.git
+git clone git@github.com:marvinmarnold/mart-vibe-spacecadet.git
+git clone git@github.com:marvinmarnold/mart.git
+git clone git@github.com:marvinmarnold/bootstrap.git
+git clone git@github.com:marvinmarnold/talk.git
+git clone git@github.com:marvinmarnold/lorem-ipsum.git
+
+cd beta.spacecadet.io
+mkdir scripts
+
+// Development - setup git processes
+mv example_git_fetch_script.sh fetch.sh
+chmod +x fetch.sh
+
+mv example_git_push_script.sh push.sh
+chmod +x push.sh
+
+// Development link
+cd ln -s ~/PATH_TO_PROJECT/mart-vibe-spacecadet
+cd ln -s ~/PATH_TO_PROJECT/mart
+cd ln -s ~/PATH_TO_PROJECT/bootstrap
+cd ln -s ~/PATH_TO_PROJECT/talk
+cd ln -s ~/PATH_TO_PROJECT/lorem-ipsum
+````
+
+
+
+
 This is the primary repository for [SpaceCadet](https://spacecadet.io). This also serves as the initial proof of concept app for the Meteor plugin [Mart](https://github.com/marvinmarnold/mart).
 
 **WARNING: This is a very early work in progress**
