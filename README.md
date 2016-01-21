@@ -32,12 +32,16 @@ chmod +x scripts/push.sh
 
 // Usage `./scripts/push.sh 'COMMIT COMMAND'` to add ALL CHANGES to
 
+cd packages/
 // Development - link to local versions of packages
 ln -s ~/PATH_TO_PROJECT/mart-vibe-spacecadet
 ln -s ~/PATH_TO_PROJECT/mart
 ln -s ~/PATH_TO_PROJECT/bootstrap
 ln -s ~/PATH_TO_PROJECT/talk
 ln -s ~/PATH_TO_PROJECT/lorem-ipsum
+
+// Go back to root
+cd ..
 
 // Set environment variables
 mkdir settings
@@ -54,6 +58,8 @@ mv settings_example.json settings/staging_settings.json
 // Send environment variables to Modulus
 modulus env set METEOR_SETTINGS "$(cat settings/staging_settings.json)"
 
+// Deploy!
+modulus deploy
 ````
 
 
