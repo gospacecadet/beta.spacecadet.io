@@ -33,11 +33,11 @@ chmod +x scripts/push.sh
 // Usage `./scripts/push.sh 'COMMIT COMMAND'` to add ALL CHANGES to
 
 // Development - link to local versions of packages
-cd ln -s ~/PATH_TO_PROJECT/mart-vibe-spacecadet
-cd ln -s ~/PATH_TO_PROJECT/mart
-cd ln -s ~/PATH_TO_PROJECT/bootstrap
-cd ln -s ~/PATH_TO_PROJECT/talk
-cd ln -s ~/PATH_TO_PROJECT/lorem-ipsum
+ln -s ~/PATH_TO_PROJECT/mart-vibe-spacecadet
+ln -s ~/PATH_TO_PROJECT/mart
+ln -s ~/PATH_TO_PROJECT/bootstrap
+ln -s ~/PATH_TO_PROJECT/talk
+ln -s ~/PATH_TO_PROJECT/lorem-ipsum
 
 // Set environment variables
 mkdir settings
