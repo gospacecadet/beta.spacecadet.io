@@ -10,22 +10,50 @@ git clone git@github.com:marvinmarnold/bootstrap.git
 git clone git@github.com:marvinmarnold/talk.git
 git clone git@github.com:marvinmarnold/lorem-ipsum.git
 
+// Should look like
+// ~/PATH_TO_PROJECT/beta.spacecadet.io
+// ~/PATH_TO_PROJECT/mart-vibe-spacecadet
+// ~/PATH_TO_PROJECT/mart
+// ~/PATH_TO_PROJECT/bootstrap
+// ~/PATH_TO_PROJECT/talk
+// ~/PATH_TO_PROJECT/lorem-ipsum
+
 cd beta.spacecadet.io
 mkdir scripts
 
 // Development - setup git processes
 mv example_git_fetch_script.sh fetch.sh
-chmod +x fetch.sh
+chmod +x scripts/fetch.sh
+
+// Usage `./scripts/fetch.sh` to get updates from bootstrap, beta, mart, mart-vibe
 
 mv example_git_push_script.sh push.sh
-chmod +x push.sh
+chmod +x scripts/push.sh
 
-// Development link
+// Usage `./scripts/push.sh 'COMMIT COMMAND'` to add ALL CHANGES to
+
+// Development - link to local versions of packages
 cd ln -s ~/PATH_TO_PROJECT/mart-vibe-spacecadet
 cd ln -s ~/PATH_TO_PROJECT/mart
 cd ln -s ~/PATH_TO_PROJECT/bootstrap
 cd ln -s ~/PATH_TO_PROJECT/talk
 cd ln -s ~/PATH_TO_PROJECT/lorem-ipsum
+
+// Set environment variables
+mkdir settings
+mv settings_example.json settings/dev_settings.json
+// INPUT ENVIRONMENT VARIABLES
+
+// Start
+meteor --settings settings/dev_settings.json
+
+// Deployment
+mv settings_example.json settings/staging_settings.json
+// INPUT ENVIRONMENT VARIABLES
+
+// Send environment variables to Modulus
+modulus env set METEOR_SETTINGS "$(cat settings/staging_settings.json)"
+
 ````
 
 
