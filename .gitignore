@@ -6,4 +6,5 @@ packages/talk
 design/
 packages/lorem-ipsum
 git.sh
-scripts
+scripts/fetch.sh
+scripts/push.sh
