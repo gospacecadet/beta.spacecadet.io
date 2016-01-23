@@ -1,5 +1,25 @@
 Seed = {
-  seed: function(options) {
+  seedAdmins: function() {
+    var adminEmails = [
+      'marvinmarnold@gmail.com',
+      'steven@spacecadet.io',
+      'robert@spacecadet.io'
+    ]
+
+    _.each(adminEmails, function(email) {
+      var admin = {
+        email: email,
+        password: Meteor.settings.DEFAULT_ADMIN_PASSWORD
+      }
+
+      if(!Meteor.users.findOne({"emails.address": email})) {
+        var userId = Accounts.createUser(admin);
+        Roles.addUsersToRoles(userId, [Mart.ROLES.GLOBAL.ADMIN], Mart.ROLES.GROUPS.GLOBAL);
+      }
+    })
+  },
+  // Properties with random Lorem Ipsum
+  seedIpsum: function(options) {
     options = options || {}
     _.defaults(options, {
       numProperties: 20, // number of properties to create

@@ -1,12 +1,19 @@
 var credentials
 
 _.extend(Migrator, {
-  migrate: function() {
-    if(Mart.Storefronts.find().count() === 0) {
+  migrateMerchants: function(shouldSendEmail) {
+    console.log("Migration started...");
+
+    if(AlphaToBetaMigrations.find().count() === 0) {
       credentials = []
+
+      migrationId = AlphaToBetaMigrations.insert({
+        startedAt: new Date()
+      })
 
       // Migrate Users and Properties
       _.each(Migrator.ImportedStations.find().fetch(), function(station) {
+        console.log('Migrating ' + station.name);
         var merchantId = createNewUser(station.userId, station.name)
         var propertyId = createStorefront(station)
       })
@@ -16,22 +23,37 @@ _.extend(Migrator, {
         var spaceId = createProduct(pad)
       })
 
-      sendEmail()
-    }
-  },
-  forceMigrate: function() {
-    Mart.Storefronts.remove({})
-    Meteor.users.remove({})
-    Mart.Images.remove({})
-    Mart.Products.remove({})
-    Mart.Prices.remove({})
+      AlphaToBetaMigrations.update(migrationId, {$set: {
+        endedAt: new Date()
+      }})
 
-    this.migrate()
+      if(shouldSendEmail)
+        sendEmail()
+
+    }
+    console.log("Migration complete.");
+  },
+  _resetMigrationLog: function() {
+    AlphaToBetaMigrations.remove({})
+  },
+  __reset: function() {
+    Mart.Images.remove({})
+    Meteor.users.remove({})
+    Mart.Storefronts.remove({})
+    Mart.Products.remove({})
   }
 })
 
 var sendEmail = function() {
-  var text = "_id,email,password,property name\n"
+  var migration = AlphaToBetaMigrations.findOne()
+  var numMigrations = AlphaToBetaMigrations.find().count()
+
+  var text = "------------ THIS IS AN AUTOMATED MESSAGE -----------\n" +
+    "Migration started at " + migration.startedAt +
+    " and ended at " + migration.endedAt +
+    ".\n\nUse the credentials below to log into each landord account and complete the migration by hand by entering prices and reuploading images."
+
+  text = text + "\n\n_id,email,password,property name\n"
 
   _.each(credentials, function(cred) {
     text = text +
@@ -44,16 +66,17 @@ var sendEmail = function() {
   Email.send({
     from: "SpaceCadet <do-not-reply@spacecadet.io>",
     to: Meteor.settings.EMAIL_RECIPIENTS,
-    subject: "SpaceCadet Migration Complete",
+    subject: "[SC AUTOMATED INFO] SpaceCadet Migration Complete",
     text: text
   });
 }
 
 var createProduct = function(oldProduct) {
+  var descWPrice = oldProduct.description + " ||| Imported Price: " + oldProduct.price
   var newProduct = {
     _id: oldProduct._id,
     name: oldProduct.name,
-    description: oldProduct.description,
+    description: descWPrice,
     storefrontId: oldProduct.stationId,
     isPublished: (Meteor.settings.AUTO_PUBLISH === "true"),
     isDeleted: false,

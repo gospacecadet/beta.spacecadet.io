@@ -3,8 +3,9 @@ Tinytest.add('MIGRATE ALL', function (test) {
   Meteor.users.remove({})
   Mart.Images.remove({})
   Mart.Products.remove({})
+  Migrator._resetMigrationLog()
 
-  Migrator.migrateStations()
+  Migrator.migrateMerchants(false)
 
   // All Properties have been created
   test.equal(Mart.Storefronts.find().count(), 25, "wrong number of properties created");
