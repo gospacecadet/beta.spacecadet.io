@@ -2,9 +2,8 @@ var credentials
 
 _.extend(Migrator, {
   migrateMerchants: function(shouldSendEmail) {
-    console.log("Migration started...");
-
     if(AlphaToBetaMigrations.find().count() === 0) {
+      console.log("Migration started...");
       credentials = []
 
       migrationId = AlphaToBetaMigrations.insert({
@@ -30,8 +29,10 @@ _.extend(Migrator, {
       if(shouldSendEmail)
         sendEmail()
 
+      console.log("Migration complete.");
+    } else {
+      console.log("Migration skipped.");
     }
-    console.log("Migration complete.");
   },
   _resetMigrationLog: function() {
     AlphaToBetaMigrations.remove({})
