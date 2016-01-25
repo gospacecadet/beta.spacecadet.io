@@ -8,5 +8,5 @@ Template.manageSpacePreview.onCreated(function() {
 })
 
 Template.manageProperties.onCreated(function() {
-  Meteor.subscribe("mart/storefronts");
+  this.subscribe("mart/storefronts");
 })
