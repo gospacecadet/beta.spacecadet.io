@@ -14,7 +14,7 @@ _.extend(Migrator, {
       _.each(Migrator.ImportedStations.find().fetch(), function(station) {
         console.log('Migrating ' + station.name);
         var merchantId = createNewUser(station.userId, station.name)
-        var propertyId = createStorefront(station)
+        var propertyId = createStorefront(station, merchantId)
       })
 
       // Migrate Spaces
@@ -38,10 +38,17 @@ _.extend(Migrator, {
     AlphaToBetaMigrations.remove({})
   },
   __reset: function() {
+    AlphaToBetaMigrations.remove({})
+    MartBankAccounts.remove({})
+    Mart.Cards.remove({})
+    Mart.Carts.remove({})
     Mart.Images.remove({})
-    Meteor.users.remove({})
+    Mart.LineItems.remove({})
+    Mart.Prices.remove({})
+    Mart.Products.remove({})
     Mart.Storefronts.remove({})
     Mart.Products.remove({})
+    Meteor.users.remove({})
   }
 })
 
@@ -102,34 +109,41 @@ var createProduct = function(oldProduct) {
 }
 
 var createNewUser = function(oldUserId, propertyName) {
-  var newUser = Meteor.users.findOne(oldUserId)
+  var oldUser = Migrator.ImportedUsers.findOne(oldUserId)
+  var password = Random.id()
+  var email = oldUser.emails[0].address
 
-  if(!newUser) {
-    var oldUser = Migrator.ImportedUsers.findOne(oldUserId)
+  var existingUser = Meteor.users.findOne({emails: {$elemMatch: {address: email}}})
+
+  if(!existingUser) {
     var cred = {
-      _id: oldUserId,
       email: oldUser.emails[0].address,
-      password: Random.id(),
+      password: password
     }
+    console.log('creating new user');
+    console.log(cred);
 
-    var newUserId = Meteor.users.insert(cred);
+    var newUserId = Accounts.createUser(cred)
+    console.log('created new user ' + newUserId);
     cred.propertyName = propertyName
+    cred._id = newUserId
 
     Roles.addUsersToRoles(newUserId, [Mart.ROLES.GLOBAL.MERCHANT], Mart.ROLES.GROUPS.GLOBAL);
 
+    AlphaToBetaUserMapping.insert({oldUserId: oldUserId, newUserId: newUserId})
     credentials.push(cred)
     return newUserId
   }
 
-  return newUser._id
+  return existingUser._id
 }
 
-var createStorefront = function(station) {
+var createStorefront = function(station, newUserId) {
   storefront = {
     _id: station._id,
     isPublished: (Meteor.settings.AUTO_PUBLISH === "true"),
     isDeleted: false,
-    userId: station.userId,
+    userId: newUserId,
     name: station.name,
     description: station.description,
     address: station.address,
