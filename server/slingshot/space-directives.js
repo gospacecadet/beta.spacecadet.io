@@ -24,6 +24,7 @@ _.each(directives, function(directive) {
         return  this.userId +
           "/spaces" +
           directive.path +
+          metaContext.objectId + "/" +
           metaContext.index +
           "." +
           extension
