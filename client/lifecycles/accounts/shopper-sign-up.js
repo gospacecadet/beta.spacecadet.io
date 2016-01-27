@@ -9,7 +9,12 @@ Template.shopperSignUp.onCreated(function() {
       }
 
       Mart.Accounts.createUser(shopper, function(error) {
-        that.done(error)
+        if(error) {
+          that.done(error)
+        } else {
+          $("#loginModal").modal('hide')
+          that.done()
+        }
       })
 
       return false;
