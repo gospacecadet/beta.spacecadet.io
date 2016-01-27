@@ -50,12 +50,13 @@ Seed = {
     return i
   },
   image: function(objectCollection, objectId, index) {
+    var thumbnailUrl = this.randThumbnailUrl()
     Mart.Images.insert({
       objectCollection: objectCollection,
       objectId: objectId,
-      originalUrl: this.randOriginalUrl(),
-      optimizedUrl: this.randOptimizedUrl(),
-      thumbnailUrl: this.randThumbnailUrl(),
+      originalUrl: thumbnailUrl.replace("thumbnail", "original"),
+      optimizedUrl: thumbnailUrl.replace("thumbnail", "optimized"),
+      thumbnailUrl: thumbnailUrl,
       index: index,
     })
   },
@@ -192,25 +193,12 @@ var cities = ["New Orleans", "San Antonio", "Silver Spring", "Austin", "Houston"
 var states = ['MD', "LA", "TX", "DC"]
 
 var thumbnailUrls = [
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/7gB37vKSjzuSbpPxB/thumbnail/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/wcaZQQqwZ2njWkvD9/thumbnail/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/wcaZQQqwZ2njWkvD9/thumbnail/2.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/euRLLGs2PwEiiifAW/thumbnail/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/NivAY6bSKyZR9ayoJ/thumbnail/1.jpg",
-]
-
-var optimizedUrls = [
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/7gB37vKSjzuSbpPxB/optimized/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/wcaZQQqwZ2njWkvD9/optimized/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/wcaZQQqwZ2njWkvD9/optimized/2.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/euRLLGs2PwEiiifAW/optimized/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/NivAY6bSKyZR9ayoJ/optimized/1.jpg",
-]
-
-var originalUrls = [
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/7gB37vKSjzuSbpPxB/original/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/wcaZQQqwZ2njWkvD9/original/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/wcaZQQqwZ2njWkvD9/original/2.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/euRLLGs2PwEiiifAW/original/1.jpg",
-  "http://s3.amazonaws.com/local.beta.spacecadet.io/stations/NivAY6bSKyZR9ayoJ/original/1.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/properties/thumbnail/9EzN3veKHwRMypQuc/1.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/properties/thumbnail/9EzN3veKHwRMypQuc/2.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/properties/thumbnail/9EzN3veKHwRMypQuc/3.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/properties/thumbnail/9EzN3veKHwRMypQuc/4.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/spaces/thumbnail/hTbXNMcRpebJkJR8a/1.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/spaces/thumbnail/cmSBk8Rp747cXvsdG/2.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/spaces/thumbnail/mdGsbrKHFGnBP6326/3.jpg",
+  "https://s3.amazonaws.com/local.beta.spacecadet.io/D9H3HCwRZJvPEu6P2/spaces/thumbnail/XW99cpNP6ZGJ5tAyz/4.jpg",
 ]

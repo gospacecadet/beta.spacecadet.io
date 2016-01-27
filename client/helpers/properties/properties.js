@@ -1,6 +1,6 @@
 Template.properties.helpers({
   properties: function() {
-    return Mart.Storefronts.find({})
+    return Mart.Storefronts.find({isPublished: true})
   },
   propertyPath: function() {
     return FlowRouter.path('property', {propertyId: this._id})

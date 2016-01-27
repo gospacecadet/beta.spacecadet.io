@@ -1,3 +1,3 @@
 Template.properties.onCreated(function() {
-  Meteor.subscribe('mart/storefronts')
+  this.subscribe('mart/storefronts')
 })
