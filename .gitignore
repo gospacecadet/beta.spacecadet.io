@@ -4,6 +4,5 @@ packages/bootstrap
 packages/talk
 packages/lorem-ipsum
 git.sh
-scripts/fetch.sh
-scripts/push.sh
-settings/
+settings
+scripts

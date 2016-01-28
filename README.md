@@ -19,18 +19,14 @@ git clone git@github.com:marvinmarnold/lorem-ipsum.git
 // ~/PATH_TO_PROJECT/lorem-ipsum
 
 cd beta.spacecadet.io
-mkdir scripts
 
-// Development - setup git processes
-mv example_git_fetch_script.sh fetch.sh
-chmod +x scripts/fetch.sh
+````
 
-// Usage `./scripts/fetch.sh` to get updates from bootstrap, beta, mart, mart-vibe
+Scripts are available to perform this in bulk.
+They have been moved out of source control.
+If interested, please contact marvin@unplugged.im
 
-mv example_git_push_script.sh push.sh
-chmod +x scripts/push.sh
-
-// Usage `./scripts/push.sh 'COMMIT COMMAND'` to add ALL CHANGES to
+````
 
 cd packages/
 // Development - link to local versions of packages
