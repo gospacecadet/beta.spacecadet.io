@@ -1,10 +1,15 @@
 Template.managePropertyPreview.onCreated(function() {
-  Meteor.subscribe("mart/images/storefront", Template.currentData()._id);
-  Meteor.subscribe('mart/products', Template.currentData()._id)
+  var template = this
+  var storefrontId = Template.currentData()._id
+
+  if(storefrontId) {
+    template.subscribe("mart/images/storefront", Template.currentData()._id);
+    template.subscribe('mart/products', Template.currentData()._id)
+  }
 })
 
 Template.manageSpacePreview.onCreated(function() {
-  Meteor.subscribe("mart/images/product", Template.currentData()._id);
+  this.subscribe("mart/images/product", Template.currentData()._id);
 })
 
 Template.manageProperties.onCreated(function() {
