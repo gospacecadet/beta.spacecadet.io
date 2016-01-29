@@ -1,4 +1,4 @@
 Template.inbox.onCreated(function() {
-  Meteor.subscribe("talk/all-messages");
-  Meteor.subscribe("talk/threads");
+  this.subscribe("talk/all-messages");
+  this.subscribe("talk/threads");
 })

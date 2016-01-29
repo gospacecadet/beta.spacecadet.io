@@ -20,7 +20,7 @@ Template.threadAttachFile.events({
     if(inputs && inputs[0] && inputs[0].files && inputs[0].files[0]) {
       var file = inputs[0].files[0]
       var threadId = this._id
-      var recipientId = this.user2Id
+      var recipientId = this.recipientId()
 
       var uploader = new Slingshot.Upload('ThreadFile', {
         threadId: threadId

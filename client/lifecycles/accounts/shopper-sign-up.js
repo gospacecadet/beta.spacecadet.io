@@ -5,6 +5,10 @@ var hooksObject = {
       email: insertDoc.email,
       password: insertDoc.password,
       roles: [Mart.ROLES.GLOBAL.SHOPPER],
+      profile: {
+        firstName: insertDoc.firstName,
+        lastName: insertDoc.lastName
+      }
     }
 
     Mart.Accounts.createUser(shopper, function(error) {
