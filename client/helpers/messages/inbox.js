@@ -1,8 +1,8 @@
 Template.inbox.helpers({
   currentThread: function() {
-    var currentThreadId = Session.get('current-thread-id')
-    if(currentThreadId) {
-      var currentThread = Talk.Threads.findOne(currentThreadId)
+    var currentRecipientId = FlowRouter.getParam('recipientId')
+    if(currentRecipientId) {
+      var currentThread = Talk.thread(currentRecipientId)
       if(currentThread)
         return currentThread
     }
@@ -13,5 +13,8 @@ Template.inbox.helpers({
       var thread = Talk.Threads.findOne(activeThreads[0]._id) // extended Collection, so can't use regular object
       return thread
     }
-  }
+  },
+  hasThreads: function() {
+    return Talk.threads().length > 0
+  },
 });
