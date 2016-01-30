@@ -37,13 +37,13 @@ Template.threadAttachFile.events({
             attachmentUrl: downloadUrl,
             attachmentName: file.name
           }, function(error, messageId) {
-            console.log(error);
-            console.log(messageId);
+            if(error)
+              sAlert.error("Could not attach file. Please try again later.")
+
+            sAlert.success("File successfully attached.")
           });
         }
       })
-
-
     }
   }
 });

@@ -8,3 +8,8 @@ Template.thread.onCreated(function() {
 Template.threadModal.onCreated(function() {
   this.subscribe("talk/messages", Template.currentData()._id);
 })
+
+Template.threadMessage.onCreated(function() {
+  var messageId = Template.currentData()._id
+  Meteor.call('talk/seen-message', messageId)
+})
