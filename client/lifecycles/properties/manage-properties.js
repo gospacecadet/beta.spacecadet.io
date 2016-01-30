@@ -11,7 +11,3 @@ Template.managePropertyPreview.onCreated(function() {
 Template.manageSpacePreview.onCreated(function() {
   this.subscribe("mart/images/product", Template.currentData()._id);
 })
-
-Template.manageProperties.onCreated(function() {
-  this.subscribe("mart/storefronts");
-})
