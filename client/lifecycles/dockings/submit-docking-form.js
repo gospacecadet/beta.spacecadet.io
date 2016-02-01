@@ -1,7 +1,9 @@
 var hooksObject = {
   onSubmit: function(insertDoc, updateDoc, currentDoc) {
     var hook = this
-
+    var lineItemId = FlowRouter.getParam('lineItemId')
+    var lineItem = Mart.LineItems.findOne(lineItemId)
+    insertDoc.cartId = lineItem.cartId
     Meteor.call("mart/submit-carts", insertDoc, function(error, cartIds) {
       if(error) {
         if(error.error === 'invalid-card') {
