@@ -1,3 +1,3 @@
 Template.spaceCardButtons.onCreated(function() {
-  Meteor.subscribe("talk/threads");
+  this.subscribe("talk/threads");
 })
