@@ -1,30 +1,31 @@
 Template.reserveDockingDetailsAddOns.helpers({
   cartsSubtotal: function() {
-    var shoppingCarts = Mart.Carts.find({state: Mart.Cart.STATES.SHOPPING}).fetch()
-
-    return _.reduce(shoppingCarts, function(sum, cart) {
-      return sum + cart.subtotal()
-    }, 0)
+    if(currentCart())
+      return currentCart().subtotal()
   },
   serviceFee: function() {
-    var shoppingCarts = Mart.Carts.find({state: Mart.Cart.STATES.SHOPPING}).fetch()
-
-    return _.reduce(shoppingCarts, function(sum, cart) {
-      return sum + cart.subtotal()
-    }, 0) * Mart.SERVICE_FEE_PCT
+    if(currentCart())
+      return currentCart().subtotal() * Mart.SERVICE_FEE_PCT
   },
   tax: function() {
-    var shoppingCarts = Mart.Carts.find({state: Mart.Cart.STATES.SHOPPING}).fetch()
-
-    return _.reduce(shoppingCarts, function(sum, cart) {
-      return sum + cart.subtotal()
-    }, 0) * Mart.TAX_PCT
+    if(currentCart())
+      return currentCart().subtotal() * Mart.TAX_PCT
   },
   total: function() {
-    var shoppingCarts = Mart.Carts.find({state: Mart.Cart.STATES.SHOPPING}).fetch()
-
-    return _.reduce(shoppingCarts, function(sum, cart) {
-      return sum + cart.total()
-    }, 0)
+    if(currentCart())
+      return currentCart().total()
   }
 });
+
+var currentCart = function() {
+  var lineItemId = FlowRouter.getParam('lineItemId')
+  var lineItem = Mart.LineItems.findOne(lineItemId)
+  if(!lineItem)
+    return
+
+  var cart = Mart.Carts.findOne(lineItem.cartId)
+  if(!cart || (cart.userId !== Meteor.userId()))
+    return
+
+  return cart
+}

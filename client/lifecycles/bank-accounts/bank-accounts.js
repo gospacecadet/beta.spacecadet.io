@@ -1,3 +1,3 @@
 Template.bankAccounts.onCreated(function() {
-  Meteor.subscribe("mart/bank-accounts");
+  this.subscribe("mart/bank-accounts");
 })
