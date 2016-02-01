@@ -6,7 +6,7 @@ Template.reserveDockingDetailsLine.events({
 
 Template._manageDockingsApproval.events({
   "click .accept-docking-button": function(event, template) {
-    Meteor.call("mart/make-payment", template.data._id, function(error, result) {
+    Meteor.call("mart/accept-cart", template.data._id, function(error, result) {
       if(error) {
         console.log(error);
         sAlert.error(error)
