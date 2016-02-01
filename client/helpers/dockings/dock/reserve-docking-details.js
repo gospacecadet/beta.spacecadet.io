@@ -15,6 +15,7 @@ Template.reserveDockingDetails.helpers({
 
 Template.reserveDockingDetailsLine.helpers({
   timeDetails: function() {
-    return "@ " + this.startAtHour + ":" + this.startAtMinute
+    if(this.startAtHour > -1)
+      return "@ " + this.startAtHour + ":" + this.startAtMinute
   }
 });
