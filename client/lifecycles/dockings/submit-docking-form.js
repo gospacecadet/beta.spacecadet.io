@@ -9,7 +9,7 @@ var hooksObject = {
         hook.done(error)
       } else {
         sAlert.success("Order submitted")
-        var confirmationPath = FlowRouter.path('dockingHistory')
+        var confirmationPath = FlowRouter.path('dockingHistoryPending')
         FlowRouter.go(confirmationPath)
         hook.done()
       }
