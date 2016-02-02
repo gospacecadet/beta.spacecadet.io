@@ -6,13 +6,7 @@ var hooksObject = {
     insertDoc.cartId = lineItem.cartId
     Meteor.call("mart/submit-carts", insertDoc, function(error, cartIds) {
       if(error) {
-        if(error.error === 'invalid-card') {
-          sAlert.error("You must select a card")
-          hook.done()
-        } else {
-          sAlert.error(error.reason)
-          hook.done()
-        }
+        hook.done(error)
       } else {
         sAlert.success("Order submitted")
         var confirmationPath = FlowRouter.path('dockingHistory')
@@ -24,10 +18,15 @@ var hooksObject = {
     return false;
   },
   onError: function(operation, error) {
-    if(error && error.reason) { // a special Meteor.error
+    if(error && error.error === 'invalid-card') { // a special Meteor.error
+      sAlert.error("You must select a card")
+    } else if(error && error.reason) {
       sAlert.error(error.reason)
-      throwError("Please correct the errors and try again.")
+    } else {
+      sAlert.error("Unknown error")
     }
+
+    // throwError("Please correct the errors and try again.")
   }
 };
 AutoForm.addHooks(['submitDockingForm'], hooksObject);

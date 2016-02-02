@@ -6,5 +6,12 @@ Template.manageDockingsUpcoming.helpers({
       Mart.Cart.STATES.SETTLED,
     ]
 
-    return Mart.Carts.find({merchantId: Meteor.userId(), state: {$in: states}})  }
+    return Mart.Carts.find({merchantId: Meteor.userId(), state: {$in: states}})
+  },
+});
+
+Template.upcomingDocking.helpers({
+  renterThread: function() {
+    return Talk.thread(this.userId)
+  }
 });

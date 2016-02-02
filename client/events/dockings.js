@@ -8,7 +8,6 @@ Template._manageDockingsApproval.events({
   "click .accept-docking-button": function(event, template) {
     Meteor.call("mart/accept-cart", template.data._id, function(error, result) {
       if(error) {
-        console.log(error);
         sAlert.error(error)
       } else {
         sAlert.success("Docking accepted.")
@@ -18,7 +17,6 @@ Template._manageDockingsApproval.events({
   "click .reject-docking-button": function(event, template) {
     Meteor.call("mart/reject-cart", template.data._id, function(error, result) {
       if(error) {
-        console.log(error);
         sAlert.error(error)
       } else {
         sAlert.success("Docking rejected")

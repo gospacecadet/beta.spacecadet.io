@@ -1,4 +1,4 @@
-Template.dockingHistory.helpers({
+Template.dockingHistoryAccepted.helpers({
   docking: function(accordionId) {
     var docking = _.extend(this, {accordionId: accordionId})
     return docking
@@ -12,6 +12,13 @@ Template.dockingHistory.helpers({
 
     return Mart.Carts.find({userId: Meteor.userId(), state: {$in: states}})
   },
+});
+
+Template.dockingHistoryPending.helpers({
+  docking: function(accordionId) {
+    var docking = _.extend(this, {accordionId: accordionId})
+    return docking
+  },
   pendingDockings: function() {
     var states = [
       Mart.Cart.STATES.WAITING_CART_ACCEPTANCE,
@@ -21,6 +28,13 @@ Template.dockingHistory.helpers({
     var carts = Mart.Carts.find({userId: Meteor.userId(), state: {$in: states}})
     return carts
 
+  },
+});
+
+Template.dockingHistoryRejected.helpers({
+  docking: function(accordionId) {
+    var docking = _.extend(this, {accordionId: accordionId})
+    return docking
   },
   rejectedDockings: function() {
     var states = [
