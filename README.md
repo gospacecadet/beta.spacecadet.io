@@ -60,6 +60,14 @@ modulus env set METEOR_SETTINGS "$(cat settings/staging_settings.json)"
 
 // Deploy!
 modulus deploy
+
+//http://stackoverflow.com/questions/28585818/meteor-android-apps-does-not-install-on-4-1-1/29562922#29562922
+android
+meteor build ~/MEGA/spacecadet/deploy/dist --server https://galaxy.spacecadet.io
+
+keytool -genkey -alias beta-spacecadet-io -keyalg RSA -keysize 2048 -validity 10000 -keystore spacecadet.keystore
+
+jarsigner -keystore spacecadet.keystore -digestalg SHA1 -sigalg MD5withRSA -tsa http://timestamp.digicert.com  release-unsigned.apk beta-spacecadet-io
 ````
 
 
