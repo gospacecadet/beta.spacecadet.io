@@ -1,3 +1,0 @@
-[submodule "packages/--force"]
-	path = packages/--force
-	url = git@github.com:marvinmarnold/bootstrap.git
