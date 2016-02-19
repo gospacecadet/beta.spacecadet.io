@@ -1,6 +1,24 @@
 Template.properties.helpers({
   properties: function() {
-    return Mart.Storefronts.find({isPublished: true}, {sort: {updatedAt: -1}})
+    var locationFilter = Session.get('location-filter')
+    var filter = {isPublished: true}
+
+    if(locationFilter) {
+      if(locationFilter === "USA") {
+        _.extend(filter, {$and: [
+          {$ne: "San Antonio"},
+          {$ne: "Austin"}
+        ]})
+      } else {
+        _.extend(filter, {city: locationFilter})
+      }
+    }
+
+    return Mart.Storefronts.find(filter,
+      {sort: {updatedAt: -1}})
+  },
+  locationFilter() {
+    return Session.get('location-filter')
   },
   propertyPath: function() {
     return FlowRouter.path('property', {propertyId: this._id})
