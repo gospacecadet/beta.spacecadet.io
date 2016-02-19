@@ -8,7 +8,17 @@ var hooksObject = {
       } else {
         Session.set('adding-bank-account', false)
         sAlert.success("Account successfuly linked")
-        hook.done()
+
+        Meteor.call("mart/stripe/verify", function(error, result) {
+         if(error) {
+           // sAlert.error("Could not activate your merchant account on Stripe. Please contact support.")
+         }
+         if(result) {
+            sAlert.success("Account validated on Stripe. If you have a bank account linked to your account, we can now start paying out to your account.")
+         }
+         hook.done()
+       });
+
       }
     })
 

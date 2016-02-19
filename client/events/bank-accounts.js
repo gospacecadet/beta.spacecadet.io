@@ -5,7 +5,7 @@ Template.savedBankAccount.events({
         //  console.log(error);
          sAlert.error(error.message)
        } else {
-         sAlert.success("Account successfully activated")
+         sAlert.success("Bank account successfully activated")
        }
      })
   }
