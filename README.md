@@ -136,3 +136,15 @@ SSL
 ---
 https://certsimple.com/blog/openssl-csr-command
 https://nicolas.perriault.net/code/2012/gandi-standard-ssl-certificate-nginx/
+
+Video
+-----
+1) Upload to youtube
+2) download compressed mp4 version from there
+3) convert to webm
+
+ffmpeg -i spacecadet.mp4 -s 480x360 -vpre libvpx-720p -b 3900k -pass 1 -an -f webm -y spacecadet.webm
+ffmpeg -i spacecadet.mp4 -s 480x360 -vpre libvpx-720p -b 3900k -pass 2 -acodec libvorbis -ab 100k -f webm -y spacecadet.webm
+
+4) convert to ogv
+ffmpeg -i kideatsdirt.mp4 -acodec vorbis -vcodec libtheora kideatsdirt.ogv

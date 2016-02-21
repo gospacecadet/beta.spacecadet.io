@@ -6,8 +6,8 @@ Template.properties.helpers({
     if(locationFilter) {
       if(locationFilter === "USA") {
         _.extend(filter, {$and: [
-          {$ne: "San Antonio"},
-          {$ne: "Austin"}
+          {city: {$ne: "San Antonio"}},
+          {city: {$ne: "Austin"}}
         ]})
       } else {
         _.extend(filter, {city: locationFilter})
