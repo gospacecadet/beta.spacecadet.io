@@ -33,3 +33,4 @@ percolate:synced-cron
 ejson
 okgrow:analytics
 spiderable
+momentjs:moment
