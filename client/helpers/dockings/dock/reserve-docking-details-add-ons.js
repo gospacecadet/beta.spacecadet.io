@@ -3,10 +3,6 @@ Template.reserveDockingDetailsAddOns.helpers({
     if(currentCart())
       return currentCart().subtotal()
   },
-  serviceFee: function() {
-    if(currentCart())
-      return currentCart().subtotal() * Mart.SERVICE_FEE_PCT
-  },
   tax: function() {
     if(currentCart())
       return currentCart().subtotal() * Mart.TAX_PCT

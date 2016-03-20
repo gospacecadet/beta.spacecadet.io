@@ -4,8 +4,12 @@ var hooksObject = {
     var lineItemId = FlowRouter.getParam('lineItemId')
     var lineItem = Mart.LineItems.findOne(lineItemId)
     insertDoc.cartId = lineItem.cartId
+
+    $("#dock-now-button")[0].disabled = true;
+
     Meteor.call("mart/submit-carts", insertDoc, function(error, cartIds) {
       if(error) {
+        $("#dock-now-button")[0].disabled = false;
         hook.done(error)
       } else {
         sAlert.success("Order submitted")
