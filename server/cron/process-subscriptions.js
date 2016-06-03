@@ -6,7 +6,7 @@ SyncedCron.add({
   },
   job: function() {
     var subscriptions = Mart.Subscriptions.find({
-      state:  Mart.Subscription.STATES.ACTIVE
+      state:  Mart.Subscription.STATES.SPAWNED
     }).fetch()
 
     _.each(subscriptions, function(subscription) {
