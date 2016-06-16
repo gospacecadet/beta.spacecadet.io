@@ -6,7 +6,7 @@ var hooksObject = {
     insertDoc.cartId = lineItem.cartId
 
     $("#dock-now-button")[0].disabled = true;
-
+    console.log(insertDoc);
     Meteor.call("mart/submit-carts", insertDoc, function(error, cartIds) {
       if(error) {
         $("#dock-now-button")[0].disabled = false;
@@ -22,6 +22,7 @@ var hooksObject = {
     return false;
   },
   onError: function(operation, error) {
+    console.log(error);
     if(error && error.error === 'invalid-card') { // a special Meteor.error
       sAlert.error("You must select a card")
     } else if(error && error.reason) {
