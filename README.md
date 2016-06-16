@@ -1,6 +1,8 @@
 SpaceCadet
 ==========
 
+https://medium.com/@natestrauser/migrating-meteor-apps-from-modulus-to-galaxy-with-continuous-deployment-from-codeship-aed2044cabd9#.i4n2epwb8
+
 ````
 // Download all packages
 git clone git@github.com:marvinmarnold/beta.spacecadet.io.git
