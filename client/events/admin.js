@@ -23,4 +23,16 @@ Template.transferFundsApproval.events({
       }
     })
   },
+  "click .settle-offline-button": function(event, template) {
+    event.target.disabled = true
+    Meteor.call("mart/settle-offline", template.data._id, function(error, result) {
+      if(error) {
+        event.target.disabled = false
+        // console.log(error);
+        sAlert.error(error)
+      } else {
+        sAlert.success("Marked as settled offline")
+      }
+    })
+  },
 });
